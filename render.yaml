@@ -17,7 +17,17 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: FRONTEND_URL
-        sync: false
+        value: https://arremate-web.onrender.com
+
+  - type: web
+    name: arremate-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://arremate-api.onrender.com
 
 databases:
   - name: arremate-db

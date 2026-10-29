@@ -244,35 +244,32 @@ minutos, liquidação transacional no encerramento e verificação da cadeia de
 hashes. Identificadores e nomes de licitantes são ocultados ou mascarados nas
 respostas públicas de auditoria, comprovantes e eventos ao vivo.
 
-### Publicação na Vercel e Render
+### Publicação gratuita no Render
 
-O frontend é publicado na Vercel; o backend Node.js e PostgreSQL ficam no Render,
-pois a API mantém conexões Socket.IO. O arquivo `render.yaml` prepara apenas a
-API e o banco.
+O arquivo `render.yaml` define o frontend estático, a API Node.js e o PostgreSQL
+no plano gratuito. Para publicar:
 
-1. Na Vercel, importe o repositório GitHub e defina `frontend` como diretório
-   raiz do projeto. A configuração `frontend/vercel.json` seleciona Vite, `dist`
-   e as rotas do frontend.
-2. Crie o deploy inicial do frontend. Em **Environment Variables**, configure
-   `VITE_API_URL` com a URL que será atribuída ao backend, por exemplo
-   `https://arremate-api.onrender.com`, e faça novo deploy após criar a API.
-3. No Render, crie um Blueprint usando `render.yaml`. Ele configura o PostgreSQL,
-   gera um `JWT_SECRET` e aplica o schema ao iniciar a API. Informe `FRONTEND_URL`
-   com a origem exata do site publicado na Vercel (sem barra final).
-4. Verifique `https://<url-da-api>/health` e depois teste login, lances e
-   atualização Socket.IO pelo domínio público da Vercel.
+1. Acesse o painel do Render, entre com GitHub e crie um **Blueprint** a partir
+   do repositório `Manoelah20/Desafio-Arremate-MH`.
+2. Revise os três serviços propostos e mantenha todos no plano **Free**. Não
+   escolha upgrade e não adicione forma de pagamento; se o provedor impedir o
+   deploy gratuito, pare em vez de selecionar um plano pago.
+3. Confirme a criação. O Blueprint gera um `JWT_SECRET`, configura o banco,
+   aplica o schema ao iniciar a API e publica o frontend.
+4. Verifique `https://arremate-api.onrender.com/health` e acesse
+   `https://arremate-web.onrender.com` para testar login, lances e Socket.IO.
 
-Confira as condições e os custos atuais do plano do provedor antes de publicar;
-instâncias gratuitas podem suspender o serviço ou limitar o tempo de vida do
-banco. O seed não roda no deploy porque apaga os dados do banco. Para a avaliação,
-use uma instância descartável e prepare as contas de teste com segurança antes
-de compartilhar o endereço público.
+**Limitações importantes para um teste:** o Render suspende serviços web Free
+após 15 minutos sem tráfego; o primeiro acesso após a suspensão pode levar cerca
+de um minuto. O PostgreSQL Free expira 30 dias após a criação. O Render informa
+que suspende serviços se você atingir limites incluídos sem cadastrar pagamento;
+não adicione cartão para evitar qualquer cobrança. O seed não roda no deploy
+porque apaga os dados; prepare dados de avaliação somente em uma base descartável.
 
 ### Pendências para a entrega
 
-* Publicar o frontend na Vercel e a API/PostgreSQL no Render; a CLI da Vercel
-  precisa estar autenticada (`vercel login`) ou o repositório deve ser importado
-  pelo painel web.
+* Criar o Blueprint pelo painel do Render usando somente a opção Free e validar
+  o fluxo público com o PostgreSQL gratuito.
 * Informar o link público e as credenciais de avaliação no formulário de entrega;
   não reutilizar as credenciais locais do seed.
 
