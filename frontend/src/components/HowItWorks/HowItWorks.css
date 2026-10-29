@@ -1,0 +1,105 @@
+.how-it-works-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, transparent, rgba(23, 25, 34, 0.4), transparent);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 5rem;
+}
+
+.how-it-works__header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 3.5rem;
+}
+
+.how-it-works__tag {
+  display: inline-block;
+  background: var(--purple-bg-subtle);
+  border: 1px solid var(--purple-border-subtle);
+  color: var(--purple-light);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+}
+
+.how-it-works__title {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.how-it-works__subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.how-it-works__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.how-it-works__card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.how-it-works__card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple-border-subtle);
+}
+
+.how-it-works__step-num {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.05);
+  line-height: 1;
+}
+
+.how-it-works__icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--yellow-gold);
+  margin-bottom: 1.5rem;
+}
+
+.how-it-works__card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.how-it-works__card-text {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 880px) {
+  .how-it-works__cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

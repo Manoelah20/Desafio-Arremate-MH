@@ -1,0 +1,27 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 1rem;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.9rem;
+}
+
+.app__status--error {
+  color: #fecaca;
+  background: rgba(127, 29, 29, 0.45);
+}
+
+.app__status button {
+  color: var(--yellow-gold);
+  text-decoration: underline;
+}
