@@ -1,7 +1,7 @@
 # 🏛️ Arremate MH Leilões — Casa de Leilões Online
 
 > **Desafio Técnico — Desenvolvido por Manoela Harrison**
-> Casa de Leilões Online com interface em **React 19/TypeScript**, API em **Node.js/Express**, **PostgreSQL** e **Socket.IO**.
+> Casa de Leilões Online com interface em **React 19/TypeScript**, API em **Node.js/Express**, **PostgreSQL** e eventos em tempo real.
 
 ![React](https://img.shields.io/badge/React-19.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
@@ -15,7 +15,7 @@
 
 * **Desenvolvedora:** Manoela Harrison
 * **Desafio:** Casa de Leilões Online — aplicação web com front-end e back-end.
-* **Tecnologias:** React, Node.js/Express, PostgreSQL e Socket.IO.
+* **Tecnologias:** React, Node.js/Express, PostgreSQL, Vercel e Supabase Realtime.
 * **Objetivo:** Criar uma experiência acessível e uma API que aplique as regras de leilão, persistência e auditoria.
 
 ---
@@ -113,11 +113,14 @@ desafio-arremate/
 ├── README.md                   # Documentação oficial do desafio
 ├── backend/
 │   ├── src/
+│   │   ├── api/                # Função serverless catch-all da Vercel
 │   │   ├── db/                 # Pool PostgreSQL, schema e dados de demonstração
 │   │   ├── middleware/         # Autenticação JWT e controle de perfil
 │   │   ├── routes/             # API de usuários, lotes, lances e auditoria
+│   │   ├── services/           # Broadcast Supabase e encerramento de lotes
 │   │   ├── utils/              # Validação monetária e hash de lances
-│   │   └── server.js           # Express, Socket.IO e encerramento de lotes
+│   │   ├── app.js              # Aplicação Express compartilhada
+│   │   └── server.js           # Servidor local com Socket.IO
 │   ├── test/                   # Testes unitários de valores e hash
 │   ├── .env.example            # Modelo de configuração local
 │   └── package.json
@@ -143,6 +146,7 @@ desafio-arremate/
     │   │   ├── LegalModal/     # Modal de Termos de Uso, LGPD e Edital
     │   │   └── Footer/         # Rodapé com logo oficial e links legais
     │   ├── api.ts              # Cliente REST e mapeamento de lotes
+    │   ├── supabase.ts         # Cliente público do Broadcast Realtime
     │   ├── types/
     │   │   └── auction.ts      # Interfaces e tipos estritos TypeScript
     │   ├── App.tsx             # Gerenciamento de estado e fluxo da aplicação
@@ -160,7 +164,7 @@ desafio-arremate/
 ## 💻 Instruções para Execução Local
 
 ### Pré-requisitos
-* **Node.js** v18+ instalado
+* **Node.js** v20+ instalado
 * **npm** ou gerenciador de pacotes equivalente
 
 ### Passo a Passo
@@ -200,8 +204,9 @@ desafio-arremate/
 
 ### Backend e PostgreSQL
 
-O backend usa Node.js, Express, PostgreSQL e Socket.IO. A API e o frontend
-devem estar ativos ao mesmo tempo para usar a aplicação.
+O backend usa Node.js, Express e PostgreSQL. Localmente, o Socket.IO mantém
+compatibilidade de tempo real; na publicação, os eventos passam pelo Broadcast
+do Supabase Realtime.
 
 1. Instale o PostgreSQL e crie um banco local chamado `arremate_mh`.
 2. No diretório `backend`, instale as dependências e crie seu arquivo de ambiente:
@@ -231,7 +236,7 @@ O seed cria o leiloeiro `leiloeiro@arrematemh.com` e os licitantes
 `carlos@email.com` e `ana@email.com`; a senha local de demonstração é
 `senha123`. Não use essas credenciais em produção.
 
-O frontend já consome cadastro/login, lotes, lances e eventos Socket.IO. O
+O frontend já consome cadastro/login, lotes, lances e eventos em tempo real. O
 usuário leiloeiro de demonstração abre o painel para buscar livros na Open
 Library e publicar lotes. As rotas incluem depósito de saldo (`/api/auth`),
 consulta/criação/cancelamento de lotes (`/api/lots`), lances e histórico
@@ -244,32 +249,59 @@ minutos, liquidação transacional no encerramento e verificação da cadeia de
 hashes. Identificadores e nomes de licitantes são ocultados ou mascarados nas
 respostas públicas de auditoria, comprovantes e eventos ao vivo.
 
-### Publicação gratuita no Render
+### Publicação gratuita com Vercel e Supabase
 
-O arquivo `render.yaml` define o frontend estático, a API Node.js e o PostgreSQL
-no plano gratuito. Para publicar:
+A aplicação usa **dois projetos Vercel** ligados ao mesmo repositório privado:
+um para o frontend (`frontend`) e outro para a API (`backend`). O Supabase Free
+fornece PostgreSQL e Broadcast Realtime. Nenhum serviço é criado por este
+repositório automaticamente.
 
-1. Acesse o painel do Render, entre com GitHub e crie um **Blueprint** a partir
-   do repositório `Manoelah20/Desafio-Arremate-MH`.
-2. Revise os três serviços propostos e mantenha todos no plano **Free**. Não
-   escolha upgrade e não adicione forma de pagamento; se o provedor impedir o
-   deploy gratuito, pare em vez de selecionar um plano pago.
-3. Confirme a criação. O Blueprint gera um `JWT_SECRET`, configura o banco,
-   aplica o schema ao iniciar a API e publica o frontend.
-4. Verifique `https://arremate-api.onrender.com/health` e acesse
-   `https://arremate-web.onrender.com` para testar login, lances e Socket.IO.
+1. Crie um projeto no [Supabase](https://supabase.com/dashboard) pelo plano
+   gratuito. Se o painel exigir upgrade ou forma de pagamento, pare e não
+   confirme essa opção.
+2. No **SQL Editor** do Supabase, execute primeiro todo o conteúdo de
+   `backend/src/db/schema.sql` e depois `backend/src/db/supabase-security.sql`.
+   O segundo script ativa RLS e revoga leitura direta das tabelas aos papéis
+   públicos; a API acessa o banco pelo servidor e o navegador usa apenas
+   Broadcast Realtime.
+3. Na Vercel, importe o repositório GitHub e crie o primeiro projeto com
+   **Root Directory** `frontend`. Configure:
+   * `VITE_SUPABASE_URL`: URL do projeto Supabase.
+   * `VITE_SUPABASE_PUBLISHABLE_KEY`: chave pública/publishable do Supabase.
+   Faça o deploy e copie o domínio de produção atribuído à página.
+4. Crie um segundo projeto Vercel a partir do mesmo repositório, com **Root
+   Directory** `backend`. Configure as variáveis:
+   * `DATABASE_URL`: URI do **Transaction Pooler** exibida em **Connect** no
+     Supabase; mantenha os parâmetros SSL/pooler fornecidos pelo painel.
+   * `JWT_SECRET`: segredo aleatório, longo e exclusivo.
+   * `SUPABASE_URL`: URL do projeto Supabase.
+   * `SUPABASE_SECRET_KEY`: chave secreta de servidor do Supabase. Nunca use
+     prefixo `VITE_` para esta variável nem a coloque no frontend.
+   * `FRONTEND_URL`: domínio de produção do frontend, sem barra final.
+   Publique e copie o domínio atribuído à API.
+5. Volte às variáveis do projeto `frontend`, defina `VITE_API_URL` como o
+   domínio da API (sem barra final) e faça novo deploy.
+6. Valide `https://<domínio-da-api>/health`,
+   `https://<domínio-da-api>/api/lots` e depois login, publicação de lote, lance
+   e evento em tempo real no frontend.
 
-**Limitações importantes para um teste:** o Render suspende serviços web Free
-após 15 minutos sem tráfego; o primeiro acesso após a suspensão pode levar cerca
-de um minuto. O PostgreSQL Free expira 30 dias após a criação. O Render informa
-que suspende serviços se você atingir limites incluídos sem cadastrar pagamento;
-não adicione cartão para evitar qualquer cobrança. O seed não roda no deploy
-porque apaga os dados; prepare dados de avaliação somente em uma base descartável.
+Para criar dados iniciais, configure temporariamente a `DATABASE_URL` do projeto
+Supabase em `backend/.env` e execute `npm run seed` no diretório `backend`.
+**O seed apaga todos os dados do banco; execute somente em um projeto de teste
+novo/descartável.** Ele cria contas de demonstração com a senha local `senha123`;
+troque ou descarte essas credenciais antes de usar qualquer dado real.
+
+**Limites dos planos gratuitos:** o Supabase Free pode pausar projetos após uma
+semana sem atividade; a Vercel Hobby e o Supabase têm cotas de uso. Verifique os
+limites atuais na criação e não selecione upgrades pagos. Na Vercel, o
+encerramento/liquidação automática de lotes é verificado a cada requisição da
+API; se não houver tráfego no horário final, o processamento ocorre na próxima
+requisição.
 
 ### Pendências para a entrega
 
-* Criar o Blueprint pelo painel do Render usando somente a opção Free e validar
-  o fluxo público com o PostgreSQL gratuito.
+* Criar os projetos Vercel e Supabase usando somente opções gratuitas e validar
+  o fluxo público com o banco e o tempo real configurados.
 * Informar o link público e as credenciais de avaliação no formulário de entrega;
   não reutilizar as credenciais locais do seed.
 

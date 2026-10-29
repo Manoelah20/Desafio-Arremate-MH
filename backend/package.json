@@ -4,6 +4,9 @@
   "description": "Backend da Casa de Leilões Arremate MH - Desafio Técnico por Manoela Harrison",
   "author": "Manoela Harrison",
   "main": "src/server.js",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",

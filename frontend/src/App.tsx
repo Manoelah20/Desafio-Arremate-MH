@@ -1,16 +1,16 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { io } from 'socket.io-client';
+import { supabase } from './supabase';
 import type { AuctionCategory, AuctionItem } from './types/auction';
 import {
   clearSavedToken,
   fetchCurrentUser,
   fetchLotDetails,
   fetchLots,
-  getSavedToken,
   getSocketUrl,
+  getSavedToken,
   isUnauthorizedError,
   placeBid,
-  remainingTime,
   type ApiBid,
   type AuthUser,
 } from './api';
@@ -78,33 +78,50 @@ function App() {
   useEffect(() => {
     const lotId = selectedAuction?.id;
     if (!lotId) return;
-    const socket = io(getSocketUrl());
-    socket.emit('join_lot', lotId);
-    socket.on('new_bid', (event: {
-      lot_id: string;
-      current_bid: number;
-      ends_at: string;
-      bid: ApiBid;
-    }) => {
-      if (event.lot_id !== lotId) return;
-      const applyBid = (item: AuctionItem): AuctionItem => ({
-        ...item,
-        currentBid: event.current_bid,
-        totalBids: item.totalBids + 1,
-        endsIn: remainingTime(event.ends_at),
-      });
-      setAuctions((current) => current.map((item) => item.id === lotId ? applyBid(item) : item));
-      setSelectedAuction((current) => current?.id === lotId ? applyBid(current) : current);
-      setSelectedBids((current) => [...current, event.bid]);
-    });
-    socket.on('lot_closed', (event: { lot_id: string }) => {
-      if (event.lot_id !== lotId) return;
-      setAuctions((current) => current.map((item) => item.id === lotId ? { ...item, status: 'ended' } : item));
-      setSelectedAuction((current) => current?.id === lotId ? { ...current, status: 'ended' } : current);
-    });
+    const refreshLot = (event: unknown) => {
+      if (!event || typeof event !== 'object' || !('lot_id' in event) || event.lot_id !== lotId) return;
+      void Promise.all([fetchLots(), fetchLotDetails(lotId)])
+        .then(([latestLots, latestBids]) => {
+          setAuctions(latestLots);
+          const latestLot = latestLots.find((lot) => lot.id === lotId);
+          if (latestLot) setSelectedAuction(latestLot);
+          setSelectedBids(latestBids);
+        })
+        .catch((error: unknown) => console.error('[realtime/refresh]', error));
+    };
+
+    let cleanupRealtime = () => {};
+    if (supabase) {
+      const channel = supabase.channel(`lot:${lotId}`, { config: { private: false } });
+      channel
+        .on('broadcast', { event: 'new_bid' }, ({ payload }) => {
+          refreshLot(payload);
+        })
+        .on('broadcast', { event: 'lot_closed' }, ({ payload }) => {
+          refreshLot(payload);
+        })
+        .subscribe((status) => {
+          if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') {
+            console.error(`[realtime] Inscrição do lote ${lotId} falhou: ${status}`);
+          }
+        });
+      cleanupRealtime = () => { void supabase.removeChannel(channel); };
+    } else {
+      const socket = io(getSocketUrl());
+      socket.emit('join_lot', lotId);
+      socket.on('new_bid', refreshLot);
+      socket.on('lot_closed', refreshLot);
+      cleanupRealtime = () => {
+        socket.emit('leave_lot', lotId);
+        socket.disconnect();
+      };
+    }
+
+    const refreshTimer = window.setInterval(() => refreshLot({ lot_id: lotId }), 20_000);
+
     return () => {
-      socket.emit('leave_lot', lotId);
-      socket.disconnect();
+      window.clearInterval(refreshTimer);
+      cleanupRealtime();
     };
   }, [selectedAuction?.id]);
 

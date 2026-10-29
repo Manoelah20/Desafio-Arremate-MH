@@ -2,7 +2,7 @@ const express = require('express');
 const crypto = require('crypto');
 const pool = require('../db/pool');
 const { authMiddleware, requireRole } = require('../middleware/auth');
-const { amountToCents, centsToAmount, createBidHash, canonicalTimestamp, maskName } = require('../utils/bid');
+const { amountToCents, centsToAmount, createBidHash, canonicalTimestamp } = require('../utils/bid');
 
 const router = express.Router();
 
@@ -183,18 +183,16 @@ router.post('/', authMiddleware, requireRole('licitante'), async (req, res) => {
       created_at: createdAt,
     };
 
-    // Emitir evento Socket.io para todos os clientes da sala
-    const io = req.app.get('io');
-    if (io) {
-      const { bidder_id: _, ...publicBid } = bid;
-      io.to(`lot:${lot_id}`).emit('new_bid', {
-        bid: { ...publicBid, bidder_name: maskName(req.user.name) },
-        lot_id,
-        current_bid: Number(canonicalAmount),
-        winner_name: maskName(req.user.name),
-        ends_at: newEndsAt.toISOString(),
-        extended: newEndsAt > endsAt,
-      });
+    // O evento contém apenas dados públicos; falhas de realtime não desfazem o lance confirmado.
+    const publishLotEvent = req.app.get('publishLotEvent');
+    if (publishLotEvent) {
+      try {
+        await publishLotEvent(`lot:${lot_id}`, 'new_bid', {
+          lot_id,
+        });
+      } catch (err) {
+        console.error('[realtime/new_bid]', err.message);
+      }
     }
 
     res.status(201).json({ bid, lot_ends_at: newEndsAt.toISOString() });

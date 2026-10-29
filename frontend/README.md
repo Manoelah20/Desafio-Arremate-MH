@@ -1,7 +1,7 @@
 # 🏛️ Arremate MH Leilões — Casa de Leilões Online
 
 > **Desafio Técnico — Desenvolvido por Manoela Harrison**  
-> Frontend React 19/TypeScript ligado à API Node.js, PostgreSQL e Socket.IO da Casa de Leilões Arremate MH.
+> Frontend React 19/TypeScript ligado à API Node.js e ao Broadcast Realtime do Supabase da Casa de Leilões Arremate MH.
 
 ![React](https://img.shields.io/badge/React-19.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
@@ -26,7 +26,7 @@ O **Arremate MH** é uma plataforma concebida para a mediação segura e transpa
 O frontend consome a API do backend e prioriza:
 1. **Fidelidade e refinamento estético:** paleta dark com toques de amarelo dourado e violeta, tipografia contemporânea e efeitos sutis de vidro (*glassmorphism*).
 2. **Engenharia de software sólida:** separação clara de responsabilidades, componentes autocontidos com CSS modular (BEM-like), tipagem estrita com TypeScript e zero dependências infladas.
-3. **Interatividade rica e fluida:** filtros reativos, busca, autenticação, lances reais e atualizações Socket.IO.
+3. **Interatividade rica e fluida:** filtros reativos, busca, autenticação, lances reais e atualização em tempo real.
 
 ---
 
@@ -160,9 +160,11 @@ frontend/
    npm run dev
    ```
 
-   Crie o arquivo `.env` com `VITE_API_URL=http://localhost:3001` (copie
-   `.env.example`) e mantenha o backend e o PostgreSQL em execução. O guia completo
-   está no [README principal](../README.md).
+   Crie o arquivo `.env` copiando `.env.example`. Para uso local, mantenha
+   `VITE_API_URL=http://localhost:3001`; sem configuração Supabase, o app usa
+   Socket.IO local e consulta periódica como fallback. Para usar Realtime local,
+   configure também a URL e a chave pública Supabase. O guia de publicação Vercel + Supabase está no
+   [README principal](../README.md).
 
 3. **Abra no navegador:**
    ```text
@@ -179,8 +181,7 @@ frontend/
 
 ## 🔮 Visão de Futuro (Próximas Etapas)
 
-* **Etapa 2 (Integração com API):** Conexão com endpoints RESTful para carregamento dinâmico de lotes, paginação no servidor e upload de documentos.
-* **Etapa 3 (Tempo Real & WebSocket):** Atualização instantânea dos lances sem recarregamento de página, notificações push de lances superados e sala de leilão ao vivo.
+* **Tempo real:** o deploy usa canais Broadcast do Supabase; o ambiente local mantém Socket.IO como alternativa.
 
 ---
 
