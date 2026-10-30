@@ -1,6 +1,14 @@
-import type { AuctionCategory, AuctionItem, AuctionStatus } from './types/auction';
+import type {
+  AuctionCategory,
+  AuctionItem,
+  AuctionStatus,
+} from './types/auction';
 
-const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:3001').replace(/\/$/, '');
+const API_URL = (
+  import.meta.env.API_URL ||
+  'https://desafio-arremate-mh-u8eb.vercel.app'
+).replace(/\/$/, '');
+
 const TOKEN_KEY = 'arremate.auth.token';
 
 interface ApiError {
@@ -52,7 +60,7 @@ export interface ApiLot {
   ends_at: string;
   total_bids?: number;
   winner_name?: string | null;
-};
+}
 
 export interface ExternalBook {
   key: string;
@@ -80,56 +88,84 @@ function authHeaders(): HeadersInit {
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
-async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
+async function request<T>(
+  path: string,
+  options: RequestInit = {},
+): Promise<T> {
   let response: Response;
+
   try {
     response = await fetch(`${API_URL}${path}`, {
       ...options,
       headers: {
         ...authHeaders(),
-        ...(options.body ? { 'Content-Type': 'application/json' } : {}),
+        ...(options.body
+          ? { 'Content-Type': 'application/json' }
+          : {}),
         ...options.headers,
       },
     });
   } catch {
-    throw new Error('Não foi possível conectar à API. Verifique se o backend está em execução.');
+    throw new Error(
+      'Não foi possível conectar à API. Verifique se o backend está em execução.',
+    );
   }
 
-  const payload = await response.json().catch(() => ({})) as ApiError;
+  const payload = (await response.json().catch(() => ({}))) as ApiError;
+
   if (!response.ok) {
-    throw new ApiRequestError(payload.error || `A API respondeu com erro (${response.status}).`, response.status);
+    throw new ApiRequestError(
+      payload.error || `A API respondeu com erro (${response.status}).`,
+      response.status,
+    );
   }
+
   return payload as T;
 }
 
 function categoryFromLot(lot: ApiLot): AuctionCategory {
-  const searchable = `${lot.title} ${lot.external_data?.subjects?.join(' ') || ''}`.toLowerCase();
+  const searchable = `${lot.title} ${
+    lot.external_data?.subjects?.join(' ') || ''
+  }`.toLowerCase();
+
   if (/rel[oó]gio|rolex|watch/.test(searchable)) return 'Relógios';
-  if (/carro|ve[ií]culo|autom[oó]vel|cadillac|mercedes|volkswagen/.test(searchable)) return 'Veículos';
+  if (/carro|ve[ií]culo|autom[oó]vel|cadillac|mercedes|volkswagen/.test(searchable))
+    return 'Veículos';
   if (/arte|pintura|design/.test(searchable)) return 'Arte & Design';
-  if (/computador|tecnologia|macbook|leica/.test(searchable)) return 'Tecnologia';
+  if (/computador|tecnologia|macbook|leica/.test(searchable))
+    return 'Tecnologia';
+
   return 'Colecionáveis';
 }
 
 export function remainingTime(endsAt: string): string {
-  const remaining = Math.max(0, new Date(endsAt).getTime() - Date.now());
+  const remaining = Math.max(
+    0,
+    new Date(endsAt).getTime() - Date.now(),
+  );
+
   const totalMinutes = Math.floor(remaining / 60_000);
   const days = Math.floor(totalMinutes / 1440);
   const hours = Math.floor((totalMinutes % 1440) / 60);
   const minutes = totalMinutes % 60;
+
   if (days) return `${days}d ${hours}h`;
   if (hours) return `${hours}h ${minutes}m`;
+
   return `${minutes}m`;
 }
 
 export function mapLot(lot: ApiLot): AuctionItem {
   let status: AuctionStatus;
+
   if (lot.status === 'encerrado' || lot.status === 'cancelado') {
     status = 'ended';
   } else if (lot.status === 'agendado') {
     status = 'upcoming';
   } else {
-    const minutesRemaining = (new Date(lot.ends_at).getTime() - Date.now()) / 60_000;
+    const minutesRemaining =
+      (new Date(lot.ends_at).getTime() - Date.now()) / 60_000;
+
     status = minutesRemaining <= 30 ? 'ending_soon' : 'live';
   }
 
@@ -142,11 +178,20 @@ export function mapLot(lot: ApiLot): AuctionItem {
     currentBid: Number(lot.current_bid),
     startingBid: Number(lot.initial_bid),
     totalBids: Number(lot.total_bids || 0),
-    endsIn: remainingTime(lot.status === 'agendado' ? lot.starts_at : lot.ends_at),
+    endsIn: remainingTime(
+      lot.status === 'agendado' ? lot.starts_at : lot.ends_at,
+    ),
     status,
-    imageUrl: lot.image_url || lot.external_data?.cover_url || '/hero-gavel-bg.jpg',
+    imageUrl:
+      lot.image_url ||
+      lot.external_data?.cover_url ||
+      '/hero-gavel-bg.jpg',
     condition: lot.external_data?.author
-      ? `${lot.external_data.author}${lot.external_data.year ? ` · ${lot.external_data.year}` : ''}`
+      ? `${lot.external_data.author}${
+          lot.external_data.year
+            ? ` · ${lot.external_data.year}`
+            : ''
+        }`
       : 'Item de leilão',
     location: 'Consultar edital',
     bidIncrement: Number(lot.min_increment),
@@ -171,50 +216,88 @@ export async function fetchLots(): Promise<AuctionItem[]> {
 }
 
 export async function fetchLotDetails(id: string): Promise<ApiBid[]> {
-  const { bids } = await request<{ lot: ApiLot; bids: ApiBid[] }>(`/api/lots/${encodeURIComponent(id)}`);
+  const { bids } = await request<{
+    lot: ApiLot;
+    bids: ApiBid[];
+  }>(`/api/lots/${encodeURIComponent(id)}`);
+
   return bids;
 }
 
-export async function searchExternalBooks(query: string): Promise<ExternalBook[]> {
+export async function searchExternalBooks(
+  query: string,
+): Promise<ExternalBook[]> {
   const params = new URLSearchParams({ q: query });
-  const { results } = await request<{ results: ExternalBook[] }>(`/api/lots/search/external?${params}`);
+
+  const { results } = await request<{ results: ExternalBook[] }>(
+    `/api/lots/search/external?${params}`,
+  );
+
   return results;
 }
 
 export async function fetchAuctioneerLots(): Promise<ApiLot[]> {
-  const { lots } = await request<{ lots: ApiLot[] }>('/api/lots/auctioneer/my');
+  const { lots } = await request<{ lots: ApiLot[] }>(
+    '/api/lots/auctioneer/my',
+  );
+
   return lots;
 }
 
-export async function createLot(input: CreateLotInput): Promise<void> {
-  await request('/api/lots', { method: 'POST', body: JSON.stringify(input) });
+export async function createLot(
+  input: CreateLotInput,
+): Promise<void> {
+  await request('/api/lots', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  });
 }
 
 export async function cancelLot(lotId: string): Promise<void> {
-  await request(`/api/lots/${encodeURIComponent(lotId)}`, { method: 'DELETE' });
+  await request(`/api/lots/${encodeURIComponent(lotId)}`, {
+    method: 'DELETE',
+  });
 }
 
 export async function authenticate(
   mode: 'login' | 'register',
-  values: { name?: string; email: string; password: string },
+  values: {
+    name?: string;
+    email: string;
+    password: string;
+  },
 ): Promise<AuthUser> {
-  const { token, user } = await request<{ token: string; user: AuthUser }>(
-    `/api/auth/${mode}`,
-    { method: 'POST', body: JSON.stringify(values) },
-  );
+  const { token, user } = await request<{
+    token: string;
+    user: AuthUser;
+  }>(`/api/auth/${mode}`, {
+    method: 'POST',
+    body: JSON.stringify(values),
+  });
+
   localStorage.setItem(TOKEN_KEY, token);
+
   return user;
 }
 
 export async function fetchCurrentUser(): Promise<AuthUser> {
-  const { user } = await request<{ user: AuthUser }>('/api/auth/me');
+  const { user } = await request<{ user: AuthUser }>(
+    '/api/auth/me',
+  );
+
   return user;
 }
 
-export async function placeBid(lotId: string, amount: number): Promise<void> {
+export async function placeBid(
+  lotId: string,
+  amount: number,
+): Promise<void> {
   await request('/api/bids', {
     method: 'POST',
-    body: JSON.stringify({ lot_id: lotId, amount }),
+    body: JSON.stringify({
+      lot_id: lotId,
+      amount,
+    }),
   });
 }
 
