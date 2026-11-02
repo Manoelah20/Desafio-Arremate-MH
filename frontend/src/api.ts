@@ -140,17 +140,22 @@ function categoryFromLot(lot: ApiLot): AuctionCategory {
   return 'Colecionáveis';
 }
 
-function imageForCategory(category: AuctionCategory): string {
-  const imageByCategory: Record<AuctionCategory, string> = {
-    Todos: '/demo-lot.svg',
-    Tecnologia: '/demo-lot-technology.jpg',
-    Relógios: '/relogio2.jpg',
-    Veículos: '/carro1.jpg',
-    'Arte & Design': '/arte-design-pixabay.jpg',
-    Colecionáveis: '/demo-lot-collectibles.jpg',
+function imageForLot(category: AuctionCategory, id: string, publicImageUrl: string | null): string {
+  const imagesByCategory: Record<AuctionCategory, string[]> = {
+    Todos: ['/demo-lot.svg'],
+    Tecnologia: ['/demo-lot-technology.jpg'],
+    Relógios: ['/relogio2.jpg', '/relogio1.jpg'],
+    Veículos: ['/carro1.jpg', '/carro2.jpg'],
+    'Arte & Design': ['/arte-design-pixabay.jpg'],
+    Colecionáveis: ['/demo-lot-collectibles.jpg'],
   };
 
-  return imageByCategory[category];
+  const images = imagesByCategory[category];
+  if (publicImageUrl && images.includes(publicImageUrl)) return publicImageUrl;
+
+  const lastHexDigit = id.match(/[0-9a-f]$/i)?.[0];
+  const index = lastHexDigit ? Number.parseInt(lastHexDigit, 16) % images.length : 0;
+  return images[index];
 }
 
 function fallbackImageForCategory(category: AuctionCategory): string {
@@ -211,7 +216,7 @@ export function mapLot(lot: ApiLot): AuctionItem {
       lot.status === 'agendado' ? lot.starts_at : lot.ends_at,
     ),
     status,
-    imageUrl: imageForCategory(category),
+    imageUrl: imageForLot(category, lot.id, lot.image_url),
     imageFallbackUrl: fallbackImageForCategory(category),
     condition: 'Item ilustrativo; sem verificação',
     location: 'Ambiente de teste',

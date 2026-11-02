@@ -10,13 +10,13 @@ interface HeroProps {
 
 const CATEGORY_PREVIEWS: Array<{
   category: Exclude<AuctionCategory, 'Todos'>;
-  images: string[];
+  image: string;
 }> = [
-  { category: 'Tecnologia', images: ['/demo-lot-technology.jpg'] },
-  { category: 'Relógios', images: ['/relogio2.jpg', '/relogio1.jpg'] },
-  { category: 'Veículos', images: ['/carro1.jpg', '/carro2.jpg'] },
-  { category: 'Arte & Design', images: ['/arte-design-pixabay.jpg'] },
-  { category: 'Colecionáveis', images: ['/demo-lot-collectibles.jpg'] },
+  { category: 'Tecnologia', image: '/demo-lot-technology.jpg' },
+  { category: 'Relógios', image: '/relogio2.jpg' },
+  { category: 'Veículos', image: '/carro1.jpg' },
+  { category: 'Arte & Design', image: '/arte-design-pixabay.jpg' },
+  { category: 'Colecionáveis', image: '/demo-lot-collectibles.jpg' },
 ];
 
 export const Hero: React.FC<HeroProps> = ({
@@ -83,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({
             <span>Fotos ilustrativas; os lotes disponíveis aparecem abaixo.</span>
           </div>
           <div className="hero-section__category-list">
-            {CATEGORY_PREVIEWS.map(({ category, images }) => (
+            {CATEGORY_PREVIEWS.map(({ category, image }) => (
               <button
                 key={category}
                 type="button"
@@ -92,9 +92,7 @@ export const Hero: React.FC<HeroProps> = ({
                 aria-label={`Ver lotes demonstrativos de ${category}`}
               >
                 <div className="hero-section__category-images">
-                  {images.map((image) => (
-                    <img key={image} src={image} alt="" />
-                  ))}
+                  <img src={image} alt="" />
                 </div>
                 <span>{category}</span>
               </button>
