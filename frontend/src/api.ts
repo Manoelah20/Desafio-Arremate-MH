@@ -4,10 +4,10 @@ import type {
   AuctionStatus,
 } from './types/auction';
 
-const API_URL = (
-  import.meta.env.API_URL ||
-  'https://desafio-arremate-mh-u8eb.vercel.app'
-).replace(/\/$/, '');
+const DEFAULT_API_URL = import.meta.env.DEV
+  ? 'http://localhost:3001'
+  : 'https://desafio-arremate-mh-u8eb.vercel.app';
+const API_URL = (import.meta.env.VITE_API_URL || DEFAULT_API_URL).replace(/\/$/, '');
 
 const TOKEN_KEY = 'arremate.auth.token';
 

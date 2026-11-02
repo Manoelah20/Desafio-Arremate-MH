@@ -1,7 +1,9 @@
-# 🏛️ Arremate MH Leilões — Casa de Leilões Online
+# 🏛️ Arremate MH — Protótipo de Leilões Online
 
 > **Desafio Técnico — Desenvolvido por Manoela Harrison**
-> Casa de Leilões Online com interface em **React 19/TypeScript**, API em **Node.js/Express**, **PostgreSQL** e eventos em tempo real.
+> Protótipo acadêmico com interface em **React 19/TypeScript**, API em **Node.js/Express**, **PostgreSQL** e eventos em tempo real.
+
+> **Demonstração:** lotes, imagens, saldos e lances são dados ilustrativos. A aplicação não oferece produtos reais, não processa pagamentos e não gera obrigações comerciais ou jurídicas.
 
 ![React](https://img.shields.io/badge/React-19.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
@@ -14,30 +16,27 @@
 ## 👩‍💻 Autora & Informações do Desafio
 
 * **Desenvolvedora:** Manoela Harrison
-* **Desafio:** Casa de Leilões Online — aplicação web com front-end e back-end.
+* **Desafio:** protótipo de uma aplicação web de leilões com front-end e back-end.
 * **Tecnologias:** React, Node.js/Express, PostgreSQL, Vercel e Supabase Realtime.
-* **Objetivo:** Criar uma experiência acessível e uma API que aplique as regras de leilão, persistência e auditoria.
+* **Objetivo:** demonstrar regras de lances, persistência de dados, autenticação e atualização em tempo real.
 
 ---
 
 ## 📌 Sobre o Projeto
 
-O **Arremate MH** é uma plataforma concebida para a mediação segura e transparente de leilões eletrônicos de alto padrão — contemplando desde relógios de luxo e clássicos automotivos até tecnologia de ponta e colecionáveis raros.
+O **Arremate MH** é um projeto acadêmico que demonstra os fluxos de uma plataforma de leilões online. Os itens e valores não representam anúncios, avaliações ou ofertas reais.
 
-O projeto reúne interface, API e banco de dados. A interface consome a API para
-cadastro/login, vitrine de lotes, lances, histórico e atualizações em tempo real.
-O leiloeiro pode buscar livros na Open Library e publicar lotes pelo painel.
-O frontend e a API já estão publicados. A entrada Express da Vercel foi
-corrigida; login, painel do leiloeiro, detalhes de lotes e auditoria foram
-validados na API publicada. Um lance feito por outra sessão também foi recebido
-e atualizado pelo frontend via Supabase Realtime. O modal agora também sincroniza
-seu valor, histórico e próximo lance depois de uma oferta; essa correção foi
-testada e publicada no frontend.
+O projeto reúne interface, API e banco de dados. A interface demonstra
+cadastro/login, catálogo de lotes, lances, histórico e atualizações em tempo real.
+O painel do leiloeiro consulta livros na Open Library e permite testar a
+publicação de lotes. Os fluxos de API, lance e atualização em tempo real foram
+validados em ambiente de demonstração. As alterações deste commit são locais;
+o site publicado só recebe esta revisão depois de um novo deploy.
 
 A interface inicial prioriza:
-1. **Fidelidade e refinamento estético:** paleta dark com toques de amarelo dourado e violeta, tipografia contemporânea e efeitos sutis de vidro (*glassmorphism*).
-2. **Engenharia de software sólida:** separação clara de responsabilidades, componentes autocontidos com CSS modular (BEM-like), tipagem estrita com TypeScript e zero dependências infladas.
-3. **Interatividade rica e fluida:** filtros por categoria, busca, cadastro/login, lances validados no backend e atualização em tempo real.
+1. **Identidade visual:** paleta escura com amarelo dourado e violeta, tipografia contemporânea e efeitos sutis de vidro (*glassmorphism*).
+2. **Organização:** interface em componentes React, estilos CSS e tipos TypeScript; API Express separada do frontend.
+3. **Interatividade:** filtros por categoria, busca, cadastro/login, lances validados no backend e atualização em tempo real.
 
 ---
 
@@ -47,54 +46,50 @@ O layout foi inteiramente projetado com **Vanilla CSS** através de um sistema e
 
 * **Base Escura Sofisticada (`#0a0b10` / `#141522`):** Proporciona conforto visual prolongado e destaca as imagens dos produtos.
 * **Amarelo Dourado & Âmbar (`#fbbf24` / `#facc15` / `#f59e0b`):** Evoca a tradição do martelo de leilão, chamando atenção para valores de lance, status "Ao Vivo" e cronômetros de urgência.
-* **Roxo & Violeta Real (`#8b5cf6` / `#7c3aed` / `#c084fc`):** Utilizado em botões de ação primária, cartões de destaque e selos de autenticidade da casa.
+* **Roxo & Violeta (`#8b5cf6` / `#7c3aed` / `#c084fc`):** Utilizado em botões de ação primária, cartões de destaque e detalhes visuais.
 * **Tipografia:** 
   * **Plus Jakarta Sans:** Títulos, monograma MH e valores numéricos de impacto.
-  * **Inter:** Textos descritivos, metadados e documentação jurídica para máxima legibilidade.
+  * **Inter:** Textos descritivos e metadados.
 
 ---
 
 ## 🚀 Funcionalidades
 
-### 1. Cabeçalho Oficial (Header)
+### 1. Cabeçalho e navegação (Header)
 * Logotipo autoral combinando o martelo de leilão com o monograma **MH** em degradê dourado.
-* Navegação responsiva com rolagem suave (*smooth scroll*) para todas as seções.
-* Badge dinâmico pulsante **"Ao Vivo"**.
+* Navegação responsiva com rolagem suave (*smooth scroll*) para as seções.
+* Badge pulsante que identifica o ambiente como **"Demo"**.
 * Botão de acesso rápido para login/cadastro e menu retrátil (*drawer*) para dispositivos móveis.
 
-### 2. Seção Hero de Apresentação
-* Proposta de valor clara com fotografia temática de leilão de alta resolução.
-* Estatísticas de credibilidade da casa (*R$ 14M+ arrematados, 1.250+ lotes auditados, 99.8% de satisfação*).
-* Botões de chamada para ação direta para os leilões ativos ou explicação das regras.
+### 2. Apresentação do protótipo
+* Identificação explícita de que o projeto e seus dados são demonstrativos.
+* Atalhos para o catálogo e para a explicação dos fluxos.
 
 ### 3. Barra de Busca e Filtros Reativos
-* **Busca Instantânea:** Filtra simultaneamente por título, descrição, categoria, código do lote (*ex: LOT-1041*) e localização física.
+* **Busca Instantânea:** Filtra por título, descrição, categoria, código e localização informada no lote.
 * **Chips de Categoria:** Seleção rápida entre *Todos*, *Tecnologia*, *Relógios*, *Veículos*, *Arte & Design* e *Colecionáveis*.
 * **Ordenação Inteligente:** Por mais recentes, maior lance, menor lance ou leilões encerrando em breve.
 * **Contador de Resultados:** Feedback visual imediato da quantidade de lotes encontrados.
 
 ### 4. Grade de Lotes em Destaque
-* Cards com fotografia em alta definição, crachás de tempo restante com contagem regressiva, histórico de lances e valores formatados no padrão monetário brasileiro (`Intl.NumberFormat('pt-BR')`).
+* Cards com imagens ilustrativas, indicação de tempo restante atualizada periodicamente, histórico de lances e valores formatados no padrão monetário brasileiro (`Intl.NumberFormat('pt-BR')`).
 * *Empty State* elegante e amigável com botão de restauração rápida de filtros caso a busca não retorne resultados.
 
 ### 5. Itens e dados de demonstração
 * O seed cria lotes de livros em estados agendado, ao vivo e encerrado, com usuários e histórico de lances.
 * O leiloeiro pode buscar novos livros e capas na Open Library e cadastrar lotes pela aplicação.
 
-### 6. Modais Institucionais e de Ação
+### 6. Modais de ação e informações da demonstração
 * **Modal de Detalhes do Lote (`AuctionModal`):** Histórico de lances, saldo e envio de lances validados pela API.
 * **Modal de Acesso (`AuthModal`):** Login e cadastro de licitantes usando a API.
 * **Painel do Leiloeiro (`SellerDashboard`):** Busca de itens na Open Library e publicação/cancelamento de lotes.
-* **Modal Jurídico & Regulamentar (`LegalModal`):** 
-  * **Termos de Uso:** Aceite, irrevogabilidade dos lances e comissão legal de 5%.
-  * **Privacidade & LGPD:** Diretrizes de tratamento de dados, conformidade com a Lei nº 13.709/2018 e criptografia de ponta a ponta.
-  * **Edital de Leilões:** Condições de venda *ad corpus*, vistoria prévia e mecanismo de prorrogação automática (*Anti-Sniping*).
-  * Acessibilidade completa: suporte à tecla <kbd>ESC</kbd>, bloqueio de rolagem do fundo e fechamento ao clicar no backdrop.
+* **Modal de informações (`LegalModal`):** explica que os lances são simulados, descreve os dados usados para testar o sistema e esclarece que não há venda, pagamento ou validade jurídica.
+* Os modais podem ser fechados com <kbd>ESC</kbd> ou pelo botão de fechar.
 
-### 7. Rodapé Oficial (Footer)
-* Logotipo integrado **ARREMATE MH** com selos de ambiente auditado e criptografia SSL.
-* Links interativos diretos para os Termos de Uso, Política de Privacidade e Edital.
-* Assinatura autoral e créditos do desafio.
+### 7. Rodapé
+* Identificação do projeto como demonstração, sem alegações de auditoria ou operação oficial.
+* Links para as informações do protótipo.
+* Créditos do desafio.
 
 ---
 
@@ -102,11 +97,11 @@ O layout foi inteiramente projetado com **Vanilla CSS** através de um sistema e
 
 | Decisão | Justificativa Técnica |
 | :--- | :--- |
-| **React 19 + TypeScript** | Utilização da versão mais recente do React com TypeScript estrito (`strict: true`), garantindo tipagem forte em toda a árvore de componentes sem necessidade de `any`. |
-| **Vanilla CSS com Tokens** | Optou-se deliberadamente por CSS puro estruturado com variáveis CSS nativas. Isso garante zero dependências de compilação externa (Tailwind/Sass), máxima performance de renderização no navegador e controle granular de animações e micro-interações. |
-| **Compatibilidade Cross-Browser** | Implementação de prefixos de compatibilidade (como `-webkit-user-select` e `-webkit-backdrop-filter`) para funcionamento idêntico no Safari (macOS e iOS). |
-| **Acessibilidade (a11y)** | Elementos semânticos HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`), atributos ARIA explicativos, contraste cromático WCAG AA e navegação acessível por teclado. |
-| **Vite 8** | Ambiente de desenvolvimento leve com Hot Module Replacement (HMR) instantâneo e build otimizada em menos de 250ms. |
+| **React + TypeScript** | Interface em componentes React com tipos TypeScript e verificação de tipos no build. |
+| **CSS com tokens** | Estilos próprios e variáveis CSS, sem framework CSS adicional. |
+| **Express + PostgreSQL** | API para autenticação, lotes, lances, saldos demonstrativos e auditoria. |
+| **Atualização em tempo real** | Socket.IO no desenvolvimento local e Supabase Broadcast no ambiente publicado. |
+| **Vite** | Servidor de desenvolvimento e geração do bundle de produção. |
 
 ---
 
@@ -115,7 +110,7 @@ O layout foi inteiramente projetado com **Vanilla CSS** através de um sistema e
 ```text
 desafio-arremate/
 ├── .gitignore                  # Arquivos ignorados pelo Git
-├── README.md                   # Documentação oficial do desafio
+├── README.md                   # Documentação do projeto
 ├── backend/
 │   ├── index.js                # Entrada Express detectada pela Vercel
 │   ├── src/
@@ -140,16 +135,16 @@ desafio-arremate/
     ├── src/
     │   ├── components/
     │   │   ├── Header/         # Cabeçalho com logo MH e menu mobile
-    │   │   ├── Hero/           # Banner principal e indicadores de credibilidade
+    │   │   ├── Hero/           # Apresentação e identificação da demonstração
     │   │   ├── SearchBar/      # Busca, filtros de categoria e ordenação
     │   │   ├── AuctionCard/    # Cartão de lote com tempo e valor formatado
     │   │   ├── AuctionGrid/    # Grade de cards e estado vazio (empty state)
-    │   │   ├── HowItWorks/     # Guia em 3 etapas para novos participantes
-    │   │   ├── AuctionModal/   # Detalhes e lances reais
+    │   │   ├── HowItWorks/     # Guia em 3 etapas dos fluxos demonstrativos
+    │   │   ├── AuctionModal/   # Detalhes e lances demonstrativos
     │   │   ├── AuthModal/      # Modal de autenticação (login / registro)
-    │   │   ├── SellerDashboard/ # Busca externa e gestão de lotes
-    │   │   ├── LegalModal/     # Modal de Termos de Uso, LGPD e Edital
-    │   │   └── Footer/         # Rodapé com logo oficial e links legais
+    │   │   ├── SellerDashboard/ # Busca externa e gestão demonstrativa de lotes
+    │   │   ├── LegalModal/     # Informações sobre a demonstração e dados
+    │   │   └── Footer/         # Rodapé com identificação do projeto
     │   ├── api.ts              # Cliente REST e mapeamento de lotes
     │   ├── supabase.ts         # Cliente público do Broadcast Realtime
     │   ├── types/
@@ -253,12 +248,14 @@ Library e publicar lotes. As rotas incluem depósito de saldo (`/api/auth`),
 consulta/criação/cancelamento de lotes (`/api/lots`), lances e histórico
 (`/api/bids`) e auditoria/comprovantes (`/api/audit`).
 
-As regras do backend incluem janela de lances entre início e encerramento,
+As regras demonstrativas do backend incluem janela de lances entre início e encerramento,
 incremento mínimo, bloqueio de lances do líder atual, saldo comprometido apenas
 pelos lotes que o licitante ainda lidera, prorrogação anti-sniping de dois
 minutos, liquidação transacional no encerramento e verificação da cadeia de
 hashes. Identificadores e nomes de licitantes são ocultados ou mascarados nas
-respostas públicas de auditoria, comprovantes e eventos ao vivo.
+respostas públicas de auditoria e eventos ao vivo. A cadeia de hashes ajuda a
+detectar alterações, mas não equivale a armazenamento imutável nem a auditoria
+independente.
 
 ### Publicação gratuita com Vercel e Supabase
 
@@ -271,13 +268,15 @@ repositório automaticamente.
 
 * **Frontend:** [desafio-arremate-mh.vercel.app](https://desafio-arremate-mh.vercel.app/)
 * **API:** [desafio-arremate-mh-u8eb.vercel.app](https://desafio-arremate-mh-u8eb.vercel.app/)
-* **Estado verificado:** frontend acessível; `/health` e `/api/lots` responderam
+* **Estado da publicação anterior:** frontend acessível; `/health` e `/api/lots` responderam
   com sucesso e o catálogo recebeu quatro lotes demonstrativos. A entrada
   Express reconhecida pela Vercel foi publicada; login, consulta autenticada,
   painel do leiloeiro, detalhes e auditoria foram validados. O fluxo de lance e
   o recebimento do Broadcast Realtime foram testados no frontend local conectado
   ao banco Supabase. O ajuste de sincronização após um lance também foi incluído
-  no build publicado pela Vercel.
+  no build publicado pela Vercel. Esta revisão local corrige textos e
+  configurações; ela só estará no site depois de enviada e publicada em um novo
+  deploy.
 
 Os dados demonstrativos já foram acrescentados ao banco publicado, sem apagar
 registros existentes. O comando seguro para repeti-los em outro ambiente é
@@ -331,21 +330,21 @@ encerramento/liquidação automática de lotes é verificado a cada requisição
 API; se não houver tráfego no horário final, o processamento ocorre na próxima
 requisição.
 
-### Pendências para a entrega
+### Escopo e próximos passos
 
-* Preparar dados e contas de avaliação no ambiente publicado sem executar o
-  seed destrutivo em um banco com dados que precisam ser preservados (**feito**).
-* Corrigir e publicar a entrada Express da Vercel; rotas aninhadas e autenticação
-  agora respondem (**feito**).
-* Testar lance, histórico, auditoria, atualização da interface e Broadcast
-  Realtime (**feito em ambiente de integração com o banco publicado**).
-* Publicar o ajuste de sincronização da interface após um lance próprio
-  (**feito**).
-* Informar o link e as credenciais de avaliação no formulário de entrega.
+* O projeto é uma demonstração técnica, não uma casa de leilões operacional.
+* Os dados e saldos do ambiente publicado são de teste; lances de avaliação
+  permanecem registrados e podem alterar os valores exibidos.
+* Esta revisão remove métricas promocionais sem comprovação e textos que
+  poderiam ser interpretados como termos, edital ou política legal reais.
+* Para publicar esta revisão no site, envie o commit ao repositório conectado à
+  Vercel e confirme o resultado do deploy.
+* Uma operação comercial real exigiria, entre outras coisas, avaliação
+  jurídica, política de privacidade efetiva, controles operacionais e
+  integração de pagamento — itens fora do escopo deste protótipo.
 
 ---
 
 ## 📄 Licença e Créditos
 
-Projeto desenvolvido por **Manoela Harrison** como solução para o **Desafio Técnico — Casa de Leilões Online**.  
-Todos os direitos reservados &copy; 2026.
+Projeto desenvolvido por **Manoela Harrison** como solução para o **Desafio Técnico — Protótipo de Leilões Online**.

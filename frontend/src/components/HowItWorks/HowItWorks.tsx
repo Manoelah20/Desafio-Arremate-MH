@@ -7,11 +7,11 @@ export const HowItWorks: React.FC = () => {
       <div className="container">
         <div className="how-it-works__header">
           <div className="how-it-works__tag">
-            <span>Processo Transparente</span>
+            <span>Fluxo demonstrativo</span>
           </div>
           <h2 className="how-it-works__title">Como Funciona o Arremate</h2>
           <p className="how-it-works__subtitle">
-            Em apenas três passos você participa de leilões seguros com total garantia jurídica.
+            Explore os principais fluxos da aplicação. Os lotes e valores são fictícios e não existe pagamento real.
           </p>
         </div>
 
@@ -25,9 +25,9 @@ export const HowItWorks: React.FC = () => {
                 <path d="m21 21-4.3-4.3" />
               </svg>
             </div>
-            <h3 className="how-it-works__card-title">Encontre o Lote Ideal</h3>
+            <h3 className="how-it-works__card-title">Explore os lotes</h3>
             <p className="how-it-works__card-text">
-              Navegue pelas categorias ou utilize nossa barra de busca inteligente para filtrar produtos, ler especificações técnicas e laudos de estado.
+              Filtre o catálogo por categoria ou busca e consulte as descrições e o histórico demonstrativo de cada item.
             </p>
           </div>
 
@@ -41,9 +41,9 @@ export const HowItWorks: React.FC = () => {
                 <path d="m21 15-4-4" />
               </svg>
             </div>
-            <h3 className="how-it-works__card-title">Acompanhe e Oferte</h3>
+            <h3 className="how-it-works__card-title">Teste os lances</h3>
             <p className="how-it-works__card-text">
-              Monitore o cronômetro do leilão em tempo real. Cada novo lance respeita o incremento mínimo e estende a disputa nos minutos finais.
+              A API valida o incremento mínimo e a janela de lances. O catálogo e o histórico são atualizados durante a disputa simulada.
             </p>
           </div>
 
@@ -56,9 +56,9 @@ export const HowItWorks: React.FC = () => {
                 <path d="m9 12 2 2 4-4" />
               </svg>
             </div>
-            <h3 className="how-it-works__card-title">Arremate com Segurança</h3>
+            <h3 className="how-it-works__card-title">Consulte o resultado</h3>
             <p className="how-it-works__card-text">
-              Sendo o maior lance no encerramento, o lote é seu! Conclua o pagamento através de ambiente seguro e receba com certificado de autenticidade.
+              O sistema registra o encerramento e o resultado de teste. Não há venda, cobrança, entrega de produtos ou certificado de autenticidade.
             </p>
           </div>
         </div>

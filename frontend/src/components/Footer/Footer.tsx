@@ -64,12 +64,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection, onOpenLegal }
               <span className="footer__logo-title">
                 ARREMATE <span className="footer__logo-mh">MH</span>
               </span>
-              <span className="footer__logo-subtitle">LEILÕES OFICIAIS</span>
+              <span className="footer__logo-subtitle">PROJETO DEMONSTRATIVO</span>
             </div>
           </div>
 
           <p className="footer__brand-desc">
-            Casa de leilões online especializada na mediação transparente e segura de produtos de alto valor, tecnologia de ponta, raridades e colecionáveis.
+            Protótipo acadêmico de uma plataforma de leilões online. Os lotes, valores e lances são demonstrativos; não há operação comercial.
           </p>
 
           <div className="footer__security-badges">
@@ -77,14 +77,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection, onOpenLegal }
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
-              Ambiente 100% Auditado
+              Histórico demonstrativo
             </span>
             <span className="footer__badge">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
-              Criptografia SSL
+              Sem pagamentos reais
             </span>
           </div>
         </div>
@@ -148,7 +148,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection, onOpenLegal }
         <div className="footer__col">
           <h4 className="footer__col-title">Desafio Arremate MH</h4>
           <p className="footer__info-text">
-            Casa de leilões com cadastro, lotes publicados por leiloeiro e lances em tempo real.
+            Cadastro, publicação de lotes e lances simulados com atualização em tempo real.
           </p>
           <div className="footer__tag-etapa">
             React · Node.js · PostgreSQL
@@ -159,7 +159,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection, onOpenLegal }
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">
           <p className="footer__copyright">
-            &copy; {new Date().getFullYear()} Arremate MH &bull; Casa de Leilões Online. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Arremate MH &bull; Protótipo de leilões online.
           </p>
           <div className="footer__bottom-links">
             <button
@@ -168,7 +168,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection, onOpenLegal }
               onClick={() => onOpenLegal?.('terms')}
               id="footer-btn-terms"
             >
-              Termos de Uso
+              Regras do protótipo
             </button>
             <span className="footer__dot-separator">&bull;</span>
             <button
@@ -177,7 +177,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection, onOpenLegal }
               onClick={() => onOpenLegal?.('privacy')}
               id="footer-btn-privacy"
             >
-              Privacidade
+              Dados e privacidade
             </button>
             <span className="footer__dot-separator">&bull;</span>
             <button
@@ -186,7 +186,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection, onOpenLegal }
               onClick={() => onOpenLegal?.('edital')}
               id="footer-btn-edital"
             >
-              Edital de Leilões
+              Lotes demonstrativos
             </button>
           </div>
         </div>

@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS bids (
   bidder_id   UUID          NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   amount      NUMERIC(14,2) NOT NULL,
   -- hash SHA-256 encadeado: sha256(prev_hash || bid_id || lot_id || bidder_id || amount || created_at)
-  -- garante histórico à prova de adulteração
+  -- ajuda a detectar alterações quando a cadeia é verificada; não é armazenamento imutável
   chain_hash  VARCHAR(64)   NOT NULL,
   prev_hash   VARCHAR(64)   NOT NULL DEFAULT '0000000000000000000000000000000000000000000000000000000000000000',
   created_at  TIMESTAMPTZ   NOT NULL DEFAULT NOW(),

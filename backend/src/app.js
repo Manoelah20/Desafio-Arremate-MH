@@ -15,12 +15,18 @@ const allowedOrigins = (process.env.FRONTEND_URL || '')
   .map((origin) => origin.trim())
   .filter(Boolean);
 
+if (process.env.NODE_ENV === 'production' && allowedOrigins.length === 0) {
+  throw new Error('FRONTEND_URL deve ser configurada em produção para restringir o CORS.');
+}
+
 app.use(cors({
   origin(origin, callback) {
-    if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+    const allowUnconfiguredDevelopmentOrigin =
+      process.env.NODE_ENV !== 'production' && allowedOrigins.length === 0;
+    if (!origin || allowUnconfiguredDevelopmentOrigin || allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
-    return callback(new Error('Origem não autorizada pelo CORS.'));
+    return callback(null, false);
   },
 }));
 app.use(express.json({ limit: '1mb' }));

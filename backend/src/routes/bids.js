@@ -118,7 +118,7 @@ router.post('/', authMiddleware, requireRole('licitante'), async (req, res) => {
       });
     }
 
-    // ── Buscar último lance para encadeamento do hash (anti-adulteração)
+    // ── Buscar o último hash para encadear o registro do lance
     const { rows: lastBid } = await client.query(
       `SELECT chain_hash, created_at FROM bids WHERE lot_id = $1 ORDER BY created_at DESC LIMIT 1`,
       [lot_id]

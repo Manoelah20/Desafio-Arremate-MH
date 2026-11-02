@@ -92,7 +92,7 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="header__logo-title">
               ARREMATE <span className="header__logo-mh">MH</span>
             </span>
-            <span className="header__logo-subtitle">LEILÕES OFICIAIS</span>
+            <span className="header__logo-subtitle">PROJETO DEMONSTRATIVO</span>
           </div>
         </a>
 
@@ -103,7 +103,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="header__nav-link"
             onClick={() => handleNavClick('auctions')}
           >
-            Leilões Ativos
+            Lotes
           </button>
           <button
             type="button"
@@ -124,7 +124,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="header__nav-link"
             onClick={() => handleNavClick('about')}
           >
-            Sobre a Casa
+            Sobre o Projeto
           </button>
         </nav>
 
@@ -143,14 +143,14 @@ export const Header: React.FC<HeaderProps> = ({
           )}
           <div className="header__status-badge">
             <span className="header__status-pulse"></span>
-            <span className="header__status-text">Ao Vivo</span>
+            <span className="header__status-text">Demo</span>
           </div>
           <button
             type="button"
             className="header__login-btn"
             onClick={userName ? onLogout : onOpenAuth}
             id="btn-login-header"
-            title={userName ? `Sair de ${userName}` : 'Entrar na plataforma'}
+            title={userName ? `Sair de ${userName}` : 'Entrar na demonstração'}
           >
             <svg
               width="18"
@@ -197,7 +197,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="header__mobile-link"
               onClick={() => handleNavClick('auctions')}
             >
-              Leilões Ativos
+              Lotes
             </button>
             <button
               type="button"
@@ -218,7 +218,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="header__mobile-link"
               onClick={() => handleNavClick('about')}
             >
-              Sobre a Casa
+              Sobre o Projeto
             </button>
             <div className="header__mobile-divider"></div>
             {userRole === 'leiloeiro' && (
@@ -242,7 +242,7 @@ export const Header: React.FC<HeaderProps> = ({
                 else onOpenAuth();
               }}
             >
-              {userName ? `Sair (${userName})` : 'Entrar na Plataforma'}
+              {userName ? `Sair (${userName})` : 'Entrar na demonstração'}
             </button>
           </div>
         </div>

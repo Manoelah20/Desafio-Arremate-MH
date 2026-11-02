@@ -336,7 +336,7 @@ function App() {
         />
       )}
 
-      {/* Modal de Informações Legais (Termos, Privacidade e Edital) */}
+      {/* Informações do protótipo (regras, dados e lotes demonstrativos) */}
       <LegalModal
         key={legalModalTab}
         isOpen={legalModalTab !== null}

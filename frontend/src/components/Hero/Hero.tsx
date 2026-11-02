@@ -16,18 +16,18 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onHowItWorksClick })
         {/* Tag de Apresentação */}
         <div className="hero-section__tag">
           <span className="hero-section__tag-icon">⚡</span>
-          <span>Casa Oficial de Leilões Online &bull; Lotes Verificados</span>
+          <span>Projeto demonstrativo &bull; Lances simulados</span>
         </div>
 
         {/* Título Principal de Impacto */}
         <h1 className="hero-section__title">
-          Grandes Oportunidades em <br />
-          <span className="hero-section__title-gradient">Leilões Exclusivos</span>
+          Explore uma plataforma de <br />
+          <span className="hero-section__title-gradient">leilões online</span>
         </h1>
 
         {/* Subtítulo */}
         <p className="hero-section__subtitle">
-          Arremate itens raros, tecnologia de ponta, relógios de luxo e colecionáveis com total transparência, segurança jurídica e lances auditados.
+          Conheça um protótipo acadêmico com cadastro, catálogo de lotes, lances, histórico e atualizações em tempo real. Valores e dados são ilustrativos; não há vendas nem pagamentos reais.
         </p>
 
         {/* Botões de Ação */}
@@ -37,7 +37,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onHowItWorksClick })
             className="hero-section__btn-primary"
             onClick={onExploreClick}
           >
-            <span>Explorar Lotes em Destaque</span>
+            <span>Explorar lotes demonstrativos</span>
             <svg
               width="20"
               height="20"
@@ -56,30 +56,30 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onHowItWorksClick })
             className="hero-section__btn-secondary"
             onClick={onHowItWorksClick}
           >
-            Como Funciona o Arremate
+            Como funciona o protótipo
           </button>
         </div>
 
-        {/* Estatísticas / Prova Social */}
+        {/* Recursos demonstrados pelo projeto */}
         <div className="hero-section__stats">
           <div className="hero-section__stat-item">
-            <span className="hero-section__stat-value">R$ 14M+</span>
-            <span className="hero-section__stat-label">Arrematados em 2026</span>
+            <span className="hero-section__stat-value">Projeto</span>
+            <span className="hero-section__stat-label">acadêmico demonstrativo</span>
           </div>
           <div className="hero-section__stat-separator"></div>
           <div className="hero-section__stat-item">
-            <span className="hero-section__stat-value">1.250+</span>
-            <span className="hero-section__stat-label">Lotes Auditados</span>
+            <span className="hero-section__stat-value">Lances</span>
+            <span className="hero-section__stat-label">registrados para teste</span>
           </div>
           <div className="hero-section__stat-separator"></div>
           <div className="hero-section__stat-item">
-            <span className="hero-section__stat-value">99.8%</span>
-            <span className="hero-section__stat-label">Satisfação dos Usuários</span>
+            <span className="hero-section__stat-value">Tempo real</span>
+            <span className="hero-section__stat-label">atualizações de lotes</span>
           </div>
           <div className="hero-section__stat-separator"></div>
           <div className="hero-section__stat-item">
-            <span className="hero-section__stat-value">100%</span>
-            <span className="hero-section__stat-label">Ambiente Seguro</span>
+            <span className="hero-section__stat-value">Sem</span>
+            <span className="hero-section__stat-label">transações financeiras</span>
           </div>
         </div>
       </div>

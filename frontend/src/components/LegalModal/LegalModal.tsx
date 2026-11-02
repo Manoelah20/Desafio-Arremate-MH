@@ -57,15 +57,15 @@ export const LegalModal: React.FC<LegalModalProps> = ({
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
-              Conformidade Jurídica & LGPD
+              Protótipo acadêmico
             </span>
-            <span className="legal-modal__version">Versão 2026.1 &bull; Atualizado</span>
+            <span className="legal-modal__version">Sem validade jurídica</span>
           </div>
           <h3 className="legal-modal__title" id="legal-modal-title">
-            Documentação Jurídica &bull; Arremate MH
+            Informações do protótipo
           </h3>
           <p className="legal-modal__subtitle">
-            Regulamento oficial, diretrizes de privacidade e termos da casa de leilões online.
+            Estas informações descrevem uma demonstração de software. Não são termos de uso, edital ou política de privacidade de uma operação comercial.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             onClick={() => setActiveTab('terms')}
             id="tab-terms-btn"
           >
-            📜 Termos de Uso
+            📜 Regras demonstrativas
           </button>
           <button
             type="button"
@@ -85,7 +85,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             onClick={() => setActiveTab('privacy')}
             id="tab-privacy-btn"
           >
-            🔒 Privacidade & LGPD
+            🔒 Dados e privacidade
           </button>
           <button
             type="button"
@@ -93,7 +93,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             onClick={() => setActiveTab('edital')}
             id="tab-edital-btn"
           >
-            ⚖️ Edital de Leilões
+            ⚖️ Sobre os lotes
           </button>
         </div>
 
@@ -102,46 +102,36 @@ export const LegalModal: React.FC<LegalModalProps> = ({
           {activeTab === 'terms' && (
             <>
               <div className="legal-modal__highlight-box">
-                Ao participar de qualquer leilão promovido pela <strong>Arremate MH</strong>, o arrematante declara ter capacidade civil plena e aceitar integralmente as cláusulas estipuladas a seguir.
+                O Arremate MH é um protótipo acadêmico. Os fluxos de cadastro e lance existem para demonstração e não criam oferta, venda ou obrigação de pagamento.
               </div>
 
               <div className="legal-modal__section">
                 <h4 className="legal-modal__section-title">
                   <span className="legal-modal__section-num">1</span>
-                  Aceite dos Termos e Habilitação
+                  Cadastro de teste
                 </h4>
                 <p className="legal-modal__section-text">
-                  Para ofertar lances na plataforma Arremate MH, é mandatório que o usuário seja pessoa física maior de 18 (dezoito) anos ou pessoa jurídica regularmente constituída, com CPF/CNPJ válido perante a Receita Federal do Brasil. O cadastro passa por análise cadastral preventiva contra fraudes.
+                  Use apenas dados fictícios ou informações que você esteja confortável em utilizar em um ambiente de demonstração. O cadastro não verifica CPF, CNPJ, identidade ou capacidade civil.
                 </p>
               </div>
 
               <div className="legal-modal__section">
                 <h4 className="legal-modal__section-title">
                   <span className="legal-modal__section-num">2</span>
-                  Natureza Vinculante e Irretratável dos Lances
+                  Lances simulados
                 </h4>
                 <p className="legal-modal__section-text">
-                  Todo lance ofertado na plataforma é irrevogável, irretratável e de responsabilidade exclusiva do arrematante autenticado. Uma vez registrado no livro eletrônico do leiloeiro, o lance não poderá ser cancelado ou reduzido sob nenhuma circunstância.
+                  Os lances são validados e registrados para demonstrar as regras do sistema. Eles não são vinculantes, não representam uma compra e não podem ser convertidos em uma transação real.
                 </p>
               </div>
 
               <div className="legal-modal__section">
                 <h4 className="legal-modal__section-title">
                   <span className="legal-modal__section-num">3</span>
-                  Comissão do Leiloeiro e Encargos
+                  Sem cobranças
                 </h4>
                 <p className="legal-modal__section-text">
-                  Sobre o valor da arrematação (martelo) incidirá comissão legal de 5% (cinco por cento) devida ao Leiloeiro Oficial, acrescida de taxas administrativas de emissão de termo descritas na página de cada lote. O pagamento total deverá ocorrer em até 48 (quarenta e oito) horas úteis após a homologação do pregão.
-                </p>
-              </div>
-
-              <div className="legal-modal__section">
-                <h4 className="legal-modal__section-title">
-                  <span className="legal-modal__section-num">4</span>
-                  Inadimplência e Bloqueio
-                </h4>
-                <p className="legal-modal__section-text">
-                  O não pagamento do valor do arremate e comissão no prazo fixado ensejará o cancelamento da venda, perda de 20% do valor ofertado a título de penalidade civil, além de inscrição nos órgãos de proteção ao crédito (SPC/Serasa) e suspensão permanente na plataforma.
+                  Não há comissão, taxa, depósito de dinheiro real, processamento de pagamento, entrega de produtos ou penalidade por participar do protótipo.
                 </p>
               </div>
             </>
@@ -150,47 +140,46 @@ export const LegalModal: React.FC<LegalModalProps> = ({
           {activeTab === 'privacy' && (
             <>
               <div className="legal-modal__highlight-box">
-                A <strong>Arremate MH</strong> trata a segurança e a confidencialidade das suas informações com rigor extremo, em estrita conformidade com a <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018 - LGPD)</strong>.
+                Esta aplicação de demonstração processa dados de conta para viabilizar os testes. Não envie documentos, dados bancários, senhas reutilizadas ou outras informações sensíveis.
               </div>
 
               <div className="legal-modal__section">
                 <h4 className="legal-modal__section-title">
                   <span className="legal-modal__section-num">1</span>
-                  Dados Pessoais Coletados
+                  Dados usados no teste
                 </h4>
                 <p className="legal-modal__section-text">
-                  Coletamos apenas os dados indispensáveis para o cumprimento das obrigações legais de leilão público: nome completo, CPF/CNPJ, endereço residencial/comercial, telefone, e-mail e dados bancários para estorno ou comprovação de faturamento.
+                  O cadastro solicita nome, e-mail e senha. A API armazena a senha como hash; dados de conta, saldos demonstrativos e lances podem ser persistidos no banco configurado para o ambiente.
                 </p>
               </div>
 
               <div className="legal-modal__section">
                 <h4 className="legal-modal__section-title">
                   <span className="legal-modal__section-num">2</span>
-                  Finalidade do Tratamento
+                  Sessão no navegador
                 </h4>
                 <p className="legal-modal__section-text">
-                  Os dados são utilizados exclusivamente para:
-                  validação da identidade do licitante, auditoria dos lances em tempo real, emissão do auto de arrematação oficial e nota de venda do leiloeiro, e prevenção contra crimes financeiros (Lei nº 9.613/1998).
+                  Após o login, um token de sessão é mantido no armazenamento local do navegador para autenticar as chamadas da API. Encerre a sessão e limpe os dados do navegador em dispositivos compartilhados.
                 </p>
               </div>
 
               <div className="legal-modal__section">
                 <h4 className="legal-modal__section-title">
                   <span className="legal-modal__section-num">3</span>
-                  Criptografia e Armazenamento Seguro
+                  Ambiente demonstrativo
                 </h4>
                 <p className="legal-modal__section-text">
-                  Todas as comunicações entre seu navegador e nossos servidores são protegidas por criptografia de ponta a ponta com certificados TLS 1.3 / SSL de 256 bits. Informações sensíveis de pagamento não ficam salvas em texto puro.
+                  O banco utilizado depende da configuração local ou publicada do projeto. Esta demonstração não oferece canal de atendimento de privacidade nem garante retenção, exclusão ou disponibilidade de dados.
                 </p>
               </div>
 
               <div className="legal-modal__section">
                 <h4 className="legal-modal__section-title">
                   <span className="legal-modal__section-num">4</span>
-                  Seus Direitos como Titular (DPO)
+                  Não use dados reais
                 </h4>
                 <p className="legal-modal__section-text">
-                  Você pode requerer confirmação de tratamento, correção de dados incompletos ou eliminação de informações excedentes através do nosso canal de Encarregado de Proteção de Dados: <strong>privacidade@arrematemh.com.br</strong>.
+                  Como não é um serviço operacional, não há encarregado de dados ou canal de suporte associado a esta interface. Para testes, prefira uma conta com dados fictícios e uma senha exclusiva.
                 </p>
               </div>
             </>
@@ -199,36 +188,36 @@ export const LegalModal: React.FC<LegalModalProps> = ({
           {activeTab === 'edital' && (
             <>
               <div className="legal-modal__highlight-box">
-                Edital Regulamentar de Pregão Eletrônico da <strong>Arremate MH Leilões</strong>. Vendas em caráter irrevogável, realizadas na forma do Decreto Federal nº 21.981/1932 e Código de Processo Civil.
+                Os lotes e as descrições desta página são ilustrativos. Este protótipo não anuncia bens para venda e não substitui edital ou avaliação de um leilão real.
               </div>
 
               <div className="legal-modal__section">
                 <h4 className="legal-modal__section-title">
                   <span className="legal-modal__section-num">1</span>
-                  Condição dos Lotes: Venda "No Estado"
+                  Descrições ilustrativas
                 </h4>
                 <p className="legal-modal__section-text">
-                  Todos os bens são leiloados no estado de conservação em que se encontram (<em>ad corpus</em>). Fotos, descritivos e laudos técnicos são informativos. É assegurado aos interessados o direito de vistoria prévia dos lotes mediante agendamento formal até 24 horas antes do encerramento do pregão.
+                  Fotos, títulos, preços e condições foram incluídos para demonstrar a interface. Eles não comprovam a existência, autenticidade, propriedade ou estado de conservação de um produto.
                 </p>
               </div>
 
               <div className="legal-modal__section">
                 <h4 className="legal-modal__section-title">
                   <span className="legal-modal__section-num">2</span>
-                  Prorrogação Automática (Sistema Anti-Sniping)
+                  Regras de encerramento
                 </h4>
                 <p className="legal-modal__section-text">
-                  Caso qualquer lance seja ofertado nos últimos 60 (sessenta) segundos antes do término programado de um lote, o cronômetro do leilão será automaticamente acrescido em mais 60 segundos, garantindo tempo hábil de disputa leal entre todos os participantes.
+                  O sistema implementa regras de início, encerramento e prorrogação para testar o fluxo de lances. O resultado não produz arrematação nem obrigação fora deste ambiente de demonstração.
                 </p>
               </div>
 
               <div className="legal-modal__section">
                 <h4 className="legal-modal__section-title">
                   <span className="legal-modal__section-num">3</span>
-                  Retirada e Transporte
+                  Sem entrega ou pagamento
                 </h4>
                 <p className="legal-modal__section-text">
-                  As despesas com desmontagem, carregamento, frete, seguro e transferência documental perante órgãos de trânsito ou cartórios correm por conta exclusiva do arrematante, devendo ser concluídas no prazo máximo de 10 (dez) dias corridos após a compensação do pagamento.
+                  Não há retirada, transporte, seguro, transferência de propriedade, certificado de autenticidade ou compensação financeira relacionada aos lotes.
                 </p>
               </div>
             </>
@@ -238,7 +227,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         {/* Rodapé do Modal */}
         <div className="legal-modal__footer">
           <span className="legal-modal__footer-info">
-            Ao navegar e licitar na Arremate MH, você concorda com estes termos.
+            Protótipo acadêmico: não há oferta, venda ou pagamento real.
           </span>
           <button
             type="button"
@@ -246,7 +235,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             onClick={onClose}
             id="btn-close-legal-modal"
           >
-            ✓ Ciente e De Acordo
+            Entendi
           </button>
         </div>
       </div>
