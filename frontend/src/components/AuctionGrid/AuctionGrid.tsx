@@ -7,6 +7,7 @@ import './AuctionGrid.css';
 interface AuctionGridProps {
   auctions: AuctionItem[];
   selectedCategory: AuctionCategory;
+  searchTerm: string;
   onViewAuction: (item: AuctionItem) => void;
   onResetFilters: () => void;
 }
@@ -14,9 +15,13 @@ interface AuctionGridProps {
 export const AuctionGrid: React.FC<AuctionGridProps> = ({
   auctions,
   selectedCategory,
+  searchTerm,
   onViewAuction,
   onResetFilters
 }) => {
+  const trimmedSearchTerm = searchTerm.trim();
+  const hasSearchTerm = trimmedSearchTerm.length > 0;
+
   return (
     <section className="auction-grid-section" id="auctions">
       <div className="container">
@@ -74,13 +79,15 @@ export const AuctionGrid: React.FC<AuctionGridProps> = ({
               </div>
             )}
             <h3 className="auction-grid__empty-title">
-              {selectedCategory === 'Todos'
+              {selectedCategory === 'Todos' || hasSearchTerm
                 ? 'Nenhum lote demonstrativo encontrado'
                 : `${selectedCategory} — foto ilustrativa`}
             </h3>
             <p className="auction-grid__empty-desc">
-              {selectedCategory === 'Todos'
-                ? 'Não encontramos nenhum lote demonstrativo correspondente à sua busca. Tente outra palavra-chave.'
+              {hasSearchTerm
+                ? `Não encontramos lotes${selectedCategory === 'Todos' ? '' : ` de ${selectedCategory}`} correspondentes à busca "${trimmedSearchTerm}". Tente outro termo ou limpe a busca.`
+                : selectedCategory === 'Todos'
+                  ? 'Não há lotes demonstrativos disponíveis no momento.'
                 : `Ainda não há lotes demonstrativos de ${selectedCategory}. Esta foto serve apenas como referência visual da categoria.`}
             </p>
             <button

@@ -304,6 +304,7 @@ function App() {
       <AuctionGrid
         auctions={filteredAuctions}
         selectedCategory={selectedCategory}
+        searchTerm={searchTerm}
         onViewAuction={(item) => { void handleViewAuction(item); }}
         onResetFilters={handleResetFilters}
       />
