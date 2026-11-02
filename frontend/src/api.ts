@@ -143,6 +143,19 @@ function categoryFromLot(lot: ApiLot): AuctionCategory {
 function imageForCategory(category: AuctionCategory): string {
   const imageByCategory: Record<AuctionCategory, string> = {
     Todos: '/demo-lot.svg',
+    Tecnologia: '/demo-lot-technology.jpg',
+    Relógios: '/demo-lot-watch.jpg',
+    Veículos: '/demo-lot-vehicle.jpg',
+    'Arte & Design': '/demo-lot-art.jpg',
+    Colecionáveis: '/demo-lot-collectibles.jpg',
+  };
+
+  return imageByCategory[category];
+}
+
+function fallbackImageForCategory(category: AuctionCategory): string {
+  const imageByCategory: Record<AuctionCategory, string> = {
+    Todos: '/demo-lot.svg',
     Tecnologia: '/demo-lot-technology.svg',
     Relógios: '/demo-lot-watch.svg',
     Veículos: '/demo-lot-vehicle.svg',
@@ -199,6 +212,7 @@ export function mapLot(lot: ApiLot): AuctionItem {
     ),
     status,
     imageUrl: imageForCategory(category),
+    imageFallbackUrl: fallbackImageForCategory(category),
     condition: 'Item ilustrativo; sem verificação',
     location: 'Ambiente de teste',
     bidIncrement: Number(lot.min_increment),

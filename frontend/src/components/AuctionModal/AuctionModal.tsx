@@ -23,6 +23,7 @@ export const AuctionModal: React.FC<AuctionModalProps> = ({
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [failedImageUrl, setFailedImageUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -96,9 +97,10 @@ export const AuctionModal: React.FC<AuctionModalProps> = ({
           {/* Coluna da Imagem */}
           <div className="auction-modal__media">
             <img
-              src={item.imageUrl}
+              src={failedImageUrl === item.imageUrl ? item.imageFallbackUrl : item.imageUrl}
               alt={item.title}
               className="auction-modal__image"
+              onError={() => setFailedImageUrl(item.imageUrl)}
             />
             <div className="auction-modal__media-footer">
               <span className="auction-modal__media-pill">{item.category}</span>

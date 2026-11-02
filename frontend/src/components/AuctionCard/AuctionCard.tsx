@@ -8,7 +8,7 @@ interface AuctionCardProps {
 }
 
 export const AuctionCard: React.FC<AuctionCardProps> = ({ item, onViewAuction }) => {
-  const [imageError, setImageError] = useState(false);
+  const [failedImageUrl, setFailedImageUrl] = useState<string | null>(null);
 
   const formattedBid = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -54,33 +54,13 @@ export const AuctionCard: React.FC<AuctionCardProps> = ({ item, onViewAuction })
         {getStatusBadge()}
         <span className="auction-card__lot-number">{item.lotNumber}</span>
 
-        {!imageError ? (
-          <img
-            src={item.imageUrl}
-            alt={item.title}
-            className="auction-card__image"
-            loading="lazy"
-            onError={() => setImageError(true)}
-          />
-        ) : (
-          <div className="auction-card__image-fallback">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-              <circle cx="9" cy="9" r="2" />
-              <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-            </svg>
-            <span>{item.category}</span>
-          </div>
-        )}
+        <img
+          src={failedImageUrl === item.imageUrl ? item.imageFallbackUrl : item.imageUrl}
+          alt={item.title}
+          className="auction-card__image"
+          loading="lazy"
+          onError={() => setFailedImageUrl(item.imageUrl)}
+        />
 
         <div className="auction-card__overlay"></div>
       </div>

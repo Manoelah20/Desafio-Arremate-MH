@@ -252,9 +252,9 @@ function App() {
         <div className="app__demo-notice-content">
           <strong>Protótipo para demonstração e testes</strong>
           <span>
-            Itens, imagens, valores, saldos e lances são ilustrativos. Não há
-            produtos à venda, pagamentos, entregas, aconselhamento jurídico ou
-            vínculo com marcas, autores ou serviços de terceiros.
+            Lotes, valores, saldos e lances são demonstrativos; as fotos apenas
+            ilustram categorias e não correspondem aos itens. Não há produtos à
+            venda, pagamentos, entregas ou vínculo com terceiros.
           </span>
         </div>
       </aside>

@@ -19,6 +19,7 @@ export interface AuctionItem {
   endsIn: string;
   status: AuctionStatus;
   imageUrl: string;
+  imageFallbackUrl: string;
   condition: string;
   location: string;
   lotNumber: string;

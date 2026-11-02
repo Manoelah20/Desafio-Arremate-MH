@@ -27,7 +27,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onHowItWorksClick })
 
         {/* Subtítulo */}
         <p className="hero-section__subtitle">
-          Conheça um modelo de projeto com cadastro, catálogo de lotes, lances, histórico e atualizações em tempo real. Valores e dados são ilustrativos; não há vendas nem pagamentos reais.
+          Conheça um modelo de projeto com cadastro, catálogo de lotes, lances, histórico e atualizações em tempo real. Fotos ilustram apenas categorias; dados e valores são demonstrativos, sem vendas nem pagamentos reais.
         </p>
 
         {/* Botões de Ação */}

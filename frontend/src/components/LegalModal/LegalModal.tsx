@@ -197,7 +197,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   Descrições ilustrativas
                 </h4>
                 <p className="legal-modal__section-text">
-                  A ilustração, os títulos genéricos, valores e históricos de lances são dados de teste. Não comprovam a existência, autenticidade, propriedade ou estado de conservação de qualquer produto.
+                  As fotos ilustram apenas categorias; não correspondem aos itens demonstrativos. Títulos genéricos, valores e históricos de lances são dados de teste e não comprovam a existência, autenticidade, propriedade ou estado de conservação de qualquer produto.
                 </p>
               </div>
 
@@ -218,6 +218,36 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                 </h4>
                 <p className="legal-modal__section-text">
                   Não há retirada, transporte, seguro, transferência de propriedade, certificado de autenticidade ou compensação financeira relacionada aos lotes.
+                </p>
+              </div>
+
+              <div className="legal-modal__section">
+                <h4 className="legal-modal__section-title">
+                  <span className="legal-modal__section-num">4</span>
+                  Créditos e licenças das fotografias
+                </h4>
+                <p className="legal-modal__section-text">
+                  Relógios — www.Pixel.la Free Stock Photos, CC0 (
+                  <a href="https://commons.wikimedia.org/wiki/File:Fashion-wristwatch-time-watch-1_(24325510005).jpg" target="_blank" rel="noreferrer">fonte</a>
+                  {' · '}
+                  <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">licença</a>
+                  ); Tecnologia — Gre123gr, CC0, imagem recortada (
+                  <a href="https://commons.wikimedia.org/wiki/File:Backlit_Laptop_Keyboard.jpg" target="_blank" rel="noreferrer">fonte</a>
+                  {' · '}
+                  <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">licença</a>
+                  ); Veículos — Costin Costan, CC0 (
+                  <a href="https://commons.wikimedia.org/wiki/File:Abandoned_Classic_Car_(166397797).jpeg" target="_blank" rel="noreferrer">fonte</a>
+                  {' · '}
+                  <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">licença</a>
+                  ); Arte — Fons Heijnsbroek, CC0 (
+                  <a href="https://commons.wikimedia.org/wiki/File:%27Abstract_sky%27%2C_1993_-_small_acrylic_painting_by_Dutch_artist_Fons_Heijnsbroek%3B_free_download_abstract_art_image%2C_CCO.jpg" target="_blank" rel="noreferrer">fonte</a>
+                  {' · '}
+                  <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">licença</a>
+                  ); Colecionáveis — Lesbeatiques, CC BY-SA 4.0, miniatura redimensionada (
+                  <a href="https://commons.wikimedia.org/wiki/File:Antique_Baccarat_Closepack_Millefiori_Paperweight.jpg" target="_blank" rel="noreferrer">fonte</a>
+                  {' · '}
+                  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">licença</a>
+                  ).
                 </p>
               </div>
             </>

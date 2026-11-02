@@ -14,11 +14,11 @@ function categoryFromLot(lot) {
 function toPublicDemoLot(lot) {
   const category = categoryFromLot(lot);
   const imageByCategory = {
-    'Relógios': '/demo-lot-watch.svg',
-    'Veículos': '/demo-lot-vehicle.svg',
-    'Arte & Design': '/demo-lot-art.svg',
-    Tecnologia: '/demo-lot-technology.svg',
-    Colecionáveis: '/demo-lot-collectibles.svg',
+    'Relógios': '/demo-lot-watch.jpg',
+    'Veículos': '/demo-lot-vehicle.jpg',
+    'Arte & Design': '/demo-lot-art.jpg',
+    Tecnologia: '/demo-lot-technology.jpg',
+    Colecionáveis: '/demo-lot-collectibles.jpg',
   };
   return {
     ...lot,

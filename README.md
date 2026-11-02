@@ -4,6 +4,7 @@
 > Protótipo demonstrativo com interface em **React 19/TypeScript**, API em **Node.js/Express**, **PostgreSQL** e eventos em tempo real.
 
 > **Somente demonstração e testes:** lotes, imagens, saldos e lances são fictícios. A aplicação não oferece produtos reais, não processa pagamentos e não gera obrigações comerciais ou jurídicas.
+> As fotografias são referências visuais de categoria, não representam os lotes, seus proprietários ou produtos disponíveis para venda.
 > Não use dados pessoais ou senhas reais. Nomes de marcas eventualmente encontrados em registros antigos não indicam vínculo ou endosso; a API pública apresenta lotes com conteúdo genérico.
 
 ![React](https://img.shields.io/badge/React-19.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)
@@ -45,7 +46,7 @@ A interface inicial prioriza:
 
 O layout foi inteiramente projetado com **Vanilla CSS** através de um sistema estruturado de *design tokens* nativos em `index.css`:
 
-* **Base Escura Sofisticada (`#0a0b10` / `#141522`):** Proporciona conforto visual prolongado e destaca as imagens dos produtos.
+* **Base Escura Sofisticada (`#0a0b10` / `#141522`):** Destaca as fotos ilustrativas e os elementos da interface.
 * **Amarelo Dourado & Âmbar (`#fbbf24` / `#facc15` / `#f59e0b`):** Evoca a tradição do martelo de leilão, chamando atenção para valores de lance, status "Ao Vivo" e cronômetros de urgência.
 * **Roxo & Violeta (`#8b5cf6` / `#7c3aed` / `#c084fc`):** Utilizado em botões de ação primária, cartões de destaque e detalhes visuais.
 * **Tipografia:** 
@@ -73,11 +74,11 @@ O layout foi inteiramente projetado com **Vanilla CSS** através de um sistema e
 * **Contador de Resultados:** Feedback visual imediato da quantidade de lotes encontrados.
 
 ### 4. Grade de Lotes em Destaque
-* Cards com imagens ilustrativas, indicação de tempo restante atualizada periodicamente, histórico de lances e valores formatados no padrão monetário brasileiro (`Intl.NumberFormat('pt-BR')`).
+* Cards com fotos ilustrativas licenciadas, indicação de tempo restante atualizada periodicamente, histórico de lances e valores formatados no padrão monetário brasileiro (`Intl.NumberFormat('pt-BR')`).
 * *Empty State* elegante e amigável com botão de restauração rápida de filtros caso a busca não retorne resultados.
 
 ### 5. Itens e dados de demonstração
-* O seed cria lotes de livros em estados agendado, ao vivo e encerrado, com usuários e histórico de lances.
+* O seed cria lotes fictícios em estados agendado, ao vivo e encerrado, com usuários e histórico de lances. Fotos servem apenas como referência visual de categoria.
 * O leiloeiro pode consultar metadados de livros da Open Library e testar o cadastro de lotes; capas externas não são usadas.
 
 ### 6. Modais de ação e informações da demonstração
@@ -126,7 +127,12 @@ desafio-arremate/
 │   ├── .env.example            # Modelo de configuração local
 │   └── package.json
 └── frontend/
-    ├── public/                 # Ilustrações fictícias por categoria
+    ├── public/                 # Fotos licenciadas e ilustrações de fallback
+    │   ├── demo-lot-art.jpg
+    │   ├── demo-lot-collectibles.jpg
+    │   ├── demo-lot-technology.jpg
+    │   ├── demo-lot-vehicle.jpg
+    │   ├── demo-lot-watch.jpg
     │   ├── demo-lot-art.svg
     │   ├── demo-lot-collectibles.svg
     │   ├── demo-lot-technology.svg
@@ -349,11 +355,24 @@ requisição.
 
 ## 📄 Conteúdo, atribuições e créditos
 
-Modelo de projeto desenvolvido por **Manoela Harrison**. As ilustrações genéricas por categoria
-em `frontend/public/demo-lot-*.svg` e os elementos visuais próprios foram criados para a demonstração. As fontes
-Inter e Plus Jakarta Sans são servidas pelo Google Fonts; consulte os termos e
-licenças de seus titulares. Metadados bibliográficos podem ser consultados na
-Open Library, que não patrocina nem endossa o projeto. Não são incorporadas
-capas externas. Este repositório não concede licença sobre marcas, fontes ou
-outros direitos de terceiros, e este aviso não substitui uma análise jurídica
-nem garante que todo conteúdo externo esteja livre de restrições.
+Modelo de projeto desenvolvido por **Manoela Harrison**. As ilustrações SVG
+genéricas em `frontend/public/demo-lot-*.svg` foram criadas para a demonstração
+e são usadas como fallback. As fotografias abaixo ilustram somente categorias;
+não representam os lotes fictícios nem indicam disponibilidade, propriedade,
+autenticidade ou endosso:
+
+| Arquivo | Obra e autoria | Licença e origem |
+| --- | --- | --- |
+| `demo-lot-watch.jpg` | “Fashion-wristwatch-time-watch-1”, www.Pixel.la Free Stock Photos | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fashion-wristwatch-time-watch-1_(24325510005).jpg) |
+| `demo-lot-technology.jpg` | “Backlit Laptop Keyboard”, Gre123gr; recortada para exibição | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Backlit_Laptop_Keyboard.jpg) |
+| `demo-lot-vehicle.jpg` | “Abandoned Classic Car”, Costin Costan | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Abandoned_Classic_Car_(166397797).jpeg) |
+| `demo-lot-art.jpg` | “Abstract sky”, Fons Heijnsbroek | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%27Abstract_sky%27%2C_1993_-_small_acrylic_painting_by_Dutch_artist_Fons_Heijnsbroek%3B_free_download_abstract_art_image%2C_CCO.jpg) |
+| `demo-lot-collectibles.jpg` | “Antique Baccarat Closepack Millefiori Paperweight”, Lesbeatiques | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Antique_Baccarat_Closepack_Millefiori_Paperweight.jpg); miniatura redimensionada para exibição |
+
+As fontes Inter e Plus Jakarta Sans são servidas pelo Google Fonts; consulte os
+termos e licenças de seus titulares. Metadados bibliográficos podem ser
+consultados na Open Library, que não patrocina nem endossa o projeto. Capas
+externas não são incorporadas. Este repositório não concede licença sobre
+marcas, fontes ou outros direitos de terceiros, e este aviso não substitui
+análise jurídica nem garante que todo conteúdo externo esteja livre de
+restrições.
