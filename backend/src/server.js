@@ -11,12 +11,22 @@ const { Server } = require('socket.io');
 const app = require('./app');
 const pool = require('./db/pool');
 const closeDueLots = require('./services/closeDueLots');
+const { isOriginAllowed } = require('./utils/cors');
 const server = http.createServer(app);
+const allowedOrigins = (process.env.FRONTEND_URL || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 // ── Socket.io (tempo real de lances)
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || '*',
+    origin(origin, callback) {
+      return callback(
+        null,
+        isOriginAllowed(origin, allowedOrigins, process.env.NODE_ENV === 'production'),
+      );
+    },
     methods: ['GET', 'POST'],
   },
 });

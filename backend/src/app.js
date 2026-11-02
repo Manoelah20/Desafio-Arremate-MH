@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const pool = require('./db/pool');
 const closeDueLots = require('./services/closeDueLots');
+const { isOriginAllowed } = require('./utils/cors');
 
 const authRoutes = require('./routes/auth');
 const lotsRoutes = require('./routes/lots');
@@ -21,12 +22,10 @@ if (process.env.NODE_ENV === 'production' && allowedOrigins.length === 0) {
 
 app.use(cors({
   origin(origin, callback) {
-    const allowUnconfiguredDevelopmentOrigin =
-      process.env.NODE_ENV !== 'production' && allowedOrigins.length === 0;
-    if (!origin || allowUnconfiguredDevelopmentOrigin || allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    return callback(null, false);
+    return callback(
+      null,
+      isOriginAllowed(origin, allowedOrigins, process.env.NODE_ENV === 'production'),
+    );
   },
 }));
 app.use(express.json({ limit: '1mb' }));
