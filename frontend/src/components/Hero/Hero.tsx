@@ -12,11 +12,11 @@ const CATEGORY_PREVIEWS: Array<{
   category: Exclude<AuctionCategory, 'Todos'>;
   image: string;
 }> = [
-  { category: 'Tecnologia', image: '/demo-lot-technology.jpg' },
+  { category: 'Tecnologia', image: '/tecnologia-pixabay.jpg' },
   { category: 'Relógios', image: '/relogio2.jpg' },
   { category: 'Veículos', image: '/carro1.jpg' },
   { category: 'Arte & Design', image: '/arte-design-pixabay.jpg' },
-  { category: 'Colecionáveis', image: '/demo-lot-collectibles.jpg' },
+  { category: 'Colecionáveis', image: '/colecionaveis-vinil.jpg' },
 ];
 
 export const Hero: React.FC<HeroProps> = ({

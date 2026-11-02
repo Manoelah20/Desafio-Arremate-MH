@@ -128,12 +128,13 @@ desafio-arremate/
 │   └── package.json
 └── frontend/
     ├── public/                 # Fotos licenciadas e ilustrações de fallback
-    │   ├── demo-lot-art.jpg
-    │   ├── demo-lot-collectibles.jpg
-    │   ├── demo-lot-technology.jpg
     │   ├── carro1.jpg
     │   ├── carro2.jpg
     │   ├── arte-design-pixabay.jpg
+    │   ├── arte-design-aquarela.jpg
+    │   ├── colecionaveis-vinil.jpg
+    │   ├── colecionaveis-gramofone.jpg
+    │   ├── tecnologia-pixabay.jpg
     │   ├── relogio1.jpg
     │   ├── relogio2.jpg
     │   ├── demo-lot-art.svg
@@ -370,9 +371,10 @@ autenticidade ou endosso:
 | `carro1.jpg` | “Carros Antigos Clássicos”, Pixabay | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/carros-antigos-carros-cl%C3%A1ssicos-7566297/) |
 | `carro2.jpg` | “Carro clássico Porsche”, Pixabay | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/carro-carro-cl%C3%A1ssico-porsche-7294294/) |
 | `arte-design-pixabay.jpg` | “Arte abstrata em acrílico fluido”, elulela31 | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/arte-resumo-moderno-pintura-4668134/) |
-| `demo-lot-technology.jpg` | “Backlit Laptop Keyboard”, Gre123gr; recortada para exibição | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Backlit_Laptop_Keyboard.jpg) |
-| `demo-lot-art.jpg` | “Abstract sky”, Fons Heijnsbroek | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%27Abstract_sky%27%2C_1993_-_small_acrylic_painting_by_Dutch_artist_Fons_Heijnsbroek%3B_free_download_abstract_art_image%2C_CCO.jpg) |
-| `demo-lot-collectibles.jpg` | “Antique Baccarat Closepack Millefiori Paperweight”, Lesbeatiques | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Antique_Baccarat_Closepack_Millefiori_Paperweight.jpg); miniatura redimensionada para exibição |
+| `arte-design-aquarela.jpg` | “Fundo de textura em aquarela abstrata”, garageband | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/colorido-pintura-fundo-abstract-2468874/) |
+| `tecnologia-pixabay.jpg` | “Futuristic glowing laptop on desk”, JoshuaWoroniecki | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/photos/laptop-digital-device-technology-5673901/) |
+| `colecionaveis-vinil.jpg` | “Vinyl record on turntable close-up”, chienba | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/photos/music-player-record-player-7792956/) |
+| `colecionaveis-gramofone.jpg` | “Vintage gramophone in antique shop”, bogitw | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/photos/flea-market-gramophone-music-1262036/) |
 
 As fontes Inter e Plus Jakarta Sans são servidas pelo Google Fonts; consulte os
 termos e licenças de seus titulares. Metadados bibliográficos podem ser

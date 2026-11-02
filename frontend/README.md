@@ -25,15 +25,15 @@ Para configurar e iniciar o backend e o banco, consulte o [README principal](../
 - Os lotes públicos da API são apresentados com nomes, descrições e ilustração
   genéricos de demonstração. Valores, estados e histórico de lances são mantidos
   para exercitar os fluxos.
-- As fotografias locais em `public/demo-lot-*.jpg` ilustram apenas as categorias
-  dos lotes fictícios; não representam itens disponíveis para venda. As
+- As fotografias locais em `public/*.jpg` ilustram apenas as categorias dos lotes
+  fictícios; não representam itens disponíveis para venda. As
   imagens SVG em `public/demo-lot-*.svg` são próprias e usadas como fallback;
   `demo-lot-art.svg` mantém a identidade visual Arremate MH como fallback.
 - As atribuições, licenças e links de origem das fotografias estão no README
-  principal. As fotos de relógios, veículos e Arte & Design seguem a Licença de
-  Conteúdo do Pixabay; a imagem de colecionáveis usa CC BY-SA 4.0 e as demais
-  fotos listadas usam CC0. As fotos são incorporadas à interface como ilustrações
-  de categoria, não disponibilizadas isoladamente para download.
+  principal. As fotos de relógios, veículos, tecnologia, Arte & Design e
+  colecionáveis seguem a Licença de Conteúdo do Pixabay. As fotos são
+  incorporadas à interface como ilustrações de categoria, não disponibilizadas
+  isoladamente para download.
 - O painel pode consultar metadados bibliográficos da Open Library para testes.
   As capas não são exibidas nem devolvidas pelo endpoint de busca. A Open
   Library não patrocina nem endossa o projeto.

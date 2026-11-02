@@ -42,11 +42,11 @@ test('public demo lots do not expose third-party titles, descriptions, metadata,
 
 test('public demo lots select the licensed photo for each category', () => {
   const cases = [
-    { subject: 'Tecnologia', image: '/demo-lot-technology.jpg' },
+    { subject: 'Tecnologia', image: '/tecnologia-pixabay.jpg' },
     { subject: 'Relógios', image: '/relogio2.jpg' },
     { subject: 'Veículos', image: '/carro1.jpg' },
     { subject: 'Arte & Design', image: '/arte-design-pixabay.jpg' },
-    { subject: 'Colecionáveis', image: '/demo-lot-collectibles.jpg' },
+    { subject: 'Colecionáveis', image: '/colecionaveis-vinil.jpg' },
   ];
 
   for (const { subject, image } of cases) {
@@ -65,6 +65,10 @@ test('individual vehicle and watch lots each receive one of their licensed photo
     { subject: 'Veículos', id: 'lot-1', image: '/carro2.jpg' },
     { subject: 'Relógios', id: 'lot-0', image: '/relogio2.jpg' },
     { subject: 'Relógios', id: 'lot-1', image: '/relogio1.jpg' },
+    { subject: 'Arte & Design', id: 'lot-0', image: '/arte-design-pixabay.jpg' },
+    { subject: 'Arte & Design', id: 'lot-1', image: '/arte-design-aquarela.jpg' },
+    { subject: 'Colecionáveis', id: 'lot-0', image: '/colecionaveis-vinil.jpg' },
+    { subject: 'Colecionáveis', id: 'lot-1', image: '/colecionaveis-gramofone.jpg' },
   ];
 
   for (const { subject, id, image } of cases) {

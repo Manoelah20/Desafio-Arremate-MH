@@ -143,11 +143,11 @@ function categoryFromLot(lot: ApiLot): AuctionCategory {
 function imageForLot(category: AuctionCategory, id: string, publicImageUrl: string | null): string {
   const imagesByCategory: Record<AuctionCategory, string[]> = {
     Todos: ['/demo-lot.svg'],
-    Tecnologia: ['/demo-lot-technology.jpg'],
+    Tecnologia: ['/tecnologia-pixabay.jpg'],
     Relógios: ['/relogio2.jpg', '/relogio1.jpg'],
     Veículos: ['/carro1.jpg', '/carro2.jpg'],
-    'Arte & Design': ['/arte-design-pixabay.jpg'],
-    Colecionáveis: ['/demo-lot-collectibles.jpg'],
+    'Arte & Design': ['/arte-design-pixabay.jpg', '/arte-design-aquarela.jpg'],
+    Colecionáveis: ['/colecionaveis-vinil.jpg', '/colecionaveis-gramofone.jpg'],
   };
 
   const images = imagesByCategory[category];

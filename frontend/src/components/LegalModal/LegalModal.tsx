@@ -240,15 +240,18 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   ; Arte & Design — elulela31, pintura abstrata em acrílico (
                   <a href="https://pixabay.com/pt/photos/arte-resumo-moderno-pintura-4668134/" target="_blank" rel="noreferrer">fonte</a>
                   ), sob a <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noreferrer">Licença de Conteúdo do Pixabay</a>
-                  ; SVG de fallback com identidade visual Arremate MH
-                  ; Tecnologia — Gre123gr, CC0, imagem recortada (
-                  <a href="https://commons.wikimedia.org/wiki/File:Backlit_Laptop_Keyboard.jpg" target="_blank" rel="noreferrer">fonte</a>
-                  {' · '}
-                  <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">licença</a>
-                  ); Colecionáveis — Lesbeatiques, CC BY-SA 4.0, miniatura redimensionada (
-                  <a href="https://commons.wikimedia.org/wiki/File:Antique_Baccarat_Closepack_Millefiori_Paperweight.jpg" target="_blank" rel="noreferrer">fonte</a>
-                  {' · '}
-                  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">licença</a>
+                  ; segunda imagem de Arte & Design — garageband, aquarela abstrata (
+                  <a href="https://pixabay.com/pt/photos/colorido-pintura-fundo-abstract-2468874/" target="_blank" rel="noreferrer">fonte</a>
+                  ), sob a mesma licença
+                  ; Tecnologia — JoshuaWoroniecki, laptop futurista (
+                  <a href="https://pixabay.com/photos/laptop-digital-device-technology-5673901/" target="_blank" rel="noreferrer">fonte</a>
+                  ), sob a mesma licença
+                  ; Colecionáveis — chienba, disco de vinil (
+                  <a href="https://pixabay.com/photos/music-player-record-player-7792956/" target="_blank" rel="noreferrer">fonte</a>
+                  ) e bogitw, gramofone vintage (
+                  <a href="https://pixabay.com/photos/flea-market-gramophone-music-1262036/" target="_blank" rel="noreferrer">fonte</a>
+                  ), sob a mesma licença
+                  ; SVGs próprios mantidos como fallback.
                   ).
                 </p>
               </div>
