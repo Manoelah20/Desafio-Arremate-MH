@@ -130,12 +130,7 @@
   font-size: 0.75rem;
   color: var(--purple-light);
   font-weight: 500;
-  transition: color var(--transition-fast);
-}
-
-.auth-modal__link:hover {
-  color: var(--yellow-gold);
-  text-decoration: underline;
+  text-align: right;
 }
 
 .auth-modal__input {

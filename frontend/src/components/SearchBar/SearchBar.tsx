@@ -113,7 +113,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           </div>
 
           <div className="search-bar__count">
-            <span>{totalResults} {totalResults === 1 ? 'leilão encontrado' : 'leilões encontrados'}</span>
+            <span>{totalResults} {totalResults === 1 ? 'lote demonstrativo encontrado' : 'lotes demonstrativos encontrados'}</span>
           </div>
         </div>
       </div>

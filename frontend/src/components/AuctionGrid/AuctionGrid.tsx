@@ -24,10 +24,10 @@ export const AuctionGrid: React.FC<AuctionGridProps> = ({
               <span className="auction-grid__tag-dot"></span>
               <span>Lotes Selecionados</span>
             </div>
-            <h2 className="auction-grid__title">Leilões em Destaque</h2>
+            <h2 className="auction-grid__title">Lotes de demonstração</h2>
           </div>
           <p className="auction-grid__desc">
-            Disputas ativas com lances em tempo real. Garanta sua participação antes do encerramento do cronômetro.
+            Explore os fluxos de lances fictícios e atualizações em tempo real. Nenhum lote representa uma oferta comercial.
           </p>
         </div>
 
@@ -62,7 +62,7 @@ export const AuctionGrid: React.FC<AuctionGridProps> = ({
                 <path d="m12.5 9.5-3 3" />
               </svg>
             </div>
-            <h3 className="auction-grid__empty-title">Nenhum leilão encontrado</h3>
+            <h3 className="auction-grid__empty-title">Nenhum lote demonstrativo encontrado</h3>
             <p className="auction-grid__empty-desc">
               Não encontramos nenhum lote correspondente aos filtros ou termo buscado. Tente buscar por outra palavra-chave ou categoria.
             </p>

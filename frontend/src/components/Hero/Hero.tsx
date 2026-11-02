@@ -21,7 +21,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onHowItWorksClick })
 
         {/* Título Principal de Impacto */}
         <h1 className="hero-section__title">
-          Explore uma plataforma de <br />
+          Explore um protótipo de <br />
           <span className="hero-section__title-gradient">leilões online</span>
         </h1>
 

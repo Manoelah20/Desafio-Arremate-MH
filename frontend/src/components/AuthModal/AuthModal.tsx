@@ -76,7 +76,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onAuthent
             </svg>
           </div>
           <h3 className="auth-modal__title">
-            {tab === 'login' ? 'Acesse sua Conta Arremate' : 'Crie sua Conta no Arremate'}
+            {tab === 'login' ? 'Acesse sua conta de teste' : 'Crie uma conta de teste'}
           </h3>
           <p className="auth-modal__subtitle">
             Use somente dados fictícios e uma senha que não utilize em outros serviços.
@@ -143,13 +143,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onAuthent
                 Senha
               </label>
               {tab === 'login' && (
-                <button
-                  type="button"
-                  className="auth-modal__link"
-                  onClick={() => alert('Recuperação de senha estará disponível na próxima etapa.')}
-                >
-                  Esqueceu a senha?
-                </button>
+                <span className="auth-modal__link">Recuperação de senha indisponível neste protótipo</span>
               )}
             </div>
             <input
@@ -167,7 +161,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onAuthent
           <div className="auth-modal__disclaimer">
             <span className="auth-modal__disclaimer-icon">ℹ️</span>
             <span>
-              <strong>Acesso seguro:</strong> sua sessão é autenticada pela API da Casa de Leilões.
+              A autenticação é demonstrativa. Use somente dados fictícios e uma senha exclusiva para este teste.
             </span>
           </div>
 
@@ -178,7 +172,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onAuthent
           )}
 
           <button type="submit" className="auth-modal__submit-btn" disabled={isSubmitting}>
-            {isSubmitting ? 'Aguarde...' : tab === 'login' ? 'Entrar no Arremate' : 'Criar Conta de Arrematante'}
+            {isSubmitting ? 'Aguarde...' : tab === 'login' ? 'Entrar na demonstração' : 'Criar conta de teste'}
           </button>
         </form>
       </div>

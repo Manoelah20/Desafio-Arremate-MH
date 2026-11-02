@@ -9,7 +9,7 @@ export const HowItWorks: React.FC = () => {
           <div className="how-it-works__tag">
             <span>Fluxo demonstrativo</span>
           </div>
-          <h2 className="how-it-works__title">Como Funciona o Arremate</h2>
+          <h2 className="how-it-works__title">Como funciona a demonstração</h2>
           <p className="how-it-works__subtitle">
             Explore os principais fluxos da aplicação. Os lotes e valores são fictícios e não existe pagamento real.
           </p>
