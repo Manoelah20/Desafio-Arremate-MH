@@ -1,7 +1,7 @@
 # 🏛️ Arremate MH — Protótipo de Leilões Online
 
-> **Desafio Técnico — Desenvolvido por Manoela Harrison**
-> Protótipo acadêmico com interface em **React 19/TypeScript**, API em **Node.js/Express**, **PostgreSQL** e eventos em tempo real.
+> **Modelo de projeto — Desenvolvido por Manoela Harrison**
+> Protótipo demonstrativo com interface em **React 19/TypeScript**, API em **Node.js/Express**, **PostgreSQL** e eventos em tempo real.
 
 > **Somente demonstração e testes:** lotes, imagens, saldos e lances são fictícios. A aplicação não oferece produtos reais, não processa pagamentos e não gera obrigações comerciais ou jurídicas.
 > Não use dados pessoais ou senhas reais. Nomes de marcas eventualmente encontrados em registros antigos não indicam vínculo ou endosso; a API pública apresenta lotes com conteúdo genérico.
@@ -14,26 +14,25 @@
 
 ---
 
-## 👩‍💻 Autora & Informações do Desafio
+## 👩‍💻 Autoria & Sobre o modelo
 
 * **Desenvolvedora:** Manoela Harrison
-* **Desafio:** protótipo de uma aplicação web de leilões com front-end e back-end.
+* **Projeto:** modelo de uma aplicação web de leilões com front-end e back-end.
 * **Tecnologias:** React, Node.js/Express, PostgreSQL, Vercel e Supabase Realtime.
-* **Objetivo:** demonstrar regras de lances, persistência de dados, autenticação e atualização em tempo real.
+* **Objetivo:** apresentar uma base de projeto com fluxos demonstrativos de lances, persistência de dados, autenticação e atualização em tempo real.
 
 ---
 
 ## 📌 Sobre o Projeto
 
-O **Arremate MH** é um projeto acadêmico que demonstra os fluxos de uma plataforma de leilões online. Os itens e valores não representam anúncios, avaliações ou ofertas reais.
+O **Arremate MH** é um modelo de projeto que demonstra os fluxos de uma plataforma de leilões online. Não é uma operação comercial: os itens, contas, saldos e valores são fictícios e não representam anúncios, avaliações ou ofertas reais.
 
 O projeto reúne interface, API e banco de dados. A interface demonstra
 cadastro/login, catálogo de lotes, lances, histórico e atualizações em tempo real.
 O painel do leiloeiro pode consultar metadados bibliográficos na Open Library e
 permite testar a publicação de lotes. Capas não são exibidas nem devolvidas
 pela busca externa. Os fluxos de API, lance e atualização em tempo real foram
-validados em ambiente de demonstração. As alterações deste commit são locais;
-o site publicado só recebe esta revisão depois de um novo deploy.
+validados em ambiente de demonstração.
 
 A interface inicial prioriza:
 1. **Identidade visual:** paleta escura com amarelo dourado e violeta, tipografia contemporânea e efeitos sutis de vidro (*glassmorphism*).
@@ -91,7 +90,7 @@ O layout foi inteiramente projetado com **Vanilla CSS** através de um sistema e
 ### 7. Rodapé
 * Identificação do projeto como demonstração, sem alegações de auditoria ou operação oficial.
 * Links para as informações do protótipo.
-* Créditos do desafio.
+* Créditos do projeto.
 
 ---
 
@@ -350,8 +349,7 @@ requisição.
 
 ## 📄 Conteúdo, atribuições e créditos
 
-Projeto desenvolvido por **Manoela Harrison** como solução para o **Desafio
-Técnico — Protótipo de Leilões Online**. As ilustrações genéricas por categoria
+Modelo de projeto desenvolvido por **Manoela Harrison**. As ilustrações genéricas por categoria
 em `frontend/public/demo-lot-*.svg` e os elementos visuais próprios foram criados para a demonstração. As fontes
 Inter e Plus Jakarta Sans são servidas pelo Google Fonts; consulte os termos e
 licenças de seus titulares. Metadados bibliográficos podem ser consultados na

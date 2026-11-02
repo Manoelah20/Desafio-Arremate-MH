@@ -57,7 +57,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
-              Protótipo acadêmico
+              Modelo de projeto demonstrativo
             </span>
             <span className="legal-modal__version">Sem validade jurídica</span>
           </div>
@@ -102,7 +102,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
           {activeTab === 'terms' && (
             <>
               <div className="legal-modal__highlight-box">
-                O Arremate MH é um protótipo acadêmico. Os fluxos de cadastro e lance existem para demonstração e não criam oferta, venda ou obrigação de pagamento.
+                O Arremate MH é um modelo de projeto. Os fluxos de cadastro e lance existem para demonstração e não criam oferta, venda ou obrigação de pagamento.
               </div>
 
               <div className="legal-modal__section">

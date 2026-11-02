@@ -1,6 +1,6 @@
 /**
  * Arremate MH — Backend Server
- * Desafio Técnico por Manoela Harrison
+ * Modelo demonstrativo de projeto por Manoela Harrison
  *
  * Tecnologias: Node.js + Express + PostgreSQL + Socket.io
  */

@@ -2,7 +2,7 @@
   "name": "desafio-arremate-mh",
   "private": true,
   "version": "1.0.0",
-  "description": "Plataforma de leilões online desenvolvida por Manoela Harrison para o Desafio Técnico Arremate MH",
+  "description": "Modelo demonstrativo de plataforma de leilões online desenvolvido por Manoela Harrison",
   "author": "Manoela Harrison",
   "type": "module",
   "scripts": {

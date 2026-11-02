@@ -1,7 +1,7 @@
 {
   "name": "arremate-mh-backend",
   "version": "1.0.0",
-  "description": "Backend da Casa de Leilões Arremate MH - Desafio Técnico por Manoela Harrison",
+  "description": "Backend demonstrativo do modelo de projeto Arremate MH por Manoela Harrison",
   "author": "Manoela Harrison",
   "main": "index.js",
   "engines": {

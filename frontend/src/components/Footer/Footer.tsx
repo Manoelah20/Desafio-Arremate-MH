@@ -144,9 +144,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection, onOpenLegal }
           </ul>
         </div>
 
-        {/* Informações do Desafio */}
+        {/* Informações do projeto */}
         <div className="footer__col">
-          <h4 className="footer__col-title">Desafio Arremate MH</h4>
+          <h4 className="footer__col-title">Projeto Arremate MH</h4>
           <p className="footer__info-text">
             Cadastro, publicação de lotes e lances simulados com atualização em tempo real.
           </p>

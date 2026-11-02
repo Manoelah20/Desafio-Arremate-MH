@@ -1,7 +1,7 @@
 # Interface do protótipo Arremate MH
 
-Este frontend é parte de um desafio técnico e serve somente para demonstração e
-testes. Os itens, valores, lances, contas e comprovantes exibidos são fictícios.
+Este frontend faz parte de um modelo de projeto e serve somente para demonstração
+e testes. Os itens, valores, lances, contas e comprovantes exibidos são fictícios.
 Não há produtos à venda, pagamento, entrega, avaliação de mercado ou obrigação
 comercial/jurídica. Não use dados pessoais ou senhas reais.
 

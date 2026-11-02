@@ -1,5 +1,5 @@
 -- Schema do banco de dados Arremate MH
--- Desafio Técnico por Manoela Harrison
+-- Modelo demonstrativo de projeto por Manoela Harrison
 
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 

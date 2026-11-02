@@ -27,7 +27,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onHowItWorksClick })
 
         {/* Subtítulo */}
         <p className="hero-section__subtitle">
-          Conheça um protótipo acadêmico com cadastro, catálogo de lotes, lances, histórico e atualizações em tempo real. Valores e dados são ilustrativos; não há vendas nem pagamentos reais.
+          Conheça um modelo de projeto com cadastro, catálogo de lotes, lances, histórico e atualizações em tempo real. Valores e dados são ilustrativos; não há vendas nem pagamentos reais.
         </p>
 
         {/* Botões de Ação */}
@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onHowItWorksClick })
         <div className="hero-section__stats">
           <div className="hero-section__stat-item">
             <span className="hero-section__stat-value">Projeto</span>
-            <span className="hero-section__stat-label">acadêmico demonstrativo</span>
+            <span className="hero-section__stat-label">modelo demonstrativo</span>
           </div>
           <div className="hero-section__stat-separator"></div>
           <div className="hero-section__stat-item">
