@@ -283,6 +283,10 @@ function App() {
       <Hero
         onExploreClick={() => handleNavigateSection('search-section')}
         onHowItWorksClick={() => handleNavigateSection('how-it-works')}
+        onCategorySelect={(category) => {
+          setSelectedCategory(category);
+          handleNavigateSection('search-section');
+        }}
       />
 
       {/* Campo de Busca e Filtros */}

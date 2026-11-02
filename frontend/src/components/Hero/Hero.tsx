@@ -1,12 +1,29 @@
 import React from 'react';
+import type { AuctionCategory } from '../../types/auction';
 import './Hero.css';
 
 interface HeroProps {
   onExploreClick: () => void;
   onHowItWorksClick: () => void;
+  onCategorySelect: (category: AuctionCategory) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onExploreClick, onHowItWorksClick }) => {
+const CATEGORY_PREVIEWS: Array<{
+  category: Exclude<AuctionCategory, 'Todos'>;
+  image: string;
+}> = [
+  { category: 'Tecnologia', image: '/demo-lot-technology.jpg' },
+  { category: 'Relógios', image: '/demo-lot-watch.jpg' },
+  { category: 'Veículos', image: '/demo-lot-vehicle.jpg' },
+  { category: 'Arte & Design', image: '/demo-lot-art.jpg' },
+  { category: 'Colecionáveis', image: '/demo-lot-collectibles.jpg' },
+];
+
+export const Hero: React.FC<HeroProps> = ({
+  onExploreClick,
+  onHowItWorksClick,
+  onCategorySelect,
+}) => {
   return (
     <section className="hero-section" id="home">
       <div className="container hero-section__inner">
@@ -60,26 +77,24 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onHowItWorksClick })
           </button>
         </div>
 
-        {/* Recursos demonstrados pelo projeto */}
-        <div className="hero-section__stats">
-          <div className="hero-section__stat-item">
-            <span className="hero-section__stat-value">Projeto</span>
-            <span className="hero-section__stat-label">modelo demonstrativo</span>
+        <div className="hero-section__categories" aria-label="Categorias ilustrativas">
+          <div className="hero-section__categories-heading">
+            <strong>Categorias demonstrativas</strong>
+            <span>Fotos ilustrativas; os lotes disponíveis aparecem abaixo.</span>
           </div>
-          <div className="hero-section__stat-separator"></div>
-          <div className="hero-section__stat-item">
-            <span className="hero-section__stat-value">Lances</span>
-            <span className="hero-section__stat-label">registrados para teste</span>
-          </div>
-          <div className="hero-section__stat-separator"></div>
-          <div className="hero-section__stat-item">
-            <span className="hero-section__stat-value">Tempo real</span>
-            <span className="hero-section__stat-label">atualizações de lotes</span>
-          </div>
-          <div className="hero-section__stat-separator"></div>
-          <div className="hero-section__stat-item">
-            <span className="hero-section__stat-value">Sem</span>
-            <span className="hero-section__stat-label">transações financeiras</span>
+          <div className="hero-section__category-list">
+            {CATEGORY_PREVIEWS.map(({ category, image }) => (
+              <button
+                key={category}
+                type="button"
+                className="hero-section__category-card"
+                onClick={() => onCategorySelect(category)}
+                aria-label={`Ver lotes demonstrativos de ${category}`}
+              >
+                <img src={image} alt="" />
+                <span>{category}</span>
+              </button>
+            ))}
           </div>
         </div>
       </div>
