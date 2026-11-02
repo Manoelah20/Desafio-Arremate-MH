@@ -45,7 +45,7 @@ test('public demo lots select the licensed photo for each category', () => {
     { subject: 'Tecnologia', image: '/demo-lot-technology.jpg' },
     { subject: 'Relógios', image: '/demo-lot-watch.jpg' },
     { subject: 'Veículos', image: '/demo-lot-vehicle.jpg' },
-    { subject: 'Arte & Design', image: '/demo-lot-art.jpg' },
+    { subject: 'Arte & Design', image: '/demo-lot-art.svg' },
     { subject: 'Colecionáveis', image: '/demo-lot-collectibles.jpg' },
   ];
 

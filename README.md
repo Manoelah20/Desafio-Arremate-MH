@@ -355,9 +355,9 @@ requisição.
 
 ## 📄 Conteúdo, atribuições e créditos
 
-Modelo de projeto desenvolvido por **Manoela Harrison**. As ilustrações SVG
-genéricas em `frontend/public/demo-lot-*.svg` foram criadas para a demonstração
-e são usadas como fallback. As fotografias abaixo ilustram somente categorias;
+Modelo de projeto desenvolvido por **Manoela Harrison**. Os ativos SVG próprios
+em `frontend/public/demo-lot-*.svg` são usados como fallback; Arte & Design
+exibe a identidade Arremate MH. As fotografias abaixo ilustram somente categorias;
 não representam os lotes fictícios nem indicam disponibilidade, propriedade,
 autenticidade ou endosso:
 

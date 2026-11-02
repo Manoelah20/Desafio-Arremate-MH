@@ -15,7 +15,7 @@ const CATEGORY_PREVIEWS: Array<{
   { category: 'Tecnologia', image: '/demo-lot-technology.jpg' },
   { category: 'Relógios', image: '/demo-lot-watch.jpg' },
   { category: 'Veículos', image: '/demo-lot-vehicle.jpg' },
-  { category: 'Arte & Design', image: '/demo-lot-art.jpg' },
+  { category: 'Arte & Design', image: '/demo-lot-art.svg' },
   { category: 'Colecionáveis', image: '/demo-lot-collectibles.jpg' },
 ];
 

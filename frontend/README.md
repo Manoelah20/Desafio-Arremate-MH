@@ -27,7 +27,8 @@ Para configurar e iniciar o backend e o banco, consulte o [README principal](../
   para exercitar os fluxos.
 - As fotografias locais em `public/demo-lot-*.jpg` ilustram apenas as categorias
   dos lotes fictícios; não representam itens disponíveis para venda. As
-  ilustrações SVG em `public/demo-lot-*.svg` são próprias e usadas como fallback.
+  imagens SVG em `public/demo-lot-*.svg` são próprias e usadas como fallback;
+  a de Arte & Design exibe a identidade visual Arremate MH.
 - As atribuições, licenças e links de origem das fotografias estão no README
   principal. A imagem de colecionáveis é distribuída sob CC BY-SA 4.0; as demais
   fotografias estão sob CC0.

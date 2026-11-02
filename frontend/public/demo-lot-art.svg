@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title description">
-  <title id="title">Ilustração fictícia de arte e design</title>
-  <desc id="description">Composição abstrata original criada para a demonstração.</desc>
+  <title id="title">Arremate MH</title>
+  <desc id="description">Identidade do projeto Arremate MH, usada como imagem de fallback.</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
       <stop stop-color="#21172b"/>
@@ -13,9 +13,13 @@
   </defs>
   <rect width="640" height="480" rx="28" fill="url(#background)"/>
   <circle cx="320" cy="210" r="152" fill="#c084fc" opacity=".12"/>
-  <rect x="196" y="85" width="248" height="232" rx="8" fill="#161420" stroke="url(#frame)" stroke-width="10"/>
-  <circle cx="270" cy="163" r="34" fill="#fbbf24"/>
-  <path d="m218 279 73-79 43 43 37-57 50 93z" fill="#8b5cf6"/>
-  <path d="M232 333v28m176-28v28m-176 0h176" fill="none" stroke="#d6d3e2" stroke-linecap="round" stroke-width="8"/>
-  <text x="320" y="410" fill="#d6d3e2" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">ARTE &amp; DESIGN · ILUSTRAÇÃO FICTÍCIA</text>
+  <g fill="none" stroke="#fbbf24" stroke-linecap="round" stroke-linejoin="round" stroke-width="14">
+    <path d="m291 164 58 58"/>
+    <path d="m281 149 31-31 45 45-31 31z" fill="#fbbf24"/>
+    <path d="m346 221-26 26"/>
+    <path d="m290 260 48-48"/>
+  </g>
+  <text x="320" y="338" fill="#f9fafb" font-family="system-ui, sans-serif" font-size="54" font-weight="800" letter-spacing="2" text-anchor="middle">ARREMATE</text>
+  <text x="320" y="382" fill="url(#frame)" font-family="system-ui, sans-serif" font-size="26" font-weight="700" letter-spacing="8" text-anchor="middle">MH</text>
+  <text x="320" y="431" fill="#d6d3e2" font-family="system-ui, sans-serif" font-size="15" letter-spacing="2" text-anchor="middle">MODELO DE PROJETO DEMONSTRATIVO</text>
 </svg>
