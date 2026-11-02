@@ -237,12 +237,12 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   ) e Porsche clássico (
                   <a href="https://pixabay.com/pt/photos/carro-carro-cl%C3%A1ssico-porsche-7294294/" target="_blank" rel="noreferrer">fonte</a>
                   ), sob a mesma <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noreferrer">licença</a>
+                  ; Arte & Design — elulela31, pintura abstrata em acrílico (
+                  <a href="https://pixabay.com/pt/photos/arte-resumo-moderno-pintura-4668134/" target="_blank" rel="noreferrer">fonte</a>
+                  ), sob a <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noreferrer">Licença de Conteúdo do Pixabay</a>
+                  ; SVG de fallback com identidade visual Arremate MH
                   ; Tecnologia — Gre123gr, CC0, imagem recortada (
                   <a href="https://commons.wikimedia.org/wiki/File:Backlit_Laptop_Keyboard.jpg" target="_blank" rel="noreferrer">fonte</a>
-                  {' · '}
-                  <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">licença</a>
-                  ); Arte — Fons Heijnsbroek, CC0 (
-                  <a href="https://commons.wikimedia.org/wiki/File:%27Abstract_sky%27%2C_1993_-_small_acrylic_painting_by_Dutch_artist_Fons_Heijnsbroek%3B_free_download_abstract_art_image%2C_CCO.jpg" target="_blank" rel="noreferrer">fonte</a>
                   {' · '}
                   <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">licença</a>
                   ); Colecionáveis — Lesbeatiques, CC BY-SA 4.0, miniatura redimensionada (

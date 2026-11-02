@@ -146,7 +146,7 @@ function imageForCategory(category: AuctionCategory): string {
     Tecnologia: '/demo-lot-technology.jpg',
     Relógios: '/relogio2.jpg',
     Veículos: '/carro1.jpg',
-    'Arte & Design': '/demo-lot-art.svg',
+    'Arte & Design': '/arte-design-pixabay.jpg',
     Colecionáveis: '/demo-lot-collectibles.jpg',
   };
 

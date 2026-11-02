@@ -16,7 +16,7 @@ function toPublicDemoLot(lot) {
   const imageByCategory = {
     'Relógios': '/relogio2.jpg',
     'Veículos': '/carro1.jpg',
-    'Arte & Design': '/demo-lot-art.svg',
+    'Arte & Design': '/arte-design-pixabay.jpg',
     Tecnologia: '/demo-lot-technology.jpg',
     Colecionáveis: '/demo-lot-collectibles.jpg',
   };
