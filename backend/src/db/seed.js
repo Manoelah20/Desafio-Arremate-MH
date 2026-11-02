@@ -32,19 +32,19 @@ async function seed() {
     const { rows: [leiloeiro] } = await client.query(
       `INSERT INTO users (name, email, password, role, balance)
        VALUES ($1, $2, $3, 'leiloeiro', 0) RETURNING id`,
-      ['Leiloeiro Oficial MH', 'leiloeiro@arrematemh.com', leiloeiroPass]
+      ['Leiloeiro de Demonstração', 'demo.auctioneer@example.test', leiloeiroPass]
     );
 
     const { rows: [licitante1] } = await client.query(
       `INSERT INTO users (name, email, password, role, balance)
        VALUES ($1, $2, $3, 'licitante', 5000.00) RETURNING id`,
-      ['Carlos Arrematante', 'carlos@email.com', licitante1Pass]
+      ['Conta de Teste 1', 'demo.bidder1@example.test', licitante1Pass]
     );
 
     const { rows: [licitante2] } = await client.query(
       `INSERT INTO users (name, email, password, role, balance)
        VALUES ($1, $2, $3, 'licitante', 3000.00) RETURNING id`,
-      ['Ana Licitante', 'ana@email.com', licitante2Pass]
+      ['Conta de Teste 2', 'demo.bidder2@example.test', licitante2Pass]
     );
 
     console.log('✅ Usuários criados');
@@ -60,10 +60,10 @@ async function seed() {
        RETURNING id`,
       [
         leiloeiro.id,
-        'Dom Quixote — Edição Rara Século XVIII (Open Library)',
-        'Exemplar autêntico do clássico de Cervantes, encadernado em couro. Raridade bibliográfica com proveniência documentada.',
-        'https://covers.openlibrary.org/b/id/8739161-L.jpg',
-        JSON.stringify({ source: 'Open Library', key: '/works/OL27516W', title: 'Don Quixote', author: 'Miguel de Cervantes' }),
+        'Lote demonstrativo — item de coleção 01',
+        'Item e informações fictícios para testar o cadastro, os lances e o histórico. Não representam um produto real.',
+        null,
+        JSON.stringify({ source: 'Demonstração', demo: true, demo_key: 'seed-demo-lot-01', subjects: ['Colecionáveis'] }),
         250.00,
         25.00,
         250.00,
@@ -123,10 +123,10 @@ async function seed() {
        RETURNING id`,
       [
         leiloeiro.id,
-        'O Senhor dos Anéis — Primeira Edição Brasileira (Open Library)',
-        'Primeira edição brasileira publicada pela Editora Martins, 1964. Capa dura original, em excelente estado.',
-        'https://covers.openlibrary.org/b/id/8743222-L.jpg',
-        JSON.stringify({ source: 'Open Library', key: '/works/OL27482W', title: 'The Lord of the Rings', author: 'J.R.R. Tolkien' }),
+        'Lote demonstrativo — item de coleção 02',
+        'Item e informações fictícios para testar a listagem e o encerramento. Não representam um produto real.',
+        null,
+        JSON.stringify({ source: 'Demonstração', demo: true, demo_key: 'seed-demo-lot-02', subjects: ['Colecionáveis'] }),
         500.00,
         50.00,
         750.00,
@@ -180,10 +180,10 @@ async function seed() {
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'agendado', $9, $10)`,
       [
         leiloeiro.id,
-        'Cem Anos de Solidão — García Márquez, Edição de Aniversário (Open Library)',
-        'Edição comemorativa do clássico de Gabriel García Márquez, numerada e assinada. Coleção particular.',
-        'https://covers.openlibrary.org/b/id/8237037-L.jpg',
-        JSON.stringify({ source: 'Open Library', key: '/works/OL17764Y', title: 'Cien años de soledad', author: 'Gabriel García Márquez' }),
+        'Lote demonstrativo — item agendado',
+        'Item e informações fictícios para testar o agendamento. Não representam um produto real.',
+        null,
+        JSON.stringify({ source: 'Demonstração', demo: true, demo_key: 'seed-demo-lot-03', subjects: ['Colecionáveis'] }),
         350.00,
         30.00,
         0.00,
@@ -196,9 +196,9 @@ async function seed() {
     console.log('');
     console.log('✅ SEED CONCLUÍDO COM SUCESSO!');
     console.log('─────────────────────────────────────');
-    console.log('👤 LEILOEIRO:  leiloeiro@arrematemh.com / senha123');
-    console.log('👤 LICITANTE1: carlos@email.com / senha123');
-    console.log('👤 LICITANTE2: ana@email.com / senha123');
+    console.log('👤 LEILOEIRO:  demo.auctioneer@example.test / senha123');
+    console.log('👤 LICITANTE1: demo.bidder1@example.test / senha123');
+    console.log('👤 LICITANTE2: demo.bidder2@example.test / senha123');
     console.log('─────────────────────────────────────');
     console.log('🏺 3 lotes criados: 1 ao vivo, 1 encerrado, 1 agendado');
   } catch (err) {

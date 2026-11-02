@@ -79,7 +79,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onAuthent
             {tab === 'login' ? 'Acesse sua Conta Arremate' : 'Crie sua Conta no Arremate'}
           </h3>
           <p className="auth-modal__subtitle">
-            Entre para testar o cadastro e os lances demonstrativos
+            Use somente dados fictícios e uma senha que não utilize em outros serviços.
           </p>
         </div>
 

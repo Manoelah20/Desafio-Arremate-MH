@@ -69,7 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection, onOpenLegal }
           </div>
 
           <p className="footer__brand-desc">
-            Protótipo acadêmico de uma plataforma de leilões online. Os lotes, valores e lances são demonstrativos; não há operação comercial.
+            Projeto independente de demonstração e testes. Não é uma casa de leilões, não comercializa produtos e não possui vínculo com marcas ou serviços de terceiros.
           </p>
 
           <div className="footer__security-badges">
@@ -108,7 +108,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection, onOpenLegal }
                 className="footer__link"
                 onClick={() => onNavigateSection('auctions')}
               >
-                Leilões em Destaque
+                Lotes de teste
               </button>
             </li>
             <li>
@@ -159,7 +159,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection, onOpenLegal }
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">
           <p className="footer__copyright">
-            &copy; {new Date().getFullYear()} Arremate MH &bull; Protótipo de leilões online.
+            &copy; {new Date().getFullYear()} Arremate MH &bull; Projeto demonstrativo de autoria de Manoela Harrison.
           </p>
           <div className="footer__bottom-links">
             <button

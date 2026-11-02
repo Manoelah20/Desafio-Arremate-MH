@@ -113,7 +113,7 @@ export const AuctionModal: React.FC<AuctionModalProps> = ({
               <span className="auction-modal__lot">{item.lotNumber}</span>
               <span className="auction-modal__timer">
                 <span className="auction-modal__timer-dot"></span>
-                Termina em {item.endsIn}
+                Teste termina em {item.endsIn}
               </span>
             </div>
 
@@ -124,32 +124,32 @@ export const AuctionModal: React.FC<AuctionModalProps> = ({
             <div className="auction-modal__pricing-card">
               <div className="auction-modal__pricing-row">
                 <div>
-                  <span className="auction-modal__label">Lance Atual</span>
+                  <span className="auction-modal__label">Lance de teste atual</span>
                   <div className="auction-modal__current-bid">{formattedCurrentBid}</div>
                 </div>
                 <div className="auction-modal__bids-badge">
-                  {item.totalBids} lances ofertados
+                  {item.totalBids} lances demonstrativos
                 </div>
               </div>
 
               <div className="auction-modal__pricing-meta">
-                <span>Lance inicial: <strong>{formattedStartingBid}</strong></span>
-                <span>Incremento mín.: <strong>{formattedIncrement}</strong></span>
+                <span>Lance inicial de teste: <strong>{formattedStartingBid}</strong></span>
+                <span>Incremento de teste: <strong>{formattedIncrement}</strong></span>
               </div>
             </div>
 
             <div className="auction-modal__history">
-              <strong>Últimos lances</strong>
+              <strong>Últimos lances de teste</strong>
               {bids.length ? (
                 <ul>
                   {bids.slice(-5).reverse().map((bid) => (
                     <li key={bid.id}>
-                      <span>{bid.bidder_name}</span>
+                      <span>Conta de teste</span>
                       <strong>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(bid.amount)}</strong>
                     </li>
                   ))}
                 </ul>
-              ) : <p>Ainda não há lances neste lote.</p>}
+              ) : <p>Ainda não há lances de teste neste lote.</p>}
             </div>
 
             {(feedbackMessage || errorMessage) && (
@@ -166,19 +166,19 @@ export const AuctionModal: React.FC<AuctionModalProps> = ({
                 disabled={!canBid || (user !== null && user.role !== 'licitante') || isSubmitting}
               >
                 {!canBid
-                  ? item.status === 'upcoming' ? 'Leilão ainda não começou' : 'Leilão encerrado'
+                  ? item.status === 'upcoming' ? 'Teste ainda não começou' : 'Teste encerrado'
                   : user && user.role !== 'licitante'
-                    ? 'Apenas licitantes podem dar lances'
+                    ? 'Apenas contas de teste podem ofertar'
                     : isSubmitting
-                      ? 'Registrando lance...'
-                      : `${user ? 'Dar lance' : 'Entrar para dar lance'} (${formattedNextBid})`}
+                      ? 'Registrando lance de teste...'
+                      : `${user ? 'Fazer lance de teste' : 'Entrar para testar'} (${formattedNextBid})`}
               </button>
               <button
                 type="button"
                 className="auction-modal__cancel-btn"
                 onClick={onClose}
               >
-                Voltar aos Lotes
+                Voltar aos lotes de teste
               </button>
             </div>
           </div>

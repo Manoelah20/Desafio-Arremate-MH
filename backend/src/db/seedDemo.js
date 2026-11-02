@@ -5,8 +5,8 @@ const pool = require('./pool');
 const { createBidHash } = require('../utils/bid');
 
 const DEMO_PREFIX = 'arremate-demo-v1';
-const AUCTIONEER_EMAIL = 'demo.leiloeiro@arrematemh.com';
-const BIDDER_EMAIL = 'demo.licitante@arrematemh.com';
+const AUCTIONEER_EMAIL = 'demo.auctioneer@example.test';
+const BIDDER_EMAIL = 'demo.bidder@example.test';
 const ZERO_HASH = '0'.repeat(64);
 
 function demoPassword() {
@@ -75,9 +75,9 @@ async function seedDemo() {
     const lots = [
       {
         key: `${DEMO_PREFIX}-live-with-bid`,
-        title: 'Relógio de Coleção — Submariner (Demonstração)',
-        description: 'Lote demonstrativo sem valor comercial. Use outra conta de licitante para testar um novo lance.',
-        imageUrl: 'https://desafio-arremate-mh.vercel.app/rolex-submariner.jpg',
+        title: 'Lote demonstrativo — relógio de coleção',
+        description: 'Item fictício, sem valor comercial ou vínculo com produto real. Use outra conta de teste para simular um lance.',
+        imageUrl: '/demo-lot.svg',
         externalData: { source: 'Demonstração', demo_key: `${DEMO_PREFIX}-live-with-bid`, subjects: ['Relógios'] },
         initialBid: '250.00',
         increment: '25.00',
@@ -89,9 +89,9 @@ async function seedDemo() {
       },
       {
         key: `${DEMO_PREFIX}-live-open`,
-        title: 'Volkswagen 1600 TL 1972 (Lote Demonstrativo)',
-        description: 'Lote demonstrativo sem valor comercial. Disponível para testar o primeiro lance.',
-        imageUrl: 'https://desafio-arremate-mh.vercel.app/vw-classico-azul.jpg',
+        title: 'Lote demonstrativo — veículo de coleção',
+        description: 'Item fictício, sem valor comercial ou vínculo com produto real. Disponível para testar o primeiro lance.',
+        imageUrl: '/demo-lot.svg',
         externalData: { source: 'Demonstração', demo_key: `${DEMO_PREFIX}-live-open`, subjects: ['Veículos'] },
         initialBid: '100.00',
         increment: '10.00',
@@ -103,9 +103,9 @@ async function seedDemo() {
       },
       {
         key: `${DEMO_PREFIX}-upcoming`,
-        title: 'Mercedes-AMG GT Coupé (Leilão Demonstrativo Agendado)',
-        description: 'Lote demonstrativo sem valor comercial. Leilão agendado para permitir visualizar o estado futuro.',
-        imageUrl: 'https://desafio-arremate-mh.vercel.app/mercedes-amg-gt.jpg',
+        title: 'Lote demonstrativo — veículo agendado',
+        description: 'Item fictício, sem valor comercial ou vínculo com produto real. Agendado para testar o estado futuro.',
+        imageUrl: '/demo-lot.svg',
         externalData: { source: 'Demonstração', demo_key: `${DEMO_PREFIX}-upcoming`, subjects: ['Veículos'] },
         initialBid: '500.00',
         increment: '50.00',
@@ -117,9 +117,9 @@ async function seedDemo() {
       },
       {
         key: `${DEMO_PREFIX}-closed`,
-        title: 'Cadillac Coupe de Ville 1959 (Lote Demonstrativo Encerrado)',
-        description: 'Lote demonstrativo sem valor comercial, encerrado sem lances.',
-        imageUrl: 'https://desafio-arremate-mh.vercel.app/cadillac-1959-pink.jpg',
+        title: 'Lote demonstrativo — veículo encerrado',
+        description: 'Item fictício, sem valor comercial ou vínculo com produto real, encerrado sem lances de teste.',
+        imageUrl: '/demo-lot.svg',
         externalData: { source: 'Demonstração', demo_key: `${DEMO_PREFIX}-closed`, subjects: ['Veículos'] },
         initialBid: '350.00',
         increment: '35.00',

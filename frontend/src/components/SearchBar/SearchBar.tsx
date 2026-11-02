@@ -57,7 +57,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
               type="text"
               id="auction-search-input"
               className="search-bar__input"
-              placeholder="Buscar produtos, marcas, modelos ou nº do lote..."
+              placeholder="Buscar categorias, lotes ou números..."
               value={searchTerm}
               onChange={(e) => onSearchChange(e.target.value)}
             />

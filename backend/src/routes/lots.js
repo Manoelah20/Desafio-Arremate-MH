@@ -3,6 +3,7 @@ const axios = require('axios');
 const pool = require('../db/pool');
 const { authMiddleware, requireRole } = require('../middleware/auth');
 const { amountToCents, centsToAmount } = require('../utils/bid');
+const { toPublicDemoLot } = require('../utils/demoLot');
 
 const router = express.Router();
 
@@ -40,7 +41,7 @@ router.get('/', async (req, res) => {
 
     query += ' ORDER BY l.ends_at ASC';
     const { rows } = await pool.query(query, params);
-    res.json({ lots: rows });
+    res.json({ lots: rows.map(toPublicDemoLot) });
   } catch (err) {
     console.error('[lots/list]', err.message);
     res.status(500).json({ error: 'Erro ao buscar lotes.' });
@@ -82,7 +83,10 @@ router.get('/:id', async (req, res) => {
       [req.params.id]
     );
 
-    res.json({ lot: rows[0], bids });
+    res.json({
+      lot: toPublicDemoLot(rows[0]),
+      bids: bids.map((bid) => ({ ...bid, bidder_name: 'Conta de teste' })),
+    });
   } catch (err) {
     console.error('[lots/get]', err.message);
     res.status(500).json({ error: 'Erro ao buscar lote.' });
@@ -153,7 +157,7 @@ router.post('/', authMiddleware, requireRole('leiloeiro'), async (req, res) => {
 
     await client.query('COMMIT');
     inTransaction = false;
-    res.status(201).json({ lot: rows[0] });
+    res.status(201).json({ lot: toPublicDemoLot(rows[0]) });
   } catch (err) {
     if (client && inTransaction) {
       await client.query('ROLLBACK');
@@ -247,7 +251,7 @@ router.get('/auctioneer/my', authMiddleware, requireRole('leiloeiro'), async (re
        ORDER BY l.created_at DESC`,
       [req.user.id]
     );
-    res.json({ lots: rows });
+    res.json({ lots: rows.map(toPublicDemoLot) });
   } catch (err) {
     console.error('[lots/auctioneer/my]', err.message);
     res.status(500).json({ error: 'Erro ao buscar seus lotes.' });
@@ -269,7 +273,7 @@ router.get('/search/external', authMiddleware, requireRole('leiloeiro'), async (
       key: b.key,
       title: b.title,
       author: b.author_name ? b.author_name[0] : 'Autor desconhecido',
-      cover_url: b.cover_i ? `https://covers.openlibrary.org/b/id/${b.cover_i}-L.jpg` : null,
+      cover_url: null,
       year: b.first_publish_year,
       subjects: b.subject ? b.subject.slice(0, 5) : [],
       source: 'Open Library',
@@ -280,7 +284,7 @@ router.get('/search/external', authMiddleware, requireRole('leiloeiro'), async (
     // Se a API externa cair, retornamos erro gracioso mas a plataforma continua funcionando
     console.error('[external/search]', err.message);
     res.status(503).json({
-      error: 'API externa temporariamente indisponível. Você pode criar o lote manualmente.',
+      error: 'Busca da Open Library temporariamente indisponível. Tente novamente mais tarde.',
       results: [],
     });
   }

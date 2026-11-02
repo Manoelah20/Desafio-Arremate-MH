@@ -79,17 +79,17 @@ export const SellerDashboard = ({ onClose, onCreated }: SellerDashboardProps) =>
     setIsSaving(true);
     try {
       await createLot({
-        title: selectedBook.title,
-        description: `${selectedBook.author}${selectedBook.year ? ` · Publicado em ${selectedBook.year}` : ''}${selectedBook.subjects.length ? ` · ${selectedBook.subjects.join(', ')}` : ''}`,
-        image_url: selectedBook.cover_url,
-        external_data: selectedBook,
+        title: 'Lote demonstrativo',
+        description: 'Registro fictício criado apenas para testar o fluxo de publicação de lotes.',
+        image_url: null,
+        external_data: { ...selectedBook, cover_url: null, demo: true },
         initial_bid: Number(initialBid),
         min_increment: Number(increment),
         starts_at: new Date(startsAt).toISOString(),
         ends_at: new Date(endsAt).toISOString(),
       });
       setSelectedBook(null);
-      setMessage('Lote publicado com sucesso.');
+      setMessage('Lote de demonstração criado para teste.');
       await refreshLots();
       onCreated();
     } catch (requestError) {
@@ -116,20 +116,28 @@ export const SellerDashboard = ({ onClose, onCreated }: SellerDashboardProps) =>
       <section className="seller-dashboard" onClick={(event) => event.stopPropagation()}>
         <button type="button" className="seller-dashboard__close" onClick={onClose} aria-label="Fechar painel">×</button>
         <header className="seller-dashboard__header">
-          <span>PAINEL DO LEILOEIRO</span>
+          <span>PAINEL DE TESTES</span>
           <h2 id="seller-dashboard-title">Gerenciar lotes</h2>
-          <p>Busque itens na Open Library, configure o leilão e acompanhe seus lotes.</p>
+          <p>
+            Este painel cria somente lotes de teste, sem venda ou pagamento.
+            Resultados bibliográficos vêm da Open Library; capas não são exibidas.
+          </p>
         </header>
 
         {error && <p className="seller-dashboard__message seller-dashboard__message--error" role="alert">{error}</p>}
         {message && <p className="seller-dashboard__message" role="status">{message}</p>}
 
         <form className="seller-dashboard__search" onSubmit={handleSearch}>
-          <label htmlFor="book-search">Buscar item na Open Library</label>
+          <label htmlFor="book-search">Buscar referência de teste na Open Library</label>
           <div>
             <input id="book-search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Título ou autor" required />
             <button type="submit" disabled={isSearching}>{isSearching ? 'Buscando...' : 'Buscar'}</button>
           </div>
+          <small>
+            Metadados fornecidos pela{' '}
+            <a href="https://openlibrary.org/" target="_blank" rel="noreferrer">Open Library</a>;
+            resultados usados apenas para teste.
+          </small>
         </form>
 
         {results.length > 0 && (
@@ -141,7 +149,6 @@ export const SellerDashboard = ({ onClose, onCreated }: SellerDashboardProps) =>
                 className={`seller-dashboard__book ${selectedBook?.key === book.key ? 'seller-dashboard__book--selected' : ''}`}
                 onClick={() => setSelectedBook(book)}
               >
-                {book.cover_url && <img src={book.cover_url} alt="" loading="lazy" />}
                 <span><strong>{book.title}</strong><small>{book.author}{book.year ? ` · ${book.year}` : ''}</small></span>
               </button>
             ))}
@@ -150,14 +157,14 @@ export const SellerDashboard = ({ onClose, onCreated }: SellerDashboardProps) =>
 
         {selectedBook && (
           <form className="seller-dashboard__lot-form" onSubmit={handleCreate}>
-            <h3>Novo lote: {selectedBook.title}</h3>
+            <h3>Novo lote de demonstração</h3>
             <div className="seller-dashboard__fields">
               <label>Lance inicial (R$)<input type="number" min="0.01" step="0.01" value={initialBid} onChange={(event) => setInitialBid(event.target.value)} required /></label>
               <label>Incremento (R$)<input type="number" min="0.01" step="0.01" value={increment} onChange={(event) => setIncrement(event.target.value)} required /></label>
               <label>Início<input type="datetime-local" value={startsAt} onChange={(event) => setStartsAt(event.target.value)} required /></label>
               <label>Encerramento<input type="datetime-local" value={endsAt} onChange={(event) => setEndsAt(event.target.value)} required /></label>
             </div>
-            <button type="submit" disabled={isSaving}>{isSaving ? 'Publicando...' : 'Publicar lote'}</button>
+            <button type="submit" disabled={isSaving}>{isSaving ? 'Criando teste...' : 'Criar lote de teste'}</button>
           </form>
         )}
 

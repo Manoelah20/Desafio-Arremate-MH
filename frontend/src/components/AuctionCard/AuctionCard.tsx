@@ -21,19 +21,19 @@ export const AuctionCard: React.FC<AuctionCardProps> = ({ item, onViewAuction })
         return (
           <span className="auction-card__badge auction-card__badge--ending">
             <span className="auction-card__badge-pulse"></span>
-            Encerra em breve
+            Teste encerra em breve
           </span>
         );
       case 'upcoming':
         return (
           <span className="auction-card__badge auction-card__badge--upcoming">
-            Em Breve
+            Teste agendado
           </span>
         );
       case 'ended':
         return (
           <span className="auction-card__badge auction-card__badge--upcoming">
-            Encerrado
+            Teste encerrado
           </span>
         );
       case 'live':
@@ -41,7 +41,7 @@ export const AuctionCard: React.FC<AuctionCardProps> = ({ item, onViewAuction })
         return (
           <span className="auction-card__badge auction-card__badge--live">
             <span className="auction-card__badge-pulse"></span>
-            Ao Vivo
+            Disputa de teste
           </span>
         );
     }
@@ -119,11 +119,11 @@ export const AuctionCard: React.FC<AuctionCardProps> = ({ item, onViewAuction })
         {/* Informações de Lance */}
         <div className="auction-card__bid-container">
           <div className="auction-card__bid-group">
-            <span className="auction-card__bid-label">Lance Atual</span>
+            <span className="auction-card__bid-label">Lance de teste</span>
             <span className="auction-card__bid-value">{formattedBid}</span>
           </div>
           <div className="auction-card__bids-count">
-            <span>{item.totalBids} lances</span>
+            <span>{item.totalBids} lances de teste</span>
           </div>
         </div>
 
@@ -134,7 +134,7 @@ export const AuctionCard: React.FC<AuctionCardProps> = ({ item, onViewAuction })
           onClick={() => onViewAuction(item)}
           id={`btn-view-${item.id}`}
         >
-          <span>Ver leilão</span>
+          <span>Ver lote de teste</span>
           <svg
             width="18"
             height="18"

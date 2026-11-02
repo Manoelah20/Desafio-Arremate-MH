@@ -3,7 +3,8 @@
 > **Desafio Técnico — Desenvolvido por Manoela Harrison**
 > Protótipo acadêmico com interface em **React 19/TypeScript**, API em **Node.js/Express**, **PostgreSQL** e eventos em tempo real.
 
-> **Demonstração:** lotes, imagens, saldos e lances são dados ilustrativos. A aplicação não oferece produtos reais, não processa pagamentos e não gera obrigações comerciais ou jurídicas.
+> **Somente demonstração e testes:** lotes, imagens, saldos e lances são fictícios. A aplicação não oferece produtos reais, não processa pagamentos e não gera obrigações comerciais ou jurídicas.
+> Não use dados pessoais ou senhas reais. Nomes de marcas eventualmente encontrados em registros antigos não indicam vínculo ou endosso; a API pública apresenta lotes com conteúdo genérico.
 
 ![React](https://img.shields.io/badge/React-19.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
@@ -28,8 +29,9 @@ O **Arremate MH** é um projeto acadêmico que demonstra os fluxos de uma plataf
 
 O projeto reúne interface, API e banco de dados. A interface demonstra
 cadastro/login, catálogo de lotes, lances, histórico e atualizações em tempo real.
-O painel do leiloeiro consulta livros na Open Library e permite testar a
-publicação de lotes. Os fluxos de API, lance e atualização em tempo real foram
+O painel do leiloeiro pode consultar metadados bibliográficos na Open Library e
+permite testar a publicação de lotes. Capas não são exibidas nem devolvidas
+pela busca externa. Os fluxos de API, lance e atualização em tempo real foram
 validados em ambiente de demonstração. As alterações deste commit são locais;
 o site publicado só recebe esta revisão depois de um novo deploy.
 
@@ -77,12 +79,12 @@ O layout foi inteiramente projetado com **Vanilla CSS** através de um sistema e
 
 ### 5. Itens e dados de demonstração
 * O seed cria lotes de livros em estados agendado, ao vivo e encerrado, com usuários e histórico de lances.
-* O leiloeiro pode buscar novos livros e capas na Open Library e cadastrar lotes pela aplicação.
+* O leiloeiro pode consultar metadados de livros da Open Library e testar o cadastro de lotes; capas externas não são usadas.
 
 ### 6. Modais de ação e informações da demonstração
 * **Modal de Detalhes do Lote (`AuctionModal`):** Histórico de lances, saldo e envio de lances validados pela API.
 * **Modal de Acesso (`AuthModal`):** Login e cadastro de licitantes usando a API.
-* **Painel do Leiloeiro (`SellerDashboard`):** Busca de itens na Open Library e publicação/cancelamento de lotes.
+* **Painel do Leiloeiro (`SellerDashboard`):** consulta de metadados bibliográficos e publicação/cancelamento demonstrativos de lotes.
 * **Modal de informações (`LegalModal`):** explica que os lances são simulados, descreve os dados usados para testar o sistema e esclarece que não há venda, pagamento ou validade jurídica.
 * Os modais podem ser fechados com <kbd>ESC</kbd> ou pelo botão de fechar.
 
@@ -99,7 +101,7 @@ O layout foi inteiramente projetado com **Vanilla CSS** através de um sistema e
 | :--- | :--- |
 | **React + TypeScript** | Interface em componentes React com tipos TypeScript e verificação de tipos no build. |
 | **CSS com tokens** | Estilos próprios e variáveis CSS, sem framework CSS adicional. |
-| **Express + PostgreSQL** | API para autenticação, lotes, lances, saldos demonstrativos e auditoria. |
+| **Express + PostgreSQL** | API para autenticação, lotes, lances, saldos e verificação de hashes em ambiente de demonstração. |
 | **Atualização em tempo real** | Socket.IO no desenvolvimento local e Supabase Broadcast no ambiente publicado. |
 | **Vite** | Servidor de desenvolvimento e geração do bundle de produção. |
 
@@ -121,17 +123,12 @@ desafio-arremate/
 │   │   ├── utils/              # Validação monetária e hash de lances
 │   │   ├── app.js              # Aplicação Express compartilhada
 │   │   └── server.js           # Servidor local com Socket.IO
-│   ├── test/                   # Testes unitários de valores e hash
+│   ├── test/                   # Testes de valores, hash e conteúdo público demo
 │   ├── .env.example            # Modelo de configuração local
 │   └── package.json
 └── frontend/
-    ├── public/                 # Imagens dos lotes e assets estáticos
-    │   ├── rolex-cellini.jpg
-    │   ├── rolex-milgauss.jpg
-    │   ├── cadillac-1959-pink.jpg
-    │   ├── mercedes-amg-gt.jpg
-    │   ├── vw-classico-azul.jpg
-    │   └── hero-gavel-bg.jpg
+    ├── public/                 # Ilustração genérica de demonstração
+    │   └── demo-lot.svg
     ├── src/
     │   ├── components/
     │   │   ├── Header/         # Cabeçalho com logo MH e menu mobile
@@ -232,9 +229,10 @@ do Supabase Realtime.
    `http://localhost:3001/health`. Para validar as regras puras do backend,
    execute `npm test`.
 
-O seed cria o leiloeiro `leiloeiro@arrematemh.com` e os licitantes
-`carlos@email.com` e `ana@email.com`; a senha local de demonstração é
-`senha123`. Não use essas credenciais em produção.
+O seed cria contas com endereços reservados `example.test`; a senha local de
+demonstração é `senha123`. O seed é destrutivo e deve ser usado somente em um
+banco descartável/local. Não use essas credenciais em produção nem dados pessoais
+ou senhas reais.
 
 Para acrescentar contas e lotes demonstrativos sem apagar dados, use
 `npm run seed:demo` depois de revisar `DATABASE_URL` e definir
@@ -243,8 +241,9 @@ Supabase, é repetível sem duplicar seus lotes e exibe senhas aleatórias no
 terminal uma única vez. Não publique essas senhas em documentação pública.
 
 O frontend já consome cadastro/login, lotes, lances e eventos em tempo real. O
-usuário leiloeiro de demonstração abre o painel para buscar livros na Open
-Library e publicar lotes. As rotas incluem depósito de saldo (`/api/auth`),
+usuário leiloeiro de demonstração abre o painel para consultar metadados de
+livros da Open Library e publicar lotes de teste; capas externas não são
+exibidas nem retornadas pela busca. As rotas incluem depósito de saldo (`/api/auth`),
 consulta/criação/cancelamento de lotes (`/api/lots`), lances e histórico
 (`/api/bids`) e auditoria/comprovantes (`/api/audit`).
 
@@ -345,6 +344,14 @@ requisição.
 
 ---
 
-## 📄 Licença e Créditos
+## 📄 Conteúdo, atribuições e créditos
 
-Projeto desenvolvido por **Manoela Harrison** como solução para o **Desafio Técnico — Protótipo de Leilões Online**.
+Projeto desenvolvido por **Manoela Harrison** como solução para o **Desafio
+Técnico — Protótipo de Leilões Online**. A ilustração `frontend/public/demo-lot.svg`
+e os elementos visuais próprios foram criados para a demonstração. As fontes
+Inter e Plus Jakarta Sans são servidas pelo Google Fonts; consulte os termos e
+licenças de seus titulares. Metadados bibliográficos podem ser consultados na
+Open Library, que não patrocina nem endossa o projeto. Não são incorporadas
+capas externas. Este repositório não concede licença sobre marcas, fontes ou
+outros direitos de terceiros, e este aviso não substitui uma análise jurídica
+nem garante que todo conteúdo externo esteja livre de restrições.

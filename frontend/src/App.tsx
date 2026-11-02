@@ -248,6 +248,17 @@ function App() {
 
   return (
     <div className="app">
+      <aside className="app__demo-notice" role="note" aria-label="Aviso sobre o ambiente de demonstração">
+        <div className="app__demo-notice-content">
+          <strong>Protótipo para demonstração e testes</strong>
+          <span>
+            Itens, imagens, valores, saldos e lances são ilustrativos. Não há
+            produtos à venda, pagamentos, entregas, aconselhamento jurídico ou
+            vínculo com marcas, autores ou serviços de terceiros.
+          </span>
+        </div>
+      </aside>
+
       {/* Cabeçalho */}
       <Header
         onOpenAuth={() => setIsAuthModalOpen(true)}
@@ -273,17 +284,6 @@ function App() {
         onExploreClick={() => handleNavigateSection('search-section')}
         onHowItWorksClick={() => handleNavigateSection('how-it-works')}
       />
-
-      <aside className="app__demo-notice" role="note" aria-label="Aviso sobre os valores de demonstração">
-        <div className="app__demo-notice-content">
-          <strong>Ambiente de demonstração</strong>
-          <span>
-            Lotes, lances, saldos e valores são fictícios e servem apenas para
-            testar o projeto. Não representam preços de mercado nem uma oferta
-            comercial ou promessa de venda real.
-          </span>
-        </div>
-      </aside>
 
       {/* Campo de Busca e Filtros */}
       <SearchBar

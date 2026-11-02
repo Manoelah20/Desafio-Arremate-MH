@@ -2,6 +2,7 @@ const express = require('express');
 const crypto = require('crypto');
 const pool = require('../db/pool');
 const { amountToCents, createBidHash } = require('../utils/bid');
+const { toPublicDemoLot } = require('../utils/demoLot');
 
 const router = express.Router();
 
@@ -9,7 +10,7 @@ const router = express.Router();
 router.get('/:lot_id', async (req, res) => {
   try {
     const { rows: lots } = await pool.query(
-      `SELECT l.id, l.title, l.status, l.initial_bid, l.current_bid,
+      `SELECT l.id, l.title, l.external_data, l.status, l.initial_bid, l.current_bid,
               l.starts_at, l.ends_at, l.winner_id,
               CASE WHEN wu.id IS NULL THEN NULL
                 WHEN char_length(wu.name) <= 2
@@ -88,7 +89,11 @@ router.get('/:lot_id', async (req, res) => {
       if (!eventValid) isIntact = false;
 
       const { bidder_id: _, ...publicBid } = bid;
-      verifiedBids.push({ ...publicBid, verified: valid && eventValid });
+      verifiedBids.push({
+        ...publicBid,
+        bidder_display: 'Conta de teste',
+        verified: valid && eventValid,
+      });
       prevHash = bid.chain_hash;
     }
 
@@ -109,14 +114,14 @@ router.get('/:lot_id', async (req, res) => {
 
     const { winner_id: _, ...publicLot } = lot;
     res.json({
-      lot: publicLot,
+      lot: toPublicDemoLot(publicLot),
       bids: verifiedBids,
       audit: {
         is_intact: isIntact,
         total_bids: bids.length,
         message: isIntact
-          ? '✅ Histórico de lances íntegro. Nenhuma adulteração detectada.'
-          : '❌ ALERTA: Adulteração detectada no histórico de lances!',
+          ? 'Cadeia de hashes do ambiente de demonstração verificada; isso não constitui auditoria independente.'
+          : 'A cadeia de hashes de teste não foi validada.',
       },
     });
   } catch (err) {
@@ -153,6 +158,12 @@ router.get('/:lot_id/receipt', async (req, res) => {
     const { winner_id: winnerId, ...receiptData } = rows[0];
     const receipt = {
       ...receiptData,
+      title: 'Lote demonstrativo encerrado',
+      image_url: '/demo-lot.svg',
+      auctioneer_name: 'Conta de demonstração',
+      winner_display: winnerId ? 'Conta de teste' : null,
+      demo: true,
+      disclaimer: 'Registro de teste sem validade comercial, financeira ou jurídica.',
       receipt_id: crypto
         .createHash('sha256')
         .update(`${req.params.lot_id}${rows[0].winning_bid}${winnerId}`)

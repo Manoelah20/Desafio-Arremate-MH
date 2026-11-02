@@ -51,6 +51,9 @@ export interface ApiLot {
     cover_url?: string;
     year?: number;
     subjects?: string[];
+    demo?: boolean;
+    demo_key?: string;
+    source?: string;
   } | null;
   initial_bid: number;
   min_increment: number;
@@ -70,6 +73,7 @@ export interface ExternalBook {
   year?: number;
   subjects: string[];
   source: string;
+  demo?: boolean;
 }
 
 export interface CreateLotInput {
@@ -128,12 +132,10 @@ function categoryFromLot(lot: ApiLot): AuctionCategory {
     lot.external_data?.subjects?.join(' ') || ''
   }`.toLowerCase();
 
-  if (/rel[oó]gio|rolex|watch/.test(searchable)) return 'Relógios';
-  if (/carro|ve[ií]culo|autom[oó]vel|cadillac|mercedes|volkswagen/.test(searchable))
-    return 'Veículos';
+  if (/rel[oó]gio|watch/.test(searchable)) return 'Relógios';
+  if (/carro|ve[ií]culo|autom[oó]vel/.test(searchable)) return 'Veículos';
   if (/arte|pintura|design/.test(searchable)) return 'Arte & Design';
-  if (/computador|tecnologia|macbook|leica/.test(searchable))
-    return 'Tecnologia';
+  if (/computador|tecnologia/.test(searchable)) return 'Tecnologia';
 
   return 'Colecionáveis';
 }
@@ -156,6 +158,7 @@ export function remainingTime(endsAt: string): string {
 }
 
 export function mapLot(lot: ApiLot): AuctionItem {
+  const category = categoryFromLot(lot);
   let status: AuctionStatus;
 
   if (lot.status === 'encerrado' || lot.status === 'cancelado') {
@@ -172,9 +175,9 @@ export function mapLot(lot: ApiLot): AuctionItem {
   return {
     id: lot.id,
     lotNumber: `LOTE-${lot.id.slice(0, 8).toUpperCase()}`,
-    title: lot.title,
-    description: lot.description || '',
-    category: categoryFromLot(lot),
+    title: `Lote demonstrativo — ${category}`,
+    description: 'Item e informações fictícios, incluídos apenas para testar a aplicação. Não representam produto disponível para venda.',
+    category,
     currentBid: Number(lot.current_bid),
     startingBid: Number(lot.initial_bid),
     totalBids: Number(lot.total_bids || 0),
@@ -182,18 +185,9 @@ export function mapLot(lot: ApiLot): AuctionItem {
       lot.status === 'agendado' ? lot.starts_at : lot.ends_at,
     ),
     status,
-    imageUrl:
-      lot.image_url ||
-      lot.external_data?.cover_url ||
-      '/hero-gavel-bg.jpg',
-    condition: lot.external_data?.author
-      ? `${lot.external_data.author}${
-          lot.external_data.year
-            ? ` · ${lot.external_data.year}`
-            : ''
-        }`
-      : 'Item de leilão',
-    location: 'Consultar edital',
+    imageUrl: '/demo-lot.svg',
+    condition: 'Item ilustrativo; sem verificação',
+    location: 'Ambiente de teste',
     bidIncrement: Number(lot.min_increment),
   };
 }

@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const pool = require('../db/pool');
 const { authMiddleware, requireRole } = require('../middleware/auth');
 const { amountToCents, centsToAmount, createBidHash, canonicalTimestamp } = require('../utils/bid');
+const { toPublicDemoLot } = require('../utils/demoLot');
 
 const router = express.Router();
 
@@ -212,7 +213,7 @@ router.get('/my', authMiddleware, requireRole('licitante'), async (req, res) => 
   try {
     const { rows } = await pool.query(
       `SELECT b.id, b.amount, b.created_at, b.chain_hash,
-              l.id AS lot_id, l.title, l.status, l.current_bid,
+              l.id AS lot_id, l.title, l.external_data, l.status, l.current_bid,
               l.image_url, l.ends_at,
               CASE WHEN l.winner_id = $1 THEN true ELSE false END AS is_winning
        FROM bids b
@@ -221,7 +222,22 @@ router.get('/my', authMiddleware, requireRole('licitante'), async (req, res) => 
        ORDER BY b.created_at DESC`,
       [req.user.id]
     );
-    res.json({ bids: rows });
+    res.json({
+      bids: rows.map((bid) => {
+        const demoLot = toPublicDemoLot({
+          id: bid.lot_id,
+          title: bid.title,
+          external_data: bid.external_data,
+        });
+        return {
+          ...bid,
+          title: demoLot.title,
+          image_url: demoLot.image_url,
+          external_data: demoLot.external_data,
+          demo: true,
+        };
+      }),
+    });
   } catch (err) {
     console.error('[bids/my]', err.message);
     res.status(500).json({ error: 'Erro ao buscar seus lances.' });
@@ -241,7 +257,7 @@ router.get('/wins', authMiddleware, requireRole('licitante'), async (req, res) =
        ORDER BY l.ends_at DESC`,
       [req.user.id]
     );
-    res.json({ wins: rows });
+    res.json({ wins: rows.map(toPublicDemoLot) });
   } catch (err) {
     console.error('[bids/wins]', err.message);
     res.status(500).json({ error: 'Erro ao buscar arremates.' });

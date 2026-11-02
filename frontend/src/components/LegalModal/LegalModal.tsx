@@ -179,7 +179,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   Não use dados reais
                 </h4>
                 <p className="legal-modal__section-text">
-                  Como não é um serviço operacional, não há encarregado de dados ou canal de suporte associado a esta interface. Para testes, prefira uma conta com dados fictícios e uma senha exclusiva.
+                  Como não é um serviço operacional, não há encarregado de dados ou canal de suporte associado a esta interface. Para testes, prefira uma conta com dados fictícios e uma senha exclusiva. Não há vínculo, patrocínio ou endosso de marcas, autores, editoras ou serviços citados nos metadados de terceiros.
                 </p>
               </div>
             </>
@@ -197,7 +197,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   Descrições ilustrativas
                 </h4>
                 <p className="legal-modal__section-text">
-                  Fotos, títulos, preços e condições foram incluídos para demonstrar a interface. Eles não comprovam a existência, autenticidade, propriedade ou estado de conservação de um produto.
+                  A ilustração, os títulos genéricos, valores e históricos de lances são dados de teste. Não comprovam a existência, autenticidade, propriedade ou estado de conservação de qualquer produto.
                 </p>
               </div>
 
@@ -227,7 +227,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         {/* Rodapé do Modal */}
         <div className="legal-modal__footer">
           <span className="legal-modal__footer-info">
-            Protótipo acadêmico: não há oferta, venda ou pagamento real.
+            Protótipo de teste: sem produtos, venda ou pagamento real.
           </span>
           <button
             type="button"
