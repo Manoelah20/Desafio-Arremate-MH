@@ -227,16 +227,18 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   Créditos e licenças das fotografias
                 </h4>
                 <p className="legal-modal__section-text">
-                  Relógios — www.Pixel.la Free Stock Photos, CC0 (
-                  <a href="https://commons.wikimedia.org/wiki/File:Fashion-wristwatch-time-watch-1_(24325510005).jpg" target="_blank" rel="noreferrer">fonte</a>
-                  {' · '}
-                  <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">licença</a>
-                  ); Tecnologia — Gre123gr, CC0, imagem recortada (
+                  Relógios — Pixabay, cronógrafo (
+                  <a href="https://pixabay.com/pt/photos/tempo-rel%C3%B3gio-rel%C3%B3gio-de-pulso-3091031/" target="_blank" rel="noreferrer">fonte</a>
+                  ) e relógio de bolso (
+                  <a href="https://pixabay.com/pt/photos/rel%C3%B3gio-de-bolso-medalh%C3%A3o-assistir-2569573/" target="_blank" rel="noreferrer">fonte</a>
+                  ), sob a <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noreferrer">Licença de Conteúdo do Pixabay</a>
+                  ; Veículos — Pixabay, carro clássico azul (
+                  <a href="https://pixabay.com/pt/photos/carros-antigos-carros-cl%C3%A1ssicos-7566297/" target="_blank" rel="noreferrer">fonte</a>
+                  ) e Porsche clássico (
+                  <a href="https://pixabay.com/pt/photos/carro-carro-cl%C3%A1ssico-porsche-7294294/" target="_blank" rel="noreferrer">fonte</a>
+                  ), sob a mesma <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noreferrer">licença</a>
+                  ; Tecnologia — Gre123gr, CC0, imagem recortada (
                   <a href="https://commons.wikimedia.org/wiki/File:Backlit_Laptop_Keyboard.jpg" target="_blank" rel="noreferrer">fonte</a>
-                  {' · '}
-                  <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">licença</a>
-                  ); Veículos — Costin Costan, CC0 (
-                  <a href="https://commons.wikimedia.org/wiki/File:Abandoned_Classic_Car_(166397797).jpeg" target="_blank" rel="noreferrer">fonte</a>
                   {' · '}
                   <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">licença</a>
                   ); Arte — Fons Heijnsbroek, CC0 (

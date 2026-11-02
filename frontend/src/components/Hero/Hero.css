@@ -177,15 +177,23 @@
 .hero-section__category-card::after {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   background: linear-gradient(180deg, transparent 20%, rgba(10, 11, 16, 0.82) 100%);
   content: '';
 }
 
-.hero-section__category-card img {
+.hero-section__category-images {
   position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.hero-section__category-images img {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -194,6 +202,7 @@
 
 .hero-section__category-card span {
   position: absolute;
+  z-index: 2;
   right: 0.65rem;
   bottom: 0.6rem;
   left: 0.65rem;

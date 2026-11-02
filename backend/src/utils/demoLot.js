@@ -14,8 +14,8 @@ function categoryFromLot(lot) {
 function toPublicDemoLot(lot) {
   const category = categoryFromLot(lot);
   const imageByCategory = {
-    'Relógios': '/demo-lot-watch.jpg',
-    'Veículos': '/demo-lot-vehicle.jpg',
+    'Relógios': '/relogio2.jpg',
+    'Veículos': '/carro1.jpg',
     'Arte & Design': '/demo-lot-art.svg',
     Tecnologia: '/demo-lot-technology.jpg',
     Colecionáveis: '/demo-lot-collectibles.jpg',

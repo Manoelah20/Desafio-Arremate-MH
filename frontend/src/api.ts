@@ -144,8 +144,8 @@ function imageForCategory(category: AuctionCategory): string {
   const imageByCategory: Record<AuctionCategory, string> = {
     Todos: '/demo-lot.svg',
     Tecnologia: '/demo-lot-technology.jpg',
-    Relógios: '/demo-lot-watch.jpg',
-    Veículos: '/demo-lot-vehicle.jpg',
+    Relógios: '/relogio2.jpg',
+    Veículos: '/carro1.jpg',
     'Arte & Design': '/demo-lot-art.svg',
     Colecionáveis: '/demo-lot-collectibles.jpg',
   };
@@ -158,7 +158,7 @@ function fallbackImageForCategory(category: AuctionCategory): string {
     Todos: '/demo-lot.svg',
     Tecnologia: '/demo-lot-technology.svg',
     Relógios: '/demo-lot-watch.svg',
-    Veículos: '/demo-lot-vehicle.svg',
+    Veículos: '/demo-lot.svg',
     'Arte & Design': '/demo-lot-art.svg',
     Colecionáveis: '/demo-lot-collectibles.svg',
   };

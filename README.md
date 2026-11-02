@@ -131,12 +131,13 @@ desafio-arremate/
     │   ├── demo-lot-art.jpg
     │   ├── demo-lot-collectibles.jpg
     │   ├── demo-lot-technology.jpg
-    │   ├── demo-lot-vehicle.jpg
-    │   ├── demo-lot-watch.jpg
+    │   ├── carro1.jpg
+    │   ├── carro2.jpg
+    │   ├── relogio1.jpg
+    │   ├── relogio2.jpg
     │   ├── demo-lot-art.svg
     │   ├── demo-lot-collectibles.svg
     │   ├── demo-lot-technology.svg
-    │   ├── demo-lot-vehicle.svg
     │   └── demo-lot-watch.svg
     ├── src/
     │   ├── components/
@@ -363,9 +364,11 @@ autenticidade ou endosso:
 
 | Arquivo | Obra e autoria | Licença e origem |
 | --- | --- | --- |
-| `demo-lot-watch.jpg` | “Fashion-wristwatch-time-watch-1”, www.Pixel.la Free Stock Photos | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fashion-wristwatch-time-watch-1_(24325510005).jpg) |
+| `relogio2.jpg` | “Relógio cronógrafo de luxo com pulseira de couro preta em fundo escuro”, Pixabay | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/tempo-rel%C3%B3gio-rel%C3%B3gio-de-pulso-3091031/) |
+| `relogio1.jpg` | “Relógio de bolso prateado vintage e medalhão ornamentado sobre denim azul”, Pixabay | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/rel%C3%B3gio-de-bolso-medalh%C3%A3o-assistir-2569573/) |
+| `carro1.jpg` | “Carros Antigos Clássicos”, Pixabay | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/carros-antigos-carros-cl%C3%A1ssicos-7566297/) |
+| `carro2.jpg` | “Carro clássico Porsche”, Pixabay | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/carro-carro-cl%C3%A1ssico-porsche-7294294/) |
 | `demo-lot-technology.jpg` | “Backlit Laptop Keyboard”, Gre123gr; recortada para exibição | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Backlit_Laptop_Keyboard.jpg) |
-| `demo-lot-vehicle.jpg` | “Abandoned Classic Car”, Costin Costan | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Abandoned_Classic_Car_(166397797).jpeg) |
 | `demo-lot-art.jpg` | “Abstract sky”, Fons Heijnsbroek | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%27Abstract_sky%27%2C_1993_-_small_acrylic_painting_by_Dutch_artist_Fons_Heijnsbroek%3B_free_download_abstract_art_image%2C_CCO.jpg) |
 | `demo-lot-collectibles.jpg` | “Antique Baccarat Closepack Millefiori Paperweight”, Lesbeatiques | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) · [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Antique_Baccarat_Closepack_Millefiori_Paperweight.jpg); miniatura redimensionada para exibição |
 
@@ -376,3 +379,8 @@ externas não são incorporadas. Este repositório não concede licença sobre
 marcas, fontes ou outros direitos de terceiros, e este aviso não substitui
 análise jurídica nem garante que todo conteúdo externo esteja livre de
 restrições.
+
+O Pixabay permite uso gratuito, sem atribuição obrigatória, e permite adaptar
+seu conteúdo conforme sua Licença de Conteúdo. A licença proíbe redistribuição
+do arquivo em base isolada e alerta que certos conteúdos podem envolver direitos
+adicionais; as fotos aqui são usadas apenas dentro da interface demonstrativa.

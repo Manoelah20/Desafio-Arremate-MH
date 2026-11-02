@@ -24,7 +24,7 @@ test('public demo lots do not expose third-party titles, descriptions, metadata,
   assert.equal(lot.title, 'Lote demonstrativo — Relógios');
   assert.equal(lot.demo, true);
   assert.match(lot.description, /fictícios/);
-  assert.equal(lot.image_url, '/demo-lot-watch.jpg');
+  assert.equal(lot.image_url, '/relogio2.jpg');
   assert.deepEqual(lot.external_data, {
     source: 'Demonstração',
     demo: true,
@@ -43,8 +43,8 @@ test('public demo lots do not expose third-party titles, descriptions, metadata,
 test('public demo lots select the licensed photo for each category', () => {
   const cases = [
     { subject: 'Tecnologia', image: '/demo-lot-technology.jpg' },
-    { subject: 'Relógios', image: '/demo-lot-watch.jpg' },
-    { subject: 'Veículos', image: '/demo-lot-vehicle.jpg' },
+    { subject: 'Relógios', image: '/relogio2.jpg' },
+    { subject: 'Veículos', image: '/carro1.jpg' },
     { subject: 'Arte & Design', image: '/demo-lot-art.svg' },
     { subject: 'Colecionáveis', image: '/demo-lot-collectibles.jpg' },
   ];
