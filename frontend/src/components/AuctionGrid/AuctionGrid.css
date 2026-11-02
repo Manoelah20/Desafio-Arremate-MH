@@ -68,6 +68,15 @@
   margin: 0 auto;
 }
 
+.auction-grid__category-image {
+  width: min(100%, 360px);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.25rem;
+}
+
 .auction-grid__empty-icon {
   width: 72px;
   height: 72px;

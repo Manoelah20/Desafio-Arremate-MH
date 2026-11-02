@@ -303,6 +303,7 @@ function App() {
       {/* Grade de Leilões em Destaque */}
       <AuctionGrid
         auctions={filteredAuctions}
+        selectedCategory={selectedCategory}
         onViewAuction={(item) => { void handleViewAuction(item); }}
         onResetFilters={handleResetFilters}
       />

@@ -1,16 +1,19 @@
 import React from 'react';
-import type { AuctionItem } from '../../types/auction';
+import type { AuctionCategory, AuctionItem } from '../../types/auction';
+import { categoryPreviewImage } from '../../api';
 import { AuctionCard } from '../AuctionCard/AuctionCard';
 import './AuctionGrid.css';
 
 interface AuctionGridProps {
   auctions: AuctionItem[];
+  selectedCategory: AuctionCategory;
   onViewAuction: (item: AuctionItem) => void;
   onResetFilters: () => void;
 }
 
 export const AuctionGrid: React.FC<AuctionGridProps> = ({
   auctions,
+  selectedCategory,
   onViewAuction,
   onResetFilters
 }) => {
@@ -45,26 +48,40 @@ export const AuctionGrid: React.FC<AuctionGridProps> = ({
         ) : (
           /* Estado Vazio quando a busca não retorna resultados */
           <div className="auction-grid__empty">
-            <div className="auction-grid__empty-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.3-4.3" />
-                <path d="m9.5 9.5 3 3" />
-                <path d="m12.5 9.5-3 3" />
-              </svg>
-            </div>
-            <h3 className="auction-grid__empty-title">Nenhum lote demonstrativo encontrado</h3>
+            {selectedCategory !== 'Todos' ? (
+              <img
+                className="auction-grid__category-image"
+                src={categoryPreviewImage(selectedCategory)}
+                alt={`Foto ilustrativa da categoria ${selectedCategory}`}
+              />
+            ) : (
+              <div className="auction-grid__empty-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                  <path d="m9.5 9.5 3 3" />
+                  <path d="m12.5 12.5-3 3" />
+                </svg>
+              </div>
+            )}
+            <h3 className="auction-grid__empty-title">
+              {selectedCategory === 'Todos'
+                ? 'Nenhum lote demonstrativo encontrado'
+                : `${selectedCategory} — foto ilustrativa`}
+            </h3>
             <p className="auction-grid__empty-desc">
-              Não encontramos nenhum lote correspondente aos filtros ou termo buscado. Tente buscar por outra palavra-chave ou categoria.
+              {selectedCategory === 'Todos'
+                ? 'Não encontramos nenhum lote demonstrativo correspondente à sua busca. Tente outra palavra-chave.'
+                : `Ainda não há lotes demonstrativos de ${selectedCategory}. Esta foto serve apenas como referência visual da categoria.`}
             </p>
             <button
               type="button"

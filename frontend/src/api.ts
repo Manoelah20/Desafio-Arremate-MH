@@ -9,6 +9,27 @@ const DEFAULT_API_URL = import.meta.env.DEV
   : 'https://desafio-arremate-mh-u8eb.vercel.app';
 const API_URL = (import.meta.env.VITE_API_URL || DEFAULT_API_URL).replace(/\/$/, '');
 
+const imagesByCategory: Record<AuctionCategory, string[]> = {
+  Todos: ['/demo-lot.svg'],
+  Tecnologia: ['/tecnologia-pixabay.jpg'],
+  Relógios: ['/relogio2.jpg', '/relogio1.jpg'],
+  Veículos: ['/carro1.jpg', '/carro2.jpg'],
+  'Arte & Design': [
+    '/arte-design-pixabay.jpg',
+    '/arte-design-aquarela.jpg',
+    '/arte-design-grafite.jpg',
+  ],
+  Colecionáveis: [
+    '/colecionaveis-vinil.jpg',
+    '/colecionaveis-gramofone.jpg',
+    '/colecionaveis-vinil-2.jpg',
+  ],
+};
+
+export function categoryPreviewImage(category: Exclude<AuctionCategory, 'Todos'>): string {
+  return imagesByCategory[category][0];
+}
+
 const TOKEN_KEY = 'arremate.auth.token';
 
 interface ApiError {
@@ -141,23 +162,6 @@ function categoryFromLot(lot: ApiLot): AuctionCategory {
 }
 
 function imageForLot(category: AuctionCategory, id: string, publicImageUrl: string | null): string {
-  const imagesByCategory: Record<AuctionCategory, string[]> = {
-    Todos: ['/demo-lot.svg'],
-    Tecnologia: ['/tecnologia-pixabay.jpg'],
-    Relógios: ['/relogio2.jpg', '/relogio1.jpg'],
-    Veículos: ['/carro1.jpg', '/carro2.jpg'],
-    'Arte & Design': [
-      '/arte-design-pixabay.jpg',
-      '/arte-design-aquarela.jpg',
-      '/arte-design-grafite.jpg',
-    ],
-    Colecionáveis: [
-      '/colecionaveis-vinil.jpg',
-      '/colecionaveis-gramofone.jpg',
-      '/colecionaveis-vinil-2.jpg',
-    ],
-  };
-
   const images = imagesByCategory[category];
   if (publicImageUrl && images.includes(publicImageUrl)) return publicImageUrl;
 
