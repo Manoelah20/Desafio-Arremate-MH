@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Backend da Casa de Leilões Arremate MH - Desafio Técnico por Manoela Harrison",
   "author": "Manoela Harrison",
-  "main": "src/server.js",
+  "main": "index.js",
   "engines": {
     "node": ">=20"
   },
@@ -11,6 +11,7 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "seed": "node src/db/seed.js",
+    "seed:demo": "node src/db/seedDemo.js",
     "db:schema": "node src/db/migrate.js",
     "test": "node --test"
   },

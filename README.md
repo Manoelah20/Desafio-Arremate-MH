@@ -27,7 +27,10 @@ O **Arremate MH** é uma plataforma concebida para a mediação segura e transpa
 O projeto reúne interface, API e banco de dados. A interface consome a API para
 cadastro/login, vitrine de lotes, lances, histórico e atualizações em tempo real.
 O leiloeiro pode buscar livros na Open Library e publicar lotes pelo painel.
-O deploy público obrigatório ainda precisa ser concluído.
+O frontend e a API já estão publicados. Na última verificação, ambos estavam
+acessíveis e a API retornava lotes de demonstração. Foi identificado um problema
+de roteamento em rotas aninhadas no deploy existente; a entrada do Express foi
+ajustada no código, mas precisa ser publicada antes da validação final do fluxo.
 
 A interface inicial prioriza:
 1. **Fidelidade e refinamento estético:** paleta dark com toques de amarelo dourado e violeta, tipografia contemporânea e efeitos sutis de vidro (*glassmorphism*).
@@ -112,8 +115,8 @@ desafio-arremate/
 ├── .gitignore                  # Arquivos ignorados pelo Git
 ├── README.md                   # Documentação oficial do desafio
 ├── backend/
+│   ├── index.js                # Entrada Express detectada pela Vercel
 │   ├── src/
-│   │   ├── api/                # Função serverless catch-all da Vercel
 │   │   ├── db/                 # Pool PostgreSQL, schema e dados de demonstração
 │   │   ├── middleware/         # Autenticação JWT e controle de perfil
 │   │   ├── routes/             # API de usuários, lotes, lances e auditoria
@@ -236,6 +239,12 @@ O seed cria o leiloeiro `leiloeiro@arrematemh.com` e os licitantes
 `carlos@email.com` e `ana@email.com`; a senha local de demonstração é
 `senha123`. Não use essas credenciais em produção.
 
+Para acrescentar contas e lotes demonstrativos sem apagar dados, use
+`npm run seed:demo` depois de revisar `DATABASE_URL` e definir
+`ALLOW_DEMO_SEED=arremate-demo-v1`. O comando só aceita conexão com o pooler do
+Supabase, é repetível sem duplicar seus lotes e exibe senhas aleatórias no
+terminal uma única vez. Não publique essas senhas em documentação pública.
+
 O frontend já consome cadastro/login, lotes, lances e eventos em tempo real. O
 usuário leiloeiro de demonstração abre o painel para buscar livros na Open
 Library e publicar lotes. As rotas incluem depósito de saldo (`/api/auth`),
@@ -255,6 +264,23 @@ A aplicação usa **dois projetos Vercel** ligados ao mesmo repositório privado
 um para o frontend (`frontend`) e outro para a API (`backend`). O Supabase Free
 fornece PostgreSQL e Broadcast Realtime. Nenhum serviço é criado por este
 repositório automaticamente.
+
+#### Deploy publicado
+
+* **Frontend:** [desafio-arremate-mh.vercel.app](https://desafio-arremate-mh.vercel.app/)
+* **API:** [desafio-arremate-mh-u8eb.vercel.app](https://desafio-arremate-mh-u8eb.vercel.app/)
+* **Estado verificado:** frontend acessível; `/health` e `/api/lots` responderam
+  com sucesso e o catálogo recebeu quatro lotes demonstrativos. No deploy atual,
+  rotas aninhadas como `/api/auth/login` retornam 404. O código agora expõe o
+  Express diretamente na entrada reconhecida pela Vercel; publique essa mudança
+  e valide login, lances e Broadcast Realtime antes da entrega.
+
+Os dados demonstrativos já foram acrescentados ao banco publicado, sem apagar
+registros existentes. O comando seguro para repeti-los em outro ambiente é
+`npm run seed:demo`, usando `ALLOW_DEMO_SEED=arremate-demo-v1` após confirmar a
+conexão em `backend/.env`. As senhas geradas aparecem uma única vez no terminal;
+guarde-as em local seguro para avaliação. Esse comando não substitui nem altera
+o seed destrutivo `npm run seed`.
 
 1. Crie um projeto no [Supabase](https://supabase.com/dashboard) pelo plano
    gratuito. Se o painel exigir upgrade ou forma de pagamento, pare e não
@@ -300,10 +326,13 @@ requisição.
 
 ### Pendências para a entrega
 
-* Criar os projetos Vercel e Supabase usando somente opções gratuitas e validar
-  o fluxo público com o banco e o tempo real configurados.
-* Informar o link público e as credenciais de avaliação no formulário de entrega;
-  não reutilizar as credenciais locais do seed.
+* Preparar dados e contas de avaliação no ambiente publicado sem executar o
+  seed destrutivo em um banco com dados que precisam ser preservados (**feito**).
+* Publicar as alterações de roteamento do backend e confirmar que rotas
+  aninhadas, incluindo `/api/auth/login`, respondem corretamente.
+* Validar no frontend publicado cadastro/login, lance, evento em tempo real e
+  encerramento; então informar o link e as credenciais de avaliação no
+  formulário de entrega. Não reutilize as credenciais locais do seed.
 
 ---
 
