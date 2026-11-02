@@ -16,9 +16,17 @@ function toPublicDemoLot(lot) {
   const imageByCategory = {
     'Relógios': ['/relogio2.jpg', '/relogio1.jpg'],
     'Veículos': ['/carro1.jpg', '/carro2.jpg'],
-    'Arte & Design': ['/arte-design-pixabay.jpg', '/arte-design-aquarela.jpg'],
+    'Arte & Design': [
+      '/arte-design-pixabay.jpg',
+      '/arte-design-aquarela.jpg',
+      '/arte-design-abstrata-2.jpg',
+    ],
     Tecnologia: ['/tecnologia-pixabay.jpg'],
-    Colecionáveis: ['/colecionaveis-vinil.jpg', '/colecionaveis-gramofone.jpg'],
+    Colecionáveis: [
+      '/colecionaveis-vinil.jpg',
+      '/colecionaveis-gramofone.jpg',
+      '/colecionaveis-vinil-2.jpg',
+    ],
   };
   const categoryImages = imageByCategory[category];
   const imageOptions = Array.isArray(categoryImages)

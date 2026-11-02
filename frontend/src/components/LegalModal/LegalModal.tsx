@@ -243,6 +243,9 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   ; segunda imagem de Arte & Design — garageband, aquarela abstrata (
                   <a href="https://pixabay.com/pt/photos/colorido-pintura-fundo-abstract-2468874/" target="_blank" rel="noreferrer">fonte</a>
                   ), sob a mesma licença
+                  ; terceira imagem de Arte & Design — StefWithAnF, arte abstrata psicodélica (
+                  <a href="https://pixabay.com/pt/photos/arte-abstrata-arte-psicod%C3%A9lica-7171276/" target="_blank" rel="noreferrer">fonte</a>
+                  ), sob a mesma licença
                   ; Tecnologia — JoshuaWoroniecki, laptop futurista (
                   <a href="https://pixabay.com/photos/laptop-digital-device-technology-5673901/" target="_blank" rel="noreferrer">fonte</a>
                   ), sob a mesma licença
@@ -250,6 +253,9 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   <a href="https://pixabay.com/photos/music-player-record-player-7792956/" target="_blank" rel="noreferrer">fonte</a>
                   ) e bogitw, gramofone vintage (
                   <a href="https://pixabay.com/photos/flea-market-gramophone-music-1262036/" target="_blank" rel="noreferrer">fonte</a>
+                  ), sob a mesma licença
+                  ; segunda foto de vinil em loja — niro9 (
+                  <a href="https://pixabay.com/photos/record-shop-vinyl-records-music-9180482/" target="_blank" rel="noreferrer">fonte</a>
                   ), sob a mesma licença
                   ; SVGs próprios mantidos como fallback.
                   ).

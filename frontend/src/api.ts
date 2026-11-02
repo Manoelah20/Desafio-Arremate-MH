@@ -146,8 +146,16 @@ function imageForLot(category: AuctionCategory, id: string, publicImageUrl: stri
     Tecnologia: ['/tecnologia-pixabay.jpg'],
     Relógios: ['/relogio2.jpg', '/relogio1.jpg'],
     Veículos: ['/carro1.jpg', '/carro2.jpg'],
-    'Arte & Design': ['/arte-design-pixabay.jpg', '/arte-design-aquarela.jpg'],
-    Colecionáveis: ['/colecionaveis-vinil.jpg', '/colecionaveis-gramofone.jpg'],
+    'Arte & Design': [
+      '/arte-design-pixabay.jpg',
+      '/arte-design-aquarela.jpg',
+      '/arte-design-abstrata-2.jpg',
+    ],
+    Colecionáveis: [
+      '/colecionaveis-vinil.jpg',
+      '/colecionaveis-gramofone.jpg',
+      '/colecionaveis-vinil-2.jpg',
+    ],
   };
 
   const images = imagesByCategory[category];
