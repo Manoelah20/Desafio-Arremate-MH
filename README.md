@@ -284,9 +284,10 @@ registros existentes. O comando seguro para repeti-los em outro ambiente é
 `npm run seed:demo`, usando `ALLOW_DEMO_SEED=arremate-demo-v1` após confirmar a
 conexão em `backend/.env`. As senhas geradas aparecem uma única vez no terminal;
 guarde-as em local seguro para avaliação. Esse comando não substitui nem altera
-o seed destrutivo `npm run seed`. Os valores iniciais dos quatro lotes são apenas
-valores baixos de demonstração, não avaliações de mercado. Lances feitos durante
-os testes permanecem no banco e alteram os lances atuais.
+o seed destrutivo `npm run seed`. A interface informa que lotes, lances, saldos e
+valores são fictícios e servem apenas para testar o projeto; não são avaliações
+de mercado nem ofertas comerciais. Lances feitos durante os testes permanecem
+no banco e alteram os lances atuais.
 
 1. Crie um projeto no [Supabase](https://supabase.com/dashboard) pelo plano
    gratuito. Se o painel exigir upgrade ou forma de pagamento, pare e não

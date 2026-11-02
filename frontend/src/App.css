@@ -25,3 +25,41 @@
   color: var(--yellow-gold);
   text-decoration: underline;
 }
+
+.app__demo-notice {
+  padding: 1rem 1.5rem 0;
+}
+
+.app__demo-notice-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.85rem 1.1rem;
+  color: var(--text-secondary);
+  background: var(--yellow-bg-subtle);
+  border: 1px solid var(--yellow-border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.app__demo-notice-content strong {
+  flex-shrink: 0;
+  color: var(--yellow-gold);
+}
+
+@media (max-width: 640px) {
+  .app__demo-notice {
+    padding: 0.75rem 1rem 0;
+  }
+
+  .app__demo-notice-content {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+}

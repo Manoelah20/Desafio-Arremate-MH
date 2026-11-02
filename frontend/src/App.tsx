@@ -274,6 +274,17 @@ function App() {
         onHowItWorksClick={() => handleNavigateSection('how-it-works')}
       />
 
+      <aside className="app__demo-notice" role="note" aria-label="Aviso sobre os valores de demonstração">
+        <div className="app__demo-notice-content">
+          <strong>Ambiente de demonstração</strong>
+          <span>
+            Lotes, lances, saldos e valores são fictícios e servem apenas para
+            testar o projeto. Não representam preços de mercado nem uma oferta
+            comercial ou promessa de venda real.
+          </span>
+        </div>
+      </aside>
+
       {/* Campo de Busca e Filtros */}
       <SearchBar
         searchTerm={searchTerm}
