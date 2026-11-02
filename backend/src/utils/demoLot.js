@@ -13,12 +13,19 @@ function categoryFromLot(lot) {
 
 function toPublicDemoLot(lot) {
   const category = categoryFromLot(lot);
+  const imageByCategory = {
+    'Relógios': '/demo-lot-watch.svg',
+    'Veículos': '/demo-lot-vehicle.svg',
+    'Arte & Design': '/demo-lot-art.svg',
+    Tecnologia: '/demo-lot-technology.svg',
+    Colecionáveis: '/demo-lot-collectibles.svg',
+  };
   return {
     ...lot,
     demo: true,
     title: `Lote demonstrativo — ${category}`,
     description: 'Item e informações fictícios, incluídos apenas para testar a aplicação. Não representam produto disponível para venda.',
-    image_url: '/demo-lot.svg',
+    image_url: imageByCategory[category],
     external_data: { source: 'Demonstração', demo: true, subjects: [category] },
     auctioneer_name: 'Conta de demonstração',
     winner_name: lot.winner_name ? 'Conta de teste' : null,

@@ -25,8 +25,8 @@ Para configurar e iniciar o backend e o banco, consulte o [README principal](../
 - Os lotes públicos da API são apresentados com nomes, descrições e ilustração
   genéricos de demonstração. Valores, estados e histórico de lances são mantidos
   para exercitar os fluxos.
-- A ilustração `public/demo-lot.svg` foi criada para este projeto. Não são
-  incluídas fotografias de produtos ou capas de livros.
+- As ilustrações SVG por categoria em `public/demo-lot-*.svg` foram criadas
+  para este projeto. Não são incluídas fotografias de produtos ou capas de livros.
 - O painel pode consultar metadados bibliográficos da Open Library para testes.
   As capas não são exibidas nem devolvidas pelo endpoint de busca. A Open
   Library não patrocina nem endossa o projeto.

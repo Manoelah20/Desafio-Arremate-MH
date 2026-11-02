@@ -140,6 +140,19 @@ function categoryFromLot(lot: ApiLot): AuctionCategory {
   return 'Colecionáveis';
 }
 
+function imageForCategory(category: AuctionCategory): string {
+  const imageByCategory: Record<AuctionCategory, string> = {
+    Todos: '/demo-lot.svg',
+    Tecnologia: '/demo-lot-technology.svg',
+    Relógios: '/demo-lot-watch.svg',
+    Veículos: '/demo-lot-vehicle.svg',
+    'Arte & Design': '/demo-lot-art.svg',
+    Colecionáveis: '/demo-lot-collectibles.svg',
+  };
+
+  return imageByCategory[category];
+}
+
 export function remainingTime(endsAt: string): string {
   const remaining = Math.max(
     0,
@@ -185,7 +198,7 @@ export function mapLot(lot: ApiLot): AuctionItem {
       lot.status === 'agendado' ? lot.starts_at : lot.ends_at,
     ),
     status,
-    imageUrl: '/demo-lot.svg',
+    imageUrl: imageForCategory(category),
     condition: 'Item ilustrativo; sem verificação',
     location: 'Ambiente de teste',
     bidIncrement: Number(lot.min_increment),

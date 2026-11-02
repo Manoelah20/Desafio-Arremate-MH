@@ -134,7 +134,7 @@ router.get('/:lot_id', async (req, res) => {
 router.get('/:lot_id/receipt', async (req, res) => {
   try {
     const { rows } = await pool.query(
-      `SELECT l.id, l.title, l.image_url, l.current_bid AS winning_bid,
+      `SELECT l.id, l.title, l.external_data, l.image_url, l.current_bid AS winning_bid,
               l.initial_bid, l.ends_at, l.status,
               wu.id AS winner_id,
               CASE WHEN wu.id IS NULL THEN NULL
@@ -156,10 +156,11 @@ router.get('/:lot_id/receipt', async (req, res) => {
     }
 
     const { winner_id: winnerId, ...receiptData } = rows[0];
+    const demoLot = toPublicDemoLot(receiptData);
     const receipt = {
       ...receiptData,
-      title: 'Lote demonstrativo encerrado',
-      image_url: '/demo-lot.svg',
+      title: demoLot.title,
+      image_url: demoLot.image_url,
       auctioneer_name: 'Conta de demonstração',
       winner_display: winnerId ? 'Conta de teste' : null,
       demo: true,

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title description">
+  <title id="title">Ilustração fictícia de tecnologia</title>
+  <desc id="description">Dispositivo eletrônico geométrico criado para a demonstração.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#18142b"/>
+      <stop offset="1" stop-color="#0a0b10"/>
+    </linearGradient>
+    <linearGradient id="device" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#c084fc"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" rx="28" fill="url(#background)"/>
+  <circle cx="320" cy="210" r="152" fill="#8b5cf6" opacity=".12"/>
+  <rect x="194" y="106" width="252" height="184" rx="20" fill="#242038" stroke="url(#device)" stroke-width="8"/>
+  <rect x="212" y="124" width="216" height="144" rx="10" fill="#11101a"/>
+  <path d="m272 194 30 30 66-70" fill="none" stroke="url(#device)" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/>
+  <path d="M288 292v34m64-34v34m-99 4h134" fill="none" stroke="#d6d3e2" stroke-linecap="round" stroke-width="9"/>
+  <text x="320" y="394" fill="#d6d3e2" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">TECNOLOGIA · ILUSTRAÇÃO FICTÍCIA</text>
+</svg>

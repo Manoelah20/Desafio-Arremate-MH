@@ -127,8 +127,12 @@ desafio-arremate/
 │   ├── .env.example            # Modelo de configuração local
 │   └── package.json
 └── frontend/
-    ├── public/                 # Ilustração genérica de demonstração
-    │   └── demo-lot.svg
+    ├── public/                 # Ilustrações fictícias por categoria
+    │   ├── demo-lot-art.svg
+    │   ├── demo-lot-collectibles.svg
+    │   ├── demo-lot-technology.svg
+    │   ├── demo-lot-vehicle.svg
+    │   └── demo-lot-watch.svg
     ├── src/
     │   ├── components/
     │   │   ├── Header/         # Cabeçalho com logo MH e menu mobile
@@ -347,8 +351,8 @@ requisição.
 ## 📄 Conteúdo, atribuições e créditos
 
 Projeto desenvolvido por **Manoela Harrison** como solução para o **Desafio
-Técnico — Protótipo de Leilões Online**. A ilustração `frontend/public/demo-lot.svg`
-e os elementos visuais próprios foram criados para a demonstração. As fontes
+Técnico — Protótipo de Leilões Online**. As ilustrações genéricas por categoria
+em `frontend/public/demo-lot-*.svg` e os elementos visuais próprios foram criados para a demonstração. As fontes
 Inter e Plus Jakarta Sans são servidas pelo Google Fonts; consulte os termos e
 licenças de seus titulares. Metadados bibliográficos podem ser consultados na
 Open Library, que não patrocina nem endossa o projeto. Não são incorporadas

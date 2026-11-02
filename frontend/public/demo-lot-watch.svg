@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title description">
+  <title id="title">Ilustração fictícia de relógio</title>
+  <desc id="description">Relógio abstrato sem marca criado para a demonstração.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#21172b"/>
+      <stop offset="1" stop-color="#0a0b10"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fef08a"/>
+      <stop offset=".52" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" rx="28" fill="url(#background)"/>
+  <circle cx="320" cy="210" r="152" fill="#fbbf24" opacity=".08"/>
+  <path d="M280 78h80l20 86h-120zm-20 174h120l-20 94h-80z" fill="#302943" stroke="url(#metal)" stroke-width="7"/>
+  <circle cx="320" cy="210" r="84" fill="#171521" stroke="url(#metal)" stroke-width="12"/>
+  <circle cx="320" cy="210" r="68" fill="none" stroke="#d6d3e2" stroke-opacity=".35" stroke-width="2"/>
+  <path d="M320 156v56l39 23" fill="none" stroke="url(#metal)" stroke-linecap="round" stroke-width="9"/>
+  <circle cx="320" cy="210" r="8" fill="#fef08a"/>
+  <text x="320" y="394" fill="#d6d3e2" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">RELÓGIOS · ILUSTRAÇÃO FICTÍCIA</text>
+</svg>

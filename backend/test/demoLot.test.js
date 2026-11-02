@@ -24,11 +24,27 @@ test('public demo lots do not expose third-party titles, descriptions, metadata,
   assert.equal(lot.title, 'Lote demonstrativo — Relógios');
   assert.equal(lot.demo, true);
   assert.match(lot.description, /fictícios/);
-  assert.equal(lot.image_url, '/demo-lot.svg');
+  assert.equal(lot.image_url, '/demo-lot-watch.svg');
   assert.deepEqual(lot.external_data, {
     source: 'Demonstração',
     demo: true,
     subjects: ['Relógios'],
+  });
+
+  test('public demo lots select an original illustration for each category', () => {
+    const cases = [
+      { subject: 'Tecnologia', image: '/demo-lot-technology.svg' },
+      { subject: 'Relógios', image: '/demo-lot-watch.svg' },
+      { subject: 'Veículos', image: '/demo-lot-vehicle.svg' },
+      { subject: 'Arte & Design', image: '/demo-lot-art.svg' },
+      { subject: 'Colecionáveis', image: '/demo-lot-collectibles.svg' },
+    ];
+
+    for (const { subject, image } of cases) {
+      const lot = toPublicDemoLot({ title: 'Lote de teste', external_data: { subjects: [subject] } });
+      assert.equal(lot.external_data.subjects[0], subject);
+      assert.equal(lot.image_url, image);
+    }
   });
   assert.equal(lot.auctioneer_name, 'Conta de demonstração');
   assert.equal(lot.winner_name, 'Conta de teste');
