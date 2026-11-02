@@ -198,13 +198,40 @@ function App() {
 
   const handlePlaceBid = async (lotId: string, amount: number) => {
     await placeBid(lotId, amount);
-    void refreshAuctions();
-    void fetchLotDetails(lotId).then(setSelectedBids).catch((error: unknown) => {
-      setApiError(error instanceof Error ? error.message : 'Lance registrado, mas não foi possível atualizar o histórico.');
-    });
-    void fetchCurrentUser().then(setUser).catch((error: unknown) => {
-      setApiError(error instanceof Error ? error.message : 'Lance registrado, mas não foi possível atualizar o saldo.');
-    });
+    setSelectedAuction((current) => current?.id === lotId
+      ? { ...current, currentBid: amount, totalBids: current.totalBids + 1 }
+      : current);
+
+    const [lotsResult, bidsResult, userResult] = await Promise.allSettled([
+      fetchLots(),
+      fetchLotDetails(lotId),
+      fetchCurrentUser(),
+    ]);
+    const refreshErrors: string[] = [];
+
+    if (lotsResult.status === 'fulfilled') {
+      setAuctions(lotsResult.value);
+      const updatedLot = lotsResult.value.find((lot) => lot.id === lotId);
+      if (updatedLot) setSelectedAuction(updatedLot);
+    } else {
+      refreshErrors.push('a lista de lotes');
+    }
+
+    if (bidsResult.status === 'fulfilled') {
+      setSelectedBids(bidsResult.value);
+    } else {
+      refreshErrors.push('o histórico de lances');
+    }
+
+    if (userResult.status === 'fulfilled') {
+      setUser(userResult.value);
+    } else {
+      refreshErrors.push('o saldo da conta');
+    }
+
+    setApiError(refreshErrors.length
+      ? `Lance registrado, mas não foi possível atualizar ${refreshErrors.join(', ')}.`
+      : null);
   };
 
   const handleLogout = () => {

@@ -27,10 +27,12 @@ O **Arremate MH** é uma plataforma concebida para a mediação segura e transpa
 O projeto reúne interface, API e banco de dados. A interface consome a API para
 cadastro/login, vitrine de lotes, lances, histórico e atualizações em tempo real.
 O leiloeiro pode buscar livros na Open Library e publicar lotes pelo painel.
-O frontend e a API já estão publicados. Na última verificação, ambos estavam
-acessíveis e a API retornava lotes de demonstração. Foi identificado um problema
-de roteamento em rotas aninhadas no deploy existente; a entrada do Express foi
-ajustada no código, mas precisa ser publicada antes da validação final do fluxo.
+O frontend e a API já estão publicados. A entrada Express da Vercel foi
+corrigida; login, painel do leiloeiro, detalhes de lotes e auditoria foram
+validados na API publicada. Um lance feito por outra sessão também foi recebido
+e atualizado pelo frontend via Supabase Realtime. A correção mais recente para
+sincronizar o modal após o próprio lance foi testada localmente e ainda precisa
+ser publicada no frontend.
 
 A interface inicial prioriza:
 1. **Fidelidade e refinamento estético:** paleta dark com toques de amarelo dourado e violeta, tipografia contemporânea e efeitos sutis de vidro (*glassmorphism*).
@@ -270,17 +272,21 @@ repositório automaticamente.
 * **Frontend:** [desafio-arremate-mh.vercel.app](https://desafio-arremate-mh.vercel.app/)
 * **API:** [desafio-arremate-mh-u8eb.vercel.app](https://desafio-arremate-mh-u8eb.vercel.app/)
 * **Estado verificado:** frontend acessível; `/health` e `/api/lots` responderam
-  com sucesso e o catálogo recebeu quatro lotes demonstrativos. No deploy atual,
-  rotas aninhadas como `/api/auth/login` retornam 404. O código agora expõe o
-  Express diretamente na entrada reconhecida pela Vercel; publique essa mudança
-  e valide login, lances e Broadcast Realtime antes da entrega.
+  com sucesso e o catálogo recebeu quatro lotes demonstrativos. A entrada
+  Express reconhecida pela Vercel foi publicada; login, consulta autenticada,
+  painel do leiloeiro, detalhes e auditoria foram validados. O fluxo de lance e
+  o recebimento do Broadcast Realtime foram testados no frontend local conectado
+  ao banco Supabase. A atualização do modal após um lance próprio foi corrigida
+  localmente; publique o novo build do frontend para incluir esse ajuste.
 
 Os dados demonstrativos já foram acrescentados ao banco publicado, sem apagar
 registros existentes. O comando seguro para repeti-los em outro ambiente é
 `npm run seed:demo`, usando `ALLOW_DEMO_SEED=arremate-demo-v1` após confirmar a
 conexão em `backend/.env`. As senhas geradas aparecem uma única vez no terminal;
 guarde-as em local seguro para avaliação. Esse comando não substitui nem altera
-o seed destrutivo `npm run seed`.
+o seed destrutivo `npm run seed`. Os valores iniciais dos quatro lotes são apenas
+valores baixos de demonstração, não avaliações de mercado. Lances feitos durante
+os testes permanecem no banco e alteram os lances atuais.
 
 1. Crie um projeto no [Supabase](https://supabase.com/dashboard) pelo plano
    gratuito. Se o painel exigir upgrade ou forma de pagamento, pare e não
@@ -328,11 +334,13 @@ requisição.
 
 * Preparar dados e contas de avaliação no ambiente publicado sem executar o
   seed destrutivo em um banco com dados que precisam ser preservados (**feito**).
-* Publicar as alterações de roteamento do backend e confirmar que rotas
-  aninhadas, incluindo `/api/auth/login`, respondem corretamente.
-* Validar no frontend publicado cadastro/login, lance, evento em tempo real e
-  encerramento; então informar o link e as credenciais de avaliação no
-  formulário de entrega. Não reutilize as credenciais locais do seed.
+* Corrigir e publicar a entrada Express da Vercel; rotas aninhadas e autenticação
+  agora respondem (**feito**).
+* Testar lance, histórico, auditoria, atualização da interface e Broadcast
+  Realtime (**feito em ambiente de integração com o banco publicado**).
+* Publicar o ajuste local de sincronização da interface após um lance próprio e
+  fazer a checagem final no domínio público. Então informar o link e as
+  credenciais de avaliação no formulário de entrega.
 
 ---
 
