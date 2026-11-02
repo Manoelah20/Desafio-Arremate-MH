@@ -30,9 +30,9 @@ O leiloeiro pode buscar livros na Open Library e publicar lotes pelo painel.
 O frontend e a API já estão publicados. A entrada Express da Vercel foi
 corrigida; login, painel do leiloeiro, detalhes de lotes e auditoria foram
 validados na API publicada. Um lance feito por outra sessão também foi recebido
-e atualizado pelo frontend via Supabase Realtime. A correção mais recente para
-sincronizar o modal após o próprio lance foi testada localmente e ainda precisa
-ser publicada no frontend.
+e atualizado pelo frontend via Supabase Realtime. O modal agora também sincroniza
+seu valor, histórico e próximo lance depois de uma oferta; essa correção foi
+testada e publicada no frontend.
 
 A interface inicial prioriza:
 1. **Fidelidade e refinamento estético:** paleta dark com toques de amarelo dourado e violeta, tipografia contemporânea e efeitos sutis de vidro (*glassmorphism*).
@@ -276,8 +276,8 @@ repositório automaticamente.
   Express reconhecida pela Vercel foi publicada; login, consulta autenticada,
   painel do leiloeiro, detalhes e auditoria foram validados. O fluxo de lance e
   o recebimento do Broadcast Realtime foram testados no frontend local conectado
-  ao banco Supabase. A atualização do modal após um lance próprio foi corrigida
-  localmente; publique o novo build do frontend para incluir esse ajuste.
+  ao banco Supabase. O ajuste de sincronização após um lance também foi incluído
+  no build publicado pela Vercel.
 
 Os dados demonstrativos já foram acrescentados ao banco publicado, sem apagar
 registros existentes. O comando seguro para repeti-los em outro ambiente é
@@ -338,9 +338,9 @@ requisição.
   agora respondem (**feito**).
 * Testar lance, histórico, auditoria, atualização da interface e Broadcast
   Realtime (**feito em ambiente de integração com o banco publicado**).
-* Publicar o ajuste local de sincronização da interface após um lance próprio e
-  fazer a checagem final no domínio público. Então informar o link e as
-  credenciais de avaliação no formulário de entrega.
+* Publicar o ajuste de sincronização da interface após um lance próprio
+  (**feito**).
+* Informar o link e as credenciais de avaliação no formulário de entrega.
 
 ---
 
