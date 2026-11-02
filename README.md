@@ -148,5 +148,4 @@ incorporadas. Inter e Plus Jakarta Sans são carregadas do Google Fonts.
 
 ## Autoria
 
-**Manoela Harrison** · [GitHub](https://github.com/Manoelah20) ·
-[LinkedIn](https://linkedin.com/in/manoelaharrison)
+**Manoela Harrison** · [GitHub](https://github.com/Manoelah20) · [LinkedIn](https://linkedin.com/in/manoelaharrison)
