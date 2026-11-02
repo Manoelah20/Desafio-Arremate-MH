@@ -243,8 +243,8 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                   ; segunda imagem de Arte & Design — garageband, aquarela abstrata (
                   <a href="https://pixabay.com/pt/photos/colorido-pintura-fundo-abstract-2468874/" target="_blank" rel="noreferrer">fonte</a>
                   ), sob a mesma licença
-                  ; terceira imagem de Arte & Design — StefWithAnF, arte abstrata psicodélica (
-                  <a href="https://pixabay.com/pt/photos/arte-abstrata-arte-psicod%C3%A9lica-7171276/" target="_blank" rel="noreferrer">fonte</a>
+                  ; terceira imagem de Arte & Design — MMT, mural de graffiti colorido com personagens abstratos (
+                  <a href="https://pixabay.com/pt/photos/grafite-muro-mural-pintura-569265/" target="_blank" rel="noreferrer">fonte</a>
                   ), sob a mesma licença
                   ; Tecnologia — JoshuaWoroniecki, laptop futurista (
                   <a href="https://pixabay.com/photos/laptop-digital-device-technology-5673901/" target="_blank" rel="noreferrer">fonte</a>

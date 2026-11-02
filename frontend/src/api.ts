@@ -149,7 +149,7 @@ function imageForLot(category: AuctionCategory, id: string, publicImageUrl: stri
     'Arte & Design': [
       '/arte-design-pixabay.jpg',
       '/arte-design-aquarela.jpg',
-      '/arte-design-abstrata-2.jpg',
+      '/arte-design-grafite.jpg',
     ],
     Colecionáveis: [
       '/colecionaveis-vinil.jpg',

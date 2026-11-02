@@ -19,7 +19,7 @@ function toPublicDemoLot(lot) {
     'Arte & Design': [
       '/arte-design-pixabay.jpg',
       '/arte-design-aquarela.jpg',
-      '/arte-design-abstrata-2.jpg',
+      '/arte-design-grafite.jpg',
     ],
     Tecnologia: ['/tecnologia-pixabay.jpg'],
     Colecionáveis: [

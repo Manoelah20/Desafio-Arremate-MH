@@ -67,7 +67,7 @@ test('individual vehicle and watch lots each receive one of their licensed photo
     { subject: 'Relógios', id: 'lot-1', image: '/relogio1.jpg' },
     { subject: 'Arte & Design', id: 'lot-0', image: '/arte-design-pixabay.jpg' },
     { subject: 'Arte & Design', id: 'lot-1', image: '/arte-design-aquarela.jpg' },
-    { subject: 'Arte & Design', id: 'lot-2', image: '/arte-design-abstrata-2.jpg' },
+    { subject: 'Arte & Design', id: 'lot-2', image: '/arte-design-grafite.jpg' },
     { subject: 'Colecionáveis', id: 'lot-0', image: '/colecionaveis-vinil.jpg' },
     { subject: 'Colecionáveis', id: 'lot-1', image: '/colecionaveis-gramofone.jpg' },
     { subject: 'Colecionáveis', id: 'lot-2', image: '/colecionaveis-vinil-2.jpg' },

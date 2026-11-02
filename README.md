@@ -132,7 +132,7 @@ desafio-arremate/
     │   ├── carro2.jpg
     │   ├── arte-design-pixabay.jpg
     │   ├── arte-design-aquarela.jpg
-    │   ├── arte-design-abstrata-2.jpg
+    │   ├── arte-design-grafite.jpg
     │   ├── colecionaveis-vinil.jpg
     │   ├── colecionaveis-vinil-2.jpg
     │   ├── colecionaveis-gramofone.jpg
@@ -374,7 +374,7 @@ autenticidade ou endosso:
 | `carro2.jpg` | “Carro clássico Porsche”, Pixabay | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/carro-carro-cl%C3%A1ssico-porsche-7294294/) |
 | `arte-design-pixabay.jpg` | “Arte abstrata em acrílico fluido”, elulela31 | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/arte-resumo-moderno-pintura-4668134/) |
 | `arte-design-aquarela.jpg` | “Fundo de textura em aquarela abstrata”, garageband | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/colorido-pintura-fundo-abstract-2468874/) |
-| `arte-design-abstrata-2.jpg` | “Arte Abstrata Psicodélica”, StefWithAnF | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/arte-abstrata-arte-psicod%C3%A9lica-7171276/) |
+| `arte-design-grafite.jpg` | “Mural de graffiti colorido com personagens abstratos de desenho animado e estilo urbano”, MMT | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/pt/photos/grafite-muro-mural-pintura-569265/) |
 | `tecnologia-pixabay.jpg` | “Futuristic glowing laptop on desk”, JoshuaWoroniecki | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/photos/laptop-digital-device-technology-5673901/) |
 | `colecionaveis-vinil.jpg` | “Vinyl record on turntable close-up”, chienba | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/photos/music-player-record-player-7792956/) |
 | `colecionaveis-vinil-2.jpg` | “Vinyl records in record shop”, niro9 | [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/) · [Página da imagem](https://pixabay.com/photos/record-shop-vinyl-records-music-9180482/) |
